@@ -16,8 +16,9 @@ var end;
 var assetData = [
     // Add your Assets here
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
-    { id: "RestartButton", src: "../../Assets/images/RestartButton.png" },
-    { id: "BackButton", src: "../../Assets/images/BackButton.png" },
+    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
+    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
+    { id: "menuBackground", src: "../../Assets/images/menuBackground.png" },
     { id: "ocean", src: "../../Assets/images/ocean.gif" },
     { id: "plane", src: "../../Assets/images/plane.png" },
     { id: "island", src: "../../Assets/images/island.png" },

@@ -15,27 +15,43 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         Menu.prototype.start = function () {
-            // added ocean to the scene
-            this._ocean = new objects.Ocean();
-            this.addChild(this._ocean);
-            //Add Menu Label
-            this._menuLabel = new objects.Label("MAIL PILOT", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
-            this.addChild(this._menuLabel);
+            //Add Menu background
+            this._menuBackground = new createjs.Bitmap(assets.getResult("menuBackground"));
+            this.addChild(this._menuBackground);
             // add the Start button to the MENU scene
-            this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 180, true);
+            this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X - 50, config.Screen.CENTER_Y - 150, false);
             this.addChild(this._startButton);
+            // add the Instructions button to the MENU scene
+            this._instructionsButton = new objects.Button("InstructionsButton", config.Screen.CENTER_X - 50, config.Screen.CENTER_Y - 80, false);
+            this.addChild(this._instructionsButton);
             // Start Button event listener
-            this._startButton.on("click", this._startButtonClick, this);
+            this._instructionsButton.on("click", this._instructionsButtonClick, this);
+            // add the Exit button to the MENU scene
+            this._exitButton = new objects.Button("ExitButton", config.Screen.CENTER_X - 50, config.Screen.CENTER_Y - 10, false);
+            this.addChild(this._exitButton);
+            // Start Button event listener
+            this._exitButton.on("click", this._exitButtonClick, this);
             // add this scene to the global stage container
             stage.addChild(this);
         };
         // INTRO Scene updates here
         Menu.prototype.update = function () {
-            this._ocean.update();
         };
         //EVENT HANDLERS ++++++++++++++++++++
-        // LEFT_CAVE Button click event handler
+        // PLAY SCENE Button click event handler
         Menu.prototype._startButtonClick = function (event) {
+            // Switch to the LEFT_CAVE Scene
+            scene = config.Scene.PLAY;
+            changeScene();
+        };
+        // INSTRUCTIONS Button click event handler
+        Menu.prototype._instructionsButtonClick = function (event) {
+            // Switch to the LEFT_CAVE Scene
+            scene = config.Scene.PLAY;
+            changeScene();
+        };
+        // EXIT Button click event handler
+        Menu.prototype._exitButtonClick = function (event) {
             // Switch to the LEFT_CAVE Scene
             scene = config.Scene.PLAY;
             changeScene();
