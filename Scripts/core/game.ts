@@ -10,27 +10,45 @@ var currentScene: objects.Scene;
 var scene: number;
 
 var livesValue: number;
-var scoreValue: number;
+var timeValue: number;
+var breadValue: number;
+var cheeseValue: number;
+var eggValue: number;
 var highScoreValue: number = 0;
 
 // Game Scenes
 var menu: scenes.Menu;
 var play: scenes.Play;
 var end: scenes.End;
+var level1: scenes.levelOne;
+var level1end: scenes.levelOneEnd;
+var level1change: scenes.levelOneChange;
+//var level2: scenes.levelTwo;
+//var level3: scenes.levelThree;
 
-var assetData:objects.Asset[] = [
+var assetData: objects.Asset[] = [
     // Add your Assets here
-    {id: "StartButton", src:"../../Assets/images/StartButton.png"},
-    {id: "InstructionsButton", src:"../../Assets/images/InstructionsButton.png"},
-    {id: "ExitButton", src:"../../Assets/images/ExitButton.png"},
-      {id: "menuBackground", src:"../../Assets/images/menuBackground.png"},
-    {id: "ocean", src:"../../Assets/images/ocean.gif"},
-    {id: "plane", src:"../../Assets/images/plane.png"},
-    {id: "island", src:"../../Assets/images/island.png"},
-    {id: "cloud", src:"../../Assets/images/cloud.png"},
-    {id: "engine", src:"../../Assets/audio/engine.ogg"},
-    {id: "yay", src:"../../Assets/audio/yay.ogg"},
-    {id: "thunder", src:"../../Assets/audio/thunder.ogg"}
+    { id: "StartButton", src: "../../Assets/images/StartButton.png" },
+    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
+    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
+    { id: "menuBackground", src: "../../Assets/images/menuBackground.png" },
+    { id: "ocean", src: "../../Assets/images/ocean.gif" },
+    { id: "plane", src: "../../Assets/images/plane.png" },
+    { id: "island", src: "../../Assets/images/island.png" },
+    { id: "kitchenOne", src: "../../Assets/images/kitchenOne.png" },
+    { id: "cloud", src: "../../Assets/images/cloud.png" },
+    { id: "bread", src: "../../Assets/images/bread.png" },
+    { id: "cheese", src: "../../Assets/images/cheese.png" },
+    { id: "egg", src: "../../Assets/images/egg.png" },
+    { id: "mouse", src: "../../Assets/images/mouse.png" },
+    { id: "engine", src: "../../Assets/audio/engine.ogg" },
+    { id: "yay", src: "../../Assets/audio/yay.ogg" },
+    { id: "thunder", src: "../../Assets/audio/thunder.ogg" },
+    { id: "toast", src: "../../Assets/audio/toast.mp3" },
+    { id: "snap", src: "../../Assets/audio/snap.mp3" },
+    { id: "crack", src: "../../Assets/audio/crack.mp3" },
+    { id: "squeak", src: "../../Assets/audio/squeak.mp3" },
+    { id: "funk", src: "../../Assets/audio/funk.mp3" }
 ];
 
 function preload() {
@@ -43,22 +61,22 @@ function preload() {
 function init(): void {
     // create a reference the HTML canvas Element
     canvas = document.getElementById("canvas");
-    
+
     // create our main display list container
     stage = new createjs.Stage(canvas);
-    
+
     // Enable mouse events
     stage.enableMouseOver(20);
-    
+
     // set the framerate to 60 frames per second
     createjs.Ticker.setFPS(config.Game.FPS);
-    
+
     // create an event listener to count off frames
     createjs.Ticker.on("tick", gameLoop, this);
-    
+
     // sets up our stats counting workflow
-    setupStats(); 
-    
+    setupStats();
+
     // set initial scene
     scene = config.Scene.MENU;
     changeScene();
@@ -67,14 +85,14 @@ function init(): void {
 // Main Game Loop function that handles what happens each "tick" or frame
 function gameLoop(event: createjs.Event): void {
     // start collecting stats for this frame
-    stats.begin(); 
-    
+    stats.begin();
+
     // calling State's update method
-    currentScene.update(); 
-    
+    currentScene.update();
+
     // redraw/refresh stage every frame
     stage.update();
-    
+
     // stop collecting stats for this frame
     stats.end();
 }
@@ -91,7 +109,7 @@ function setupStats(): void {
 
 // Finite State Machine used to change Scenes
 function changeScene(): void {
-    
+
     // Launch various scenes
     switch (scene) {
         case config.Scene.MENU:
@@ -115,6 +133,41 @@ function changeScene(): void {
             currentScene = end;
             console.log("Starting END Scene");
             break;
+        case config.Scene.LEVEL1:
+            // show the LEVEL1 scene
+            stage.removeAllChildren();
+            level1 = new scenes.levelOne();
+            currentScene = level1;
+            console.log("Starting LEVEL 1 Scene");
+            break;
+            case config.Scene.LEVEL1END:
+            // show the LEVEL1END scene
+            stage.removeAllChildren();
+            level1end = new scenes.levelOneEnd();
+            currentScene = level1end;
+            console.log("Starting LEVEL 1 Scene");
+            break;
+            case config.Scene.LEVEL1CHANGE:
+            // show the LEVEL1CHANGE scene
+            stage.removeAllChildren();
+            level1change = new scenes.levelOneChange();
+            currentScene = level1change;
+            console.log("Starting LEVEL 1 Scene");
+            break;
+        // case config.Scene.LEVEL2:
+        //     // show the LEVEL2 scene
+        //     stage.removeAllChildren();
+        //     level2 = new scenes.levelTwo();
+        //     currentScene = level2;
+        //     console.log("Starting LEVEL 2 Scene");
+        //     break;
+        // case config.Scene.LEVEL3:
+        //     // show the LEVEL3 scene
+        //     stage.removeAllChildren();
+        //     level3 = new scenes.levelThree();
+        //     currentScene = level3;
+        //     console.log("Starting LEVEL 3 Scene");
+        //     break;
     }
 
     console.log(currentScene.numChildren);

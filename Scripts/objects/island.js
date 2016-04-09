@@ -6,39 +6,39 @@ var __extends = (this && this.__extends) || function (d, b) {
 var objects;
 (function (objects) {
     // ISLAND CLASS ++++++++++++++++++++++++++++++++++++
-    var Island = (function (_super) {
-        __extends(Island, _super);
+    var Cheese = (function (_super) {
+        __extends(Cheese, _super);
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        function Island() {
+        function Cheese() {
             _super.call(this, "island");
-            this._speed.y = 5; //island speed
-            this._reset(this._topBounds);
+            this._speed.x = -5; //island speed
+            this._reset(this._rightBounds);
             this.name = "island";
             this.soundString = "yay";
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
-        Island.prototype._checkBounds = function (value) {
+        Cheese.prototype._checkBounds = function (value) {
             // check to see if the top of the island 
             // is outside the viewport         
-            if (this.y >= value) {
-                this._reset(this._topBounds);
+            if (this.x <= value - this.width) {
+                this._reset(this._rightBounds);
             }
         };
         // reset the ocean offscreen
-        Island.prototype._reset = function (value) {
-            this.y = value;
-            this.x = Math.floor(Math.random() * this._rightBounds) + this._leftBounds;
+        Cheese.prototype._reset = function (value) {
+            this.y = Math.floor(Math.random() * this._bottomBounds);
+            this.x = value;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
-        Island.prototype.update = function () {
+        Cheese.prototype.update = function () {
             // scroll the island 5 px per frame
-            this.y += this._speed.y;
-            this._checkBounds(this._bottomBounds);
+            this.x += this._speed.x;
+            this._checkBounds(this._leftBounds);
         };
-        return Island;
+        return Cheese;
     }(objects.GameObject));
-    objects.Island = Island;
+    objects.Cheese = Cheese;
 })(objects || (objects = {}));
 
 //# sourceMappingURL=island.js.map

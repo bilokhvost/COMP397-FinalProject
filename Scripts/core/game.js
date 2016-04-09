@@ -7,12 +7,20 @@ var stats;
 var currentScene;
 var scene;
 var livesValue;
-var scoreValue;
+var timeValue;
+var breadValue;
+var cheeseValue;
+var eggValue;
 var highScoreValue = 0;
 // Game Scenes
 var menu;
 var play;
 var end;
+var level1;
+var level1end;
+var level1change;
+//var level2: scenes.levelTwo;
+//var level3: scenes.levelThree;
 var assetData = [
     // Add your Assets here
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
@@ -22,10 +30,20 @@ var assetData = [
     { id: "ocean", src: "../../Assets/images/ocean.gif" },
     { id: "plane", src: "../../Assets/images/plane.png" },
     { id: "island", src: "../../Assets/images/island.png" },
+    { id: "kitchenOne", src: "../../Assets/images/kitchenOne.png" },
     { id: "cloud", src: "../../Assets/images/cloud.png" },
+    { id: "bread", src: "../../Assets/images/bread.png" },
+    { id: "cheese", src: "../../Assets/images/cheese.png" },
+    { id: "egg", src: "../../Assets/images/egg.png" },
+    { id: "mouse", src: "../../Assets/images/mouse.png" },
     { id: "engine", src: "../../Assets/audio/engine.ogg" },
     { id: "yay", src: "../../Assets/audio/yay.ogg" },
-    { id: "thunder", src: "../../Assets/audio/thunder.ogg" }
+    { id: "thunder", src: "../../Assets/audio/thunder.ogg" },
+    { id: "toast", src: "../../Assets/audio/toast.mp3" },
+    { id: "snap", src: "../../Assets/audio/snap.mp3" },
+    { id: "crack", src: "../../Assets/audio/crack.mp3" },
+    { id: "squeak", src: "../../Assets/audio/squeak.mp3" },
+    { id: "funk", src: "../../Assets/audio/funk.mp3" }
 ];
 function preload() {
     assets = new createjs.LoadQueue();
@@ -94,6 +112,27 @@ function changeScene() {
             end = new scenes.End();
             currentScene = end;
             console.log("Starting END Scene");
+            break;
+        case config.Scene.LEVEL1:
+            // show the LEVEL1 scene
+            stage.removeAllChildren();
+            level1 = new scenes.levelOne();
+            currentScene = level1;
+            console.log("Starting LEVEL 1 Scene");
+            break;
+        case config.Scene.LEVEL1END:
+            // show the LEVEL1END scene
+            stage.removeAllChildren();
+            level1end = new scenes.levelOneEnd();
+            currentScene = level1end;
+            console.log("Starting LEVEL 1 Scene");
+            break;
+        case config.Scene.LEVEL1CHANGE:
+            // show the LEVEL1CHANGE scene
+            stage.removeAllChildren();
+            level1change = new scenes.levelOneChange();
+            currentScene = level1change;
+            console.log("Starting LEVEL 1 Scene");
             break;
     }
     console.log(currentScene.numChildren);

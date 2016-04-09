@@ -19,7 +19,6 @@ var scenes;
          */
         Play.prototype._updateScore = function () {
             this._livesLabel.text = "Lives: " + livesValue;
-            this._scoreLabel.text = "Score: " + scoreValue;
         };
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
@@ -27,29 +26,25 @@ var scenes;
             // Set Cloud Count
             this._cloudCount = 3;
             livesValue = 5;
-            scoreValue = 0;
             // Instantiate Cloud array
             this._clouds = new Array();
             // added ocean to the scene
-            this._ocean = new objects.Ocean();
+            this._ocean = new objects.kitchenOne();
             this.addChild(this._ocean);
             // added island to the scene
-            this._island = new objects.Island();
+            this._island = new objects.Cheese();
             this.addChild(this._island);
             // added player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
             //added clouds to the scene
             for (var cloud = 0; cloud < this._cloudCount; cloud++) {
-                this._clouds[cloud] = new objects.Cloud();
+                this._clouds[cloud] = new objects.Bread();
                 this.addChild(this._clouds[cloud]);
             }
             //added LivesLabel to the scene
             this._livesLabel = new objects.Label("Lives: " + livesValue, "40px Consolas", "#ffff00", 10, 10, false);
             this.addChild(this._livesLabel);
-            //added LivesLabel to the scene
-            this._scoreLabel = new objects.Label("Score: " + scoreValue, "40px Consolas", "#ffff00", 390, 10, false);
-            this.addChild(this._scoreLabel);
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
             // add this scene to the global stage container

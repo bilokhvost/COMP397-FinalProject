@@ -20,7 +20,7 @@ var scenes;
                 highScoreValue = scoreValue;
             }
             // added ocean to the scene
-            this._ocean = new objects.Ocean();
+            this._ocean = new objects.kitchenOne();
             this.addChild(this._ocean);
             //Add Menu Label
             this._endLabel = new objects.Label("GAME OVER", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y - 160, true);

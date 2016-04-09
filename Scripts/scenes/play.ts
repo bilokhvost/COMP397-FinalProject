@@ -2,9 +2,9 @@
 module scenes {
     export class Play extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _ocean: objects.Ocean;
-        private _island: objects.Island;
-        private _clouds: objects.Cloud[];
+        private _ocean: objects.kitchenOne;
+        private _island: objects.Cheese;
+        private _clouds: objects.Bread[];
         private _cloudCount:number;
         private _player: objects.Player;
         private _collision: managers.Collision;
@@ -25,7 +25,6 @@ module scenes {
          */
         private _updateScore():void {
             this._livesLabel.text = "Lives: " + livesValue;
-            this._scoreLabel.text = "Score: " + scoreValue;
         }
         
         // PUBLIC METHODS +++++++++++++++++++++
@@ -35,17 +34,16 @@ module scenes {
             // Set Cloud Count
             this._cloudCount = 3;
             livesValue = 5;
-            scoreValue = 0;
             
             // Instantiate Cloud array
-            this._clouds = new Array<objects.Cloud>();
+            this._clouds = new Array<objects.Bread>();
                 
             // added ocean to the scene
-            this._ocean = new objects.Ocean();
+            this._ocean = new objects.kitchenOne();
             this.addChild(this._ocean);
 
             // added island to the scene
-            this._island = new objects.Island();
+            this._island = new objects.Cheese();
             this.addChild(this._island);
 
             // added player to the scene
@@ -54,7 +52,7 @@ module scenes {
             
             //added clouds to the scene
             for(var cloud:number = 0; cloud < this._cloudCount; cloud++) {
-                this._clouds[cloud] = new objects.Cloud();
+                this._clouds[cloud] = new objects.Bread();
                this.addChild(this._clouds[cloud]);
             }
             
@@ -67,14 +65,7 @@ module scenes {
             );
             this.addChild(this._livesLabel);
             
-            //added LivesLabel to the scene
-            this._scoreLabel = new objects.Label(
-                "Score: " + scoreValue,
-                "40px Consolas",
-                "#ffff00",
-                390, 10, false
-            );
-            this.addChild(this._scoreLabel);
+            
             
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);

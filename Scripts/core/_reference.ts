@@ -12,6 +12,10 @@
 /// <reference path="../objects/island.ts"/>
 /// <reference path="../objects/cloud.ts"/>
 /// <reference path="../objects/player.ts" />
+/// <reference path="../objects/bread.ts" />
+/// <reference path="../objects/cheese.ts" />
+/// <reference path="../objects/egg.ts" />
+/// <reference path="../objects/mouse.ts" />
 
 /// <reference path="../managers/collision.ts" />
 

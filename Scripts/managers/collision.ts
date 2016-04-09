@@ -29,33 +29,51 @@ module managers {
               the other object is less than the minimum distance */
             if (this.distance(startPoint, endPoint) < minimumDistance) {
                 if (!object.isColliding) {
-                    // check if it's an island hit
-                    if (object.name === "island") {
-                        createjs.Sound.play("yay");
-                        scoreValue += 100; //award 100 points
+                    // check if it's an cheese hit
+                    if (object.name === "cheese") {
+                        createjs.Sound.play("snap");
+                        cheeseValue += 1; //award 1 cheese                        
+                    }
+                    
+                    // check if it's an bread hit
+                    if (object.name === "bread") {
+                        createjs.Sound.play("toast");
+                        breadValue += 1; //award 1 bread
+                    }
+                    
+                    // check if it's an egg hit
+                    if (object.name === "egg") {
+                        createjs.Sound.play("crack");
+                        eggValue += 1; //award 1 egg
                     }
 
-                    // check if it's a cloud hit
-                    if (object.name === "cloud") {
-                        createjs.Sound.play("thunder");
-                        livesValue--; // lose a life
+                    // check if it's a mouse hit
+                    if (object.name === "mouse") {
+                        createjs.Sound.play("squeak");
+                        cheeseValue--; // lose a cheese
                         // check if player has no more lives
-                        if(livesValue <= 0) {
-                            // turn off player engine
-                            this._player.engineSound.stop();
-                            // show the Game Over Screen
-                            scene = config.Scene.END;
-                            changeScene();
+                        if (cheeseValue <= 0) {
+                            cheeseValue = 0;
                         }
-                        
+
                     }
                     object.isColliding = true;
                 }
             } else {
                 object.isColliding = false;
             }
-            
-            
+
+
         }
     }
 }
+
+//Game over mechanism
+// check if player has no more lives
+                        // if (livesValue <= 0) {
+                        //     // turn off player engine
+                        //     this._player.engineSound.stop();
+                        //     // show the Game Over Screen
+                        //     scene = config.Scene.END;
+                        //     changeScene();
+                        // }

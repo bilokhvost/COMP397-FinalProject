@@ -15,25 +15,33 @@ var objects;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
             this._leftBounds = this.width * 0.5;
-            this._rightBounds = config.Screen.WIDTH - (this.width * 0.5);
-            this.y = 430;
+            this._topBounds = this.regX;
+            this._bottomBounds = config.Screen.HEIGHT - this.regX;
+            //  this._rightBounds = config.Screen.WIDTH - (this.width * 0.5);
+            this.y = 360;
             // assign and play the engine sound
-            this.engineSound = createjs.Sound.play("engine");
+            this.engineSound = createjs.Sound.play("funk");
             // Loop engine sound forever
             this.engineSound.loop = -1;
         }
         // PRIVATE METHODS
         Player.prototype._checkBounds = function () {
+            // Left Bound Check
             if (this.x < this._leftBounds) {
                 this.x = this._leftBounds;
             }
-            if (this.x > this._rightBounds) {
-                this.x = this._rightBounds;
+            // Top Bound Check
+            if (this.y < this._topBounds) {
+                this.y = this._topBounds;
+            }
+            //Bottom bound Check
+            if (this.y > this._bottomBounds) {
+                this.y = this._bottomBounds;
             }
         };
         // PUBLIC METHODS
         Player.prototype.update = function () {
-            this.x = stage.mouseX;
+            this.y = stage.mouseY;
             this._checkBounds();
         };
         return Player;

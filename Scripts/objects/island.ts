@@ -1,14 +1,14 @@
 module objects {
     // ISLAND CLASS ++++++++++++++++++++++++++++++++++++
-    export class Island extends objects.GameObject {
+    export class Cheese extends objects.GameObject {
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         constructor() {
             super("island");
             
-           this._speed.y = 5; //island speed
-           this._reset(this._topBounds);
+           this._speed.x = -5; //island speed
+           this._reset(this._rightBounds);
            this.name = "island";
            this.soundString = "yay";
         }
@@ -17,23 +17,23 @@ module objects {
         protected _checkBounds(value:number):void {
             // check to see if the top of the island 
             // is outside the viewport         
-            if(this.y >= value) {
-                this._reset(this._topBounds);
+            if(this.x <= value-this.width) {
+                this._reset(this._rightBounds);
             }
         }
         
         // reset the ocean offscreen
         protected _reset(value:number):void {          
-            this.y = value;
-            this.x = Math.floor(Math.random() * this._rightBounds) + this._leftBounds;
+            this.y = Math.floor(Math.random() * this._bottomBounds);
+            this.x =  value;
         }
         
         
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         public update():void {
             // scroll the island 5 px per frame
-            this.y += this._speed.y;
-            this._checkBounds(this._bottomBounds);
+            this.x += this._speed.x;
+            this._checkBounds(this._leftBounds);
         }
     }
 }
