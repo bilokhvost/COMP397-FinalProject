@@ -12,7 +12,7 @@ module objects {
         public height: number;
         public engineSound: createjs.AbstractSoundInstance;
         constructor() {
-            super(assets.getResult("plane"));
+            super(assets.getResult("chef"));
 
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;

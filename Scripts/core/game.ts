@@ -34,6 +34,7 @@ var assetData: objects.Asset[] = [
     { id: "menuBackground", src: "../../Assets/images/menuBackground.png" },
     { id: "ocean", src: "../../Assets/images/ocean.gif" },
     { id: "plane", src: "../../Assets/images/plane.png" },
+    { id: "chef", src: "../../Assets/images/chef1.png" },
     { id: "island", src: "../../Assets/images/island.png" },
     { id: "kitchenOne", src: "../../Assets/images/kitchenOne.png" },
     { id: "cloud", src: "../../Assets/images/cloud.png" },

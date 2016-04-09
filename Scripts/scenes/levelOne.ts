@@ -169,6 +169,9 @@ module scenes {
             if (cheeseValue >= 3) {
                 this._cheeseLabel.color = "GREEN";
             }
+            else{
+                this._cheeseLabel.color = "YELLOW";
+            }
 
             if (breadValue >= 2) {
                 this._breadLabel.color = "GREEN";
