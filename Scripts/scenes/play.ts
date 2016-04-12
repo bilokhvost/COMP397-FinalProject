@@ -2,7 +2,7 @@
 module scenes {
     export class Play extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _ocean: objects.kitchenOne;
+        private _ocean: objects.KitchenOne;
         private _island: objects.Cheese;
         private _clouds: objects.Bread[];
         private _cloudCount:number;
@@ -39,7 +39,7 @@ module scenes {
             this._clouds = new Array<objects.Bread>();
                 
             // added ocean to the scene
-            this._ocean = new objects.kitchenOne();
+            this._ocean = new objects.KitchenOne();
             this.addChild(this._ocean);
 
             // added island to the scene

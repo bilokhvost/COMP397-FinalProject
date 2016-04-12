@@ -29,7 +29,7 @@ var scenes;
             // Instantiate Cloud array
             this._clouds = new Array();
             // added ocean to the scene
-            this._ocean = new objects.kitchenOne();
+            this._ocean = new objects.KitchenOne();
             this.addChild(this._ocean);
             // added island to the scene
             this._island = new objects.Cheese();

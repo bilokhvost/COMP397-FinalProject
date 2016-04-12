@@ -44,7 +44,7 @@ var scenes;
             // Instantiate Mouse array
             this._mice = new Array();
             // added kitchen to the scene
-            this._kitchenOne = new objects.kitchenOne();
+            this._kitchenOne = new objects.KitchenOne();
             this.addChild(this._kitchenOne);
             // added player to the scene
             this._player = new objects.Player();

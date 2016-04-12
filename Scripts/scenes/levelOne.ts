@@ -2,7 +2,7 @@
 module scenes {
     export class levelOne extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _kitchenOne: objects.kitchenOne;
+        private _kitchenOne: objects.KitchenOne;
         private _cheese: objects.Cheese;
         private _breads: objects.Bread[];
         private _breadCount: number;
@@ -67,7 +67,7 @@ module scenes {
             this._mice = new Array<objects.Mouse>();
 
             // added kitchen to the scene
-            this._kitchenOne = new objects.kitchenOne();
+            this._kitchenOne = new objects.KitchenOne();
             this.addChild(this._kitchenOne);
 
             // added player to the scene

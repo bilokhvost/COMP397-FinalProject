@@ -6,17 +6,17 @@ var __extends = (this && this.__extends) || function (d, b) {
 var objects;
 (function (objects) {
     // Kitchen One CLASS ++++++++++++++++++++++++++++++++++++
-    var KitchenOne = (function (_super) {
-        __extends(KitchenOne, _super);
+    var KitchenTwo = (function (_super) {
+        __extends(KitchenTwo, _super);
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        function KitchenOne() {
-            _super.call(this, "kitchenOne");
+        function KitchenTwo() {
+            _super.call(this, "kitchenTwo");
             this._speed.x = -5; //kitchenOne speed
             this._reset(0);
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
-        KitchenOne.prototype._checkBounds = function (value) {
+        KitchenTwo.prototype._checkBounds = function (value) {
             // check to see if the top of the kitchenOne 
             // is met the top of the scene
             if (this.x <= value) {
@@ -24,18 +24,18 @@ var objects;
             }
         };
         // reset the kitchenOne offscreen
-        KitchenOne.prototype._reset = function (value) {
+        KitchenTwo.prototype._reset = function (value) {
             this.x = value;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
-        KitchenOne.prototype.update = function () {
+        KitchenTwo.prototype.update = function () {
             // scroll the kitchenOne 5 px per frame
             this.x += this._speed.x;
             this._checkBounds(-2565); //2599
         };
-        return KitchenOne;
+        return KitchenTwo;
     }(objects.GameObject));
-    objects.KitchenOne = KitchenOne;
+    objects.KitchenTwo = KitchenTwo;
 })(objects || (objects = {}));
 
-//# sourceMappingURL=kitchenOne.js.map
+//# sourceMappingURL=kitchenTwo.js.map

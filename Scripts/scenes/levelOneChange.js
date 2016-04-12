@@ -16,7 +16,7 @@ var scenes;
         // Start Method
         levelOneChange.prototype.start = function () {
             // added ocean to the scene
-            this._kitchen = new objects.kitchenOne();
+            this._kitchen = new objects.KitchenOne();
             this.addChild(this._kitchen);
             //Add Menu Label
             this._endLabel = new objects.Label("Level 1 completed", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y - 160, true);

@@ -1,11 +1,11 @@
 module objects {
     // Kitchen One CLASS ++++++++++++++++++++++++++++++++++++
-    export class KitchenOne extends objects.GameObject {
+    export class KitchenTwo extends objects.GameObject {
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         constructor() {
-            super("kitchenOne");
+            super("kitchenTwo");
             
            this._speed.x = -5; //kitchenOne speed
             this._reset(0);
@@ -34,4 +34,4 @@ module objects {
             this._checkBounds(-2565); //2599
         }
     }
-}
+} 

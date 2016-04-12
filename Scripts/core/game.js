@@ -11,6 +11,9 @@ var timeValue;
 var breadValue;
 var cheeseValue;
 var eggValue;
+var steakValue;
+var friesValue;
+var sauceValue;
 var highScoreValue = 0;
 // Game Scenes
 var menu;
@@ -19,7 +22,7 @@ var end;
 var level1;
 var level1end;
 var level1change;
-//var level2: scenes.levelTwo;
+var level2;
 //var level3: scenes.levelThree;
 var assetData = [
     // Add your Assets here
@@ -32,9 +35,13 @@ var assetData = [
     { id: "chef", src: "../../Assets/images/chef1.png" },
     { id: "island", src: "../../Assets/images/island.png" },
     { id: "kitchenOne", src: "../../Assets/images/kitchenOne.png" },
+    { id: "kitchenTwo", src: "../../Assets/images/kitchenTwo.png" },
     { id: "cloud", src: "../../Assets/images/cloud.png" },
     { id: "bread", src: "../../Assets/images/bread.png" },
     { id: "cheese", src: "../../Assets/images/cheese.png" },
+    { id: "steak", src: "../../Assets/images/steak.png" },
+    { id: "fries", src: "../../Assets/images/fries.png" },
+    { id: "sauce", src: "../../Assets/images/sauce.png" },
     { id: "egg", src: "../../Assets/images/egg.png" },
     { id: "mouse", src: "../../Assets/images/mouse.png" },
     { id: "engine", src: "../../Assets/audio/engine.ogg" },
@@ -134,6 +141,13 @@ function changeScene() {
             level1change = new scenes.levelOneChange();
             currentScene = level1change;
             console.log("Starting LEVEL 1 Scene");
+            break;
+        case config.Scene.LEVEL2:
+            //     // show the LEVEL2 scene
+            stage.removeAllChildren();
+            level2 = new scenes.levelTwo();
+            currentScene = level2;
+            console.log("Starting LEVEL 2 Scene");
             break;
     }
     console.log(currentScene.numChildren);

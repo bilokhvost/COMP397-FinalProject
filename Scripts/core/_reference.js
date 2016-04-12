@@ -4,6 +4,8 @@
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/button.ts" />
 /// <reference path="../objects/scene.ts" />
+/// <reference path="../objects/kitchenOne.ts"/>
+/// <reference path="../objects/kitchenTwo.ts"/>
 /// <reference path="../objects/gameobject.ts" />
 /// <reference path="../objects/ocean.ts" />
 /// <reference path="../objects/island.ts"/>
@@ -13,6 +15,9 @@
 /// <reference path="../objects/cheese.ts" />
 /// <reference path="../objects/egg.ts" />
 /// <reference path="../objects/mouse.ts" />
+/// <reference path="../objects/steak.ts" />
+/// <reference path="../objects/fries.ts" />
+/// <reference path="../objects/sauce.ts" />
 /// <reference path="../managers/collision.ts" />
 /// <reference path="../scenes/levelOne.ts" />
 /// <reference path="../scenes/levelTwo.ts" />

@@ -14,6 +14,9 @@ var timeValue: number;
 var breadValue: number;
 var cheeseValue: number;
 var eggValue: number;
+var steakValue: number;
+var friesValue: number;
+var sauceValue: number;
 var highScoreValue: number = 0;
 
 // Game Scenes
@@ -23,7 +26,7 @@ var end: scenes.End;
 var level1: scenes.levelOne;
 var level1end: scenes.levelOneEnd;
 var level1change: scenes.levelOneChange;
-//var level2: scenes.levelTwo;
+var level2: scenes.levelTwo;
 //var level3: scenes.levelThree;
 
 var assetData: objects.Asset[] = [
@@ -37,9 +40,13 @@ var assetData: objects.Asset[] = [
     { id: "chef", src: "../../Assets/images/chef1.png" },
     { id: "island", src: "../../Assets/images/island.png" },
     { id: "kitchenOne", src: "../../Assets/images/kitchenOne.png" },
+    { id: "kitchenTwo", src: "../../Assets/images/kitchenTwo.png" },
     { id: "cloud", src: "../../Assets/images/cloud.png" },
     { id: "bread", src: "../../Assets/images/bread.png" },
     { id: "cheese", src: "../../Assets/images/cheese.png" },
+    { id: "steak", src: "../../Assets/images/steak.png" },
+    { id: "fries", src: "../../Assets/images/fries.png" },
+    { id: "sauce", src: "../../Assets/images/sauce.png" },
     { id: "egg", src: "../../Assets/images/egg.png" },
     { id: "mouse", src: "../../Assets/images/mouse.png" },
     { id: "engine", src: "../../Assets/audio/engine.ogg" },
@@ -141,27 +148,27 @@ function changeScene(): void {
             currentScene = level1;
             console.log("Starting LEVEL 1 Scene");
             break;
-            case config.Scene.LEVEL1END:
+        case config.Scene.LEVEL1END:
             // show the LEVEL1END scene
             stage.removeAllChildren();
             level1end = new scenes.levelOneEnd();
             currentScene = level1end;
             console.log("Starting LEVEL 1 Scene");
             break;
-            case config.Scene.LEVEL1CHANGE:
+        case config.Scene.LEVEL1CHANGE:
             // show the LEVEL1CHANGE scene
             stage.removeAllChildren();
             level1change = new scenes.levelOneChange();
             currentScene = level1change;
             console.log("Starting LEVEL 1 Scene");
             break;
-        // case config.Scene.LEVEL2:
-        //     // show the LEVEL2 scene
-        //     stage.removeAllChildren();
-        //     level2 = new scenes.levelTwo();
-        //     currentScene = level2;
-        //     console.log("Starting LEVEL 2 Scene");
-        //     break;
+        case config.Scene.LEVEL2:
+            //     // show the LEVEL2 scene
+            stage.removeAllChildren();
+            level2 = new scenes.levelTwo();
+            currentScene = level2;
+            console.log("Starting LEVEL 2 Scene");
+            break;
         // case config.Scene.LEVEL3:
         //     // show the LEVEL3 scene
         //     stage.removeAllChildren();
