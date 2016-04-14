@@ -12,6 +12,7 @@ var objects;
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         function Egg() {
             _super.call(this, "egg");
+            this._speed.x = -10;
             this._reset(this._rightBounds);
             this.name = "egg";
             this.soundString = "crack";
@@ -26,16 +27,15 @@ var objects;
         };
         // reset the egg offscreen
         Egg.prototype._reset = function (value) {
-            this._speed.x = Math.floor(Math.random() * 5) + 5;
-            this._speed.y = Math.floor(Math.random() * 4) - 2;
             this.x = value;
             this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds;
+            console.log(this.y);
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         Egg.prototype.update = function () {
             // scroll the egg down the screen
-            this.x -= this._speed.x;
-            this.y += this._speed.y;
+            this.x += this._speed.x;
+            //this.y += this._speed.y;
             this._checkBounds(this._leftBounds);
         };
         return Egg;

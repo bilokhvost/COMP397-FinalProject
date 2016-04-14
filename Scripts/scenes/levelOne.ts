@@ -145,7 +145,7 @@ module scenes {
         public update(): void {
             this._kitchenOne.update();
             this._player.update();
-
+            
             this._cheese.update();
 
             this._breads.forEach(bread => {

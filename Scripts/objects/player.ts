@@ -21,11 +21,11 @@ module objects {
             this.regY = this.height * 0.5;
 
             this._leftBounds = this.width * 0.5;
-            this._topBounds = this.regX;
+            this._topBounds = this.regX+120;
             this._bottomBounds = config.Screen.HEIGHT - this.regX;
-            //  this._rightBounds = config.Screen.WIDTH - (this.width * 0.5);
+            this._rightBounds = config.Screen.WIDTH - (this.width * 0.75);
 
-            this.y = 360;
+            //this.y = 360;
 
             // assign and play the engine sound
             this.engineSound = createjs.Sound.play("funk");
@@ -55,6 +55,7 @@ module objects {
         // PUBLIC METHODS
         public update(): void {
             this.y = stage.mouseY;
+            this.x=stage.mouseX;
             this._checkBounds();
         }
     }

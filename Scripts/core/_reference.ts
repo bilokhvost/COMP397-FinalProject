@@ -9,9 +9,6 @@
 /// <reference path="../objects/kitchenOne.ts"/>
 /// <reference path="../objects/kitchenTwo.ts"/>
 /// <reference path="../objects/gameobject.ts" />
-/// <reference path="../objects/ocean.ts" />
-/// <reference path="../objects/island.ts"/>
-/// <reference path="../objects/cloud.ts"/>
 /// <reference path="../objects/player.ts" />
 /// <reference path="../objects/bread.ts" />
 /// <reference path="../objects/cheese.ts" />
@@ -27,5 +24,4 @@
 /// <reference path="../scenes/levelThree.ts" />
 /// <reference path="../scenes/instructions.ts" />
 /// <reference path="../scenes/end.ts" />
-/// <reference path="../scenes/play.ts" />
 /// <reference path="../scenes/menu.ts" />

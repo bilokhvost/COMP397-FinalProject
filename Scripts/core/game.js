@@ -17,7 +17,6 @@ var sauceValue;
 var highScoreValue = 0;
 // Game Scenes
 var menu;
-var play;
 var end;
 var level1;
 var level1end;
@@ -30,13 +29,10 @@ var assetData = [
     { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
     { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
     { id: "menuBackground", src: "../../Assets/images/menuBackground.png" },
-    { id: "ocean", src: "../../Assets/images/ocean.gif" },
     { id: "plane", src: "../../Assets/images/plane.png" },
     { id: "chef", src: "../../Assets/images/chef1.png" },
-    { id: "island", src: "../../Assets/images/island.png" },
     { id: "kitchenOne", src: "../../Assets/images/kitchenOne.png" },
     { id: "kitchenTwo", src: "../../Assets/images/kitchenTwo.png" },
-    { id: "cloud", src: "../../Assets/images/cloud.png" },
     { id: "bread", src: "../../Assets/images/bread.png" },
     { id: "cheese", src: "../../Assets/images/cheese.png" },
     { id: "steak", src: "../../Assets/images/steak.png" },
@@ -106,13 +102,6 @@ function changeScene() {
             menu = new scenes.Menu();
             currentScene = menu;
             console.log("Starting MENU Scene");
-            break;
-        case config.Scene.PLAY:
-            // show the PLAY scene
-            stage.removeAllChildren();
-            play = new scenes.Play();
-            currentScene = play;
-            console.log("Starting PLAY Scene");
             break;
         case config.Scene.END:
             // show the END scene

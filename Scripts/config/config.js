@@ -5,7 +5,6 @@ var config;
         function Scene() {
         }
         Scene.MENU = 0;
-        Scene.PLAY = 1;
         Scene.END = 2;
         Scene.LEVEL1 = 3;
         Scene.LEVEL2 = 4;

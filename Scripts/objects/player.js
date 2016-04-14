@@ -15,10 +15,10 @@ var objects;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
             this._leftBounds = this.width * 0.5;
-            this._topBounds = this.regX;
+            this._topBounds = this.regX + 120;
             this._bottomBounds = config.Screen.HEIGHT - this.regX;
-            //  this._rightBounds = config.Screen.WIDTH - (this.width * 0.5);
-            this.y = 360;
+            this._rightBounds = config.Screen.WIDTH - (this.width * 0.75);
+            //this.y = 360;
             // assign and play the engine sound
             this.engineSound = createjs.Sound.play("funk");
             // Loop engine sound forever
@@ -42,6 +42,7 @@ var objects;
         // PUBLIC METHODS
         Player.prototype.update = function () {
             this.y = stage.mouseY;
+            this.x = stage.mouseX;
             this._checkBounds();
         };
         return Player;
