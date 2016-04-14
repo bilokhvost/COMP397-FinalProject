@@ -7,7 +7,7 @@ module objects {
         constructor() {
             super("cheese");
             
-           this._speed.x = -5; //island speed
+           this._speed.x = -8; //island speed
            this._reset(this._rightBounds);
            this.name = "cheese";
            this.soundString = "snap";
@@ -24,8 +24,8 @@ module objects {
         
         // reset the ocean offscreen
         protected _reset(value:number):void {          
-            this.y = Math.floor(Math.random() * this._bottomBounds);
-            this.x =  this._rightBounds + 100;
+            this.x = value;
+            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds;
         }
         
         

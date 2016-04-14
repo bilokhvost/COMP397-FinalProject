@@ -32,9 +32,9 @@ module scenes {
          */
         private _updateScore(): void {
             this._timeLabel.text = "Time Remaining: " + timeValue;
-            this._breadLabel.text = "B[" + breadValue + "],";
-            this._cheeseLabel.text = "C[" + cheeseValue + "],";
-            this._eggLabel.text = "E[" + eggValue + "]";
+            this._breadLabel.text = "B: " + breadValue + "/2";
+            this._cheeseLabel.text = "C: " + cheeseValue + "/3";
+            this._eggLabel.text = "E: " + eggValue + "/5";
         }
 
         // PUBLIC METHODS +++++++++++++++++++++
@@ -107,28 +107,28 @@ module scenes {
 
             //added BreadLabel to the scene
             this._breadLabel = new objects.Label(
-                "B[" + breadValue + "],",
+                "B: " + breadValue + " /2",
                 "25px Consolas",
                 "#ffff00",
-                440, 10, false
+                510, 10, false
             );
             this.addChild(this._breadLabel);
 
             //added CheeseLabel to the scene
             this._cheeseLabel = new objects.Label(
-                "C[" + cheeseValue + "],",
+                "C: " + cheeseValue + " /3",
                 "25px Consolas",
                 "#ffff00",
-                510, 10, false
+                510, 40, false
             );
             this.addChild(this._cheeseLabel);
 
             //added EggLabel to the scene
             this._eggLabel = new objects.Label(
-                "E[" + eggValue + "]",
+                "E: " + eggValue + " /5",
                 "25px Consolas",
                 "#ffff00",
-                580, 10, false
+                510, 70, false
             );
             this.addChild(this._eggLabel);
 

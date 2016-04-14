@@ -19,9 +19,9 @@ var scenes;
          */
         levelOne.prototype._updateScore = function () {
             this._timeLabel.text = "Time Remaining: " + timeValue;
-            this._breadLabel.text = "B[" + breadValue + "],";
-            this._cheeseLabel.text = "C[" + cheeseValue + "],";
-            this._eggLabel.text = "E[" + eggValue + "]";
+            this._breadLabel.text = "B: " + breadValue + "/2";
+            this._cheeseLabel.text = "C: " + cheeseValue + "/3";
+            this._eggLabel.text = "E: " + eggValue + "/5";
         };
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
@@ -71,13 +71,13 @@ var scenes;
             this._timeLabel = new objects.Label("Lives: " + livesValue, "25px Consolas", "#ffff00", 10, 10, false);
             this.addChild(this._timeLabel);
             //added BreadLabel to the scene
-            this._breadLabel = new objects.Label("B[" + breadValue + "],", "25px Consolas", "#ffff00", 440, 10, false);
+            this._breadLabel = new objects.Label("B: " + breadValue + " /2", "25px Consolas", "#ffff00", 510, 10, false);
             this.addChild(this._breadLabel);
             //added CheeseLabel to the scene
-            this._cheeseLabel = new objects.Label("C[" + cheeseValue + "],", "25px Consolas", "#ffff00", 510, 10, false);
+            this._cheeseLabel = new objects.Label("C: " + cheeseValue + " /3", "25px Consolas", "#ffff00", 510, 40, false);
             this.addChild(this._cheeseLabel);
             //added EggLabel to the scene
-            this._eggLabel = new objects.Label("E[" + eggValue + "]", "25px Consolas", "#ffff00", 580, 10, false);
+            this._eggLabel = new objects.Label("E: " + eggValue + " /5", "25px Consolas", "#ffff00", 510, 70, false);
             this.addChild(this._eggLabel);
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
