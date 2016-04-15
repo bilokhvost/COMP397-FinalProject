@@ -135,7 +135,7 @@ module scenes {
 
                 ":" + friesValue + "/6",
                 "25px Consolas",
-                "#ffff00",
+                "#000000",
                 540, 90, false
 
             );

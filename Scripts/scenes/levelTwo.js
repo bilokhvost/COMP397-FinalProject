@@ -19,12 +19,10 @@ var scenes;
          * @return void
          */
         levelTwo.prototype._updateScore = function () {
-
-            this._liveLabel.text = "Lives: " + this._liveValue;
             this._steakLabel.text = " " + steakValue + "/3";
             this._sauceLabel.text = " " + sauceValue + "/4";
             this._friesLabel.text = " " + friesValue + "/6";
-
+            this._liveLabel.text = "Lives: " + this._liveValue;
         };
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
@@ -72,7 +70,7 @@ var scenes;
             this._sauceLabel = new objects.Label(":" + sauceValue + "/4", "25px Consolas", "#000000", 540, 50, false);
             this.addChild(this._sauceLabel);
             //added FriesLabel to the scene
-            this._friesLabel = new objects.Label(":" + friesValue + "/6", "25px Consolas", "#ffff00", 540, 90, false);
+            this._friesLabel = new objects.Label(":" + friesValue + "/6", "25px Consolas", "#000000", 540, 90, false);
             this.addChild(this._friesLabel);
             //add the images for scoring
             //steak icon
