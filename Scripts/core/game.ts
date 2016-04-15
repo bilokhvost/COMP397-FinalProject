@@ -24,7 +24,7 @@ var level1: scenes.levelOne;
 var level1end: scenes.levelOneEnd;
 var level1change: scenes.levelOneChange;
 //var level2: scenes.levelTwo;
-//var level3: scenes.levelThree;
+var level3: scenes.levelThree;
 
 var assetData: objects.Asset[] = [
     // Add your Assets here
@@ -42,6 +42,14 @@ var assetData: objects.Asset[] = [
     { id: "cheese", src: "../../Assets/images/cheese.png" },
     { id: "egg", src: "../../Assets/images/egg.png" },
     { id: "mouse", src: "../../Assets/images/mouse.png" },
+    //images level 3
+    { id: "strawberry", src: "../../Assets/images/strawberry.png" },
+    { id: "kitchenThree", src: "../../Assets/images/kitchen4.png" },
+    { id: "cream", src: "../../Assets/images/cream.png" },
+    { id: "pie", src: "../../Assets/images/pie.png" },
+    { id: "bird", src: "../../Assets/images/bird.png" },
+
+    //audio 
     { id: "engine", src: "../../Assets/audio/engine.ogg" },
     { id: "yay", src: "../../Assets/audio/yay.ogg" },
     { id: "thunder", src: "../../Assets/audio/thunder.ogg" },
@@ -141,14 +149,14 @@ function changeScene(): void {
             currentScene = level1;
             console.log("Starting LEVEL 1 Scene");
             break;
-            case config.Scene.LEVEL1END:
+        case config.Scene.LEVEL1END:
             // show the LEVEL1END scene
             stage.removeAllChildren();
             level1end = new scenes.levelOneEnd();
             currentScene = level1end;
             console.log("Starting LEVEL 1 Scene");
             break;
-            case config.Scene.LEVEL1CHANGE:
+        case config.Scene.LEVEL1CHANGE:
             // show the LEVEL1CHANGE scene
             stage.removeAllChildren();
             level1change = new scenes.levelOneChange();
@@ -162,13 +170,13 @@ function changeScene(): void {
         //     currentScene = level2;
         //     console.log("Starting LEVEL 2 Scene");
         //     break;
-        // case config.Scene.LEVEL3:
-        //     // show the LEVEL3 scene
-        //     stage.removeAllChildren();
-        //     level3 = new scenes.levelThree();
-        //     currentScene = level3;
-        //     console.log("Starting LEVEL 3 Scene");
-        //     break;
+         case config.Scene.LEVEL3:
+             // show the LEVEL3 scene
+             stage.removeAllChildren();
+             level3 = new scenes.levelThree();
+             currentScene = level3;
+             console.log("Starting LEVEL 3 Scene");
+             break;
     }
 
     console.log(currentScene.numChildren);
