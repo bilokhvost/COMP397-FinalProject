@@ -6,17 +6,17 @@ var __extends = (this && this.__extends) || function (d, b) {
 var objects;
 (function (objects) {
     // Kitchen One CLASS ++++++++++++++++++++++++++++++++++++
-    var kitchenOne = (function (_super) {
-        __extends(kitchenOne, _super);
+    var KitchenOne = (function (_super) {
+        __extends(KitchenOne, _super);
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        function kitchenOne() {
+        function KitchenOne() {
             _super.call(this, "kitchenOne");
             this._speed.x = -5; //kitchenOne speed
             this._reset(0);
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
-        kitchenOne.prototype._checkBounds = function (value) {
+        KitchenOne.prototype._checkBounds = function (value) {
             // check to see if the top of the kitchenOne 
             // is met the top of the scene
             if (this.x <= value) {
@@ -24,18 +24,18 @@ var objects;
             }
         };
         // reset the kitchenOne offscreen
-        kitchenOne.prototype._reset = function (value) {
+        KitchenOne.prototype._reset = function (value) {
             this.x = value;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
-        kitchenOne.prototype.update = function () {
+        KitchenOne.prototype.update = function () {
             // scroll the kitchenOne 5 px per frame
             this.x += this._speed.x;
             this._checkBounds(-2565); //2599
         };
-        return kitchenOne;
+        return KitchenOne;
     }(objects.GameObject));
-    objects.kitchenOne = kitchenOne;
+    objects.KitchenOne = KitchenOne;
 })(objects || (objects = {}));
 
 //# sourceMappingURL=kitchenOne.js.map

@@ -1,6 +1,6 @@
 module objects {
     // Kitchen One CLASS ++++++++++++++++++++++++++++++++++++
-    export class kitchenOne extends objects.GameObject {
+    export class KitchenOne extends objects.GameObject {
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++

@@ -62,21 +62,25 @@ module scenes {
         
         // PLAY SCENE Button click event handler
         private _startButtonClick(event: createjs.MouseEvent) {
-            // Switch to the LEFT_CAVE Scene
+            // Switch to the LEVEL ONE Scene
             scene = config.Scene.LEVEL1;
             changeScene();
         }
         
          // INSTRUCTIONS Button click event handler
         private _instructionsButtonClick(event: createjs.MouseEvent) {
-            // Switch to the LEFT_CAVE Scene
-            scene = config.Scene.PLAY;
+            // Switch to the INSTRUCTIONS Scene
+            scene = config.Scene.LEVEL2;
             changeScene();
         }
           // EXIT Button click event handler
           private _exitButtonClick(event: createjs.MouseEvent) {
             // Switch to the LEFT_CAVE Scene
+<<<<<<< HEAD
             scene = config.Scene.LEVEL3;
+=======
+            scene = config.Scene.LEVEL1;
+>>>>>>> 6363387550d7f7f58e7239adf6c2d5dd89c1ea40
             changeScene();
         }
 

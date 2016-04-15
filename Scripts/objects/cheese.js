@@ -12,7 +12,7 @@ var objects;
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         function Cheese() {
             _super.call(this, "cheese");
-            this._speed.x = -5; //island speed
+            this._speed.x = -8; //island speed
             this._reset(this._rightBounds);
             this.name = "cheese";
             this.soundString = "snap";
@@ -27,8 +27,8 @@ var objects;
         };
         // reset the ocean offscreen
         Cheese.prototype._reset = function (value) {
-            this.y = Math.floor(Math.random() * this._bottomBounds);
-            this.x = this._rightBounds + 100;
+            this.x = value;
+            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds - 10;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         Cheese.prototype.update = function () {

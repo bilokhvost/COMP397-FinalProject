@@ -2,12 +2,10 @@
 module scenes {
     export class levelOne extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _kitchenOne: objects.kitchenOne;
+        private _kitchenOne: objects.KitchenOne;
         private _cheese: objects.Cheese;
-        private _breads: objects.Bread[];
-        private _breadCount: number;
-        private _eggs: objects.Egg[];
-        private _eggCount: number;
+        private _bread: objects.Bread;     
+        private _egg: objects.Egg;     
         private _mice: objects.Mouse[];
         private _mouseCount: number;
         private _player: objects.Player;
@@ -17,6 +15,7 @@ module scenes {
         private _cheeseLabel: objects.Label;
         private _eggLabel: objects.Label;
         private _timer: number;
+
 
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -32,23 +31,18 @@ module scenes {
          */
         private _updateScore(): void {
             this._timeLabel.text = "Time Remaining: " + timeValue;
-            this._breadLabel.text = "B[" + breadValue + "],";
-            this._cheeseLabel.text = "C[" + cheeseValue + "],";
-            this._eggLabel.text = "E[" + eggValue + "]";
+            this._breadLabel.text = "Bread: " + breadValue + "/2";
+            this._cheeseLabel.text = "Cheese: " + cheeseValue + "/3";
+            this._eggLabel.text = "Eggs: " + eggValue + "/5";
         }
 
         // PUBLIC METHODS +++++++++++++++++++++
 
         // Start Method
         public start(): void {
-            // Set Bread Count
-            this._breadCount = 1;
-
-            // Set Egg Count
-            this._eggCount = 1;
-
+        
             // Set Mouse Count
-            this._mouseCount = 4;
+            this._mouseCount = 3;
 
             livesValue = 5;
             breadValue = 0;
@@ -58,16 +52,16 @@ module scenes {
 
 
             // Instantiate Bread array
-            this._breads = new Array<objects.Bread>();
+            this._bread = new objects.Bread();
 
             // Instantiate Egg array
-            this._eggs = new Array<objects.Egg>();
+            this._egg = new objects.Egg();
 
             // Instantiate Mouse array
             this._mice = new Array<objects.Mouse>();
 
             // added kitchen to the scene
-            this._kitchenOne = new objects.kitchenOne();
+            this._kitchenOne = new objects.KitchenOne();
             this.addChild(this._kitchenOne);
 
             // added player to the scene
@@ -79,16 +73,10 @@ module scenes {
             this.addChild(this._cheese);
 
             //added bread to the scene
-            for (var bread: number = 0; bread < this._breadCount; bread++) {
-                this._breads[bread] = new objects.Bread();
-                this.addChild(this._breads[bread]);
-            }
+           this.addChild(this._bread);
 
             //added egg to the scene
-            for (var egg: number = 0; egg < this._eggCount; egg++) {
-                this._eggs[egg] = new objects.Egg();
-                this.addChild(this._eggs[egg]);
-            }
+           this.addChild(this._egg);
 
             //added mouse to the scene
             for (var mouse: number = 0; mouse < this._mouseCount; mouse++) {
@@ -100,40 +88,41 @@ module scenes {
             this._timeLabel = new objects.Label(
                 "Lives: " + livesValue,
                 "25px Consolas",
-                "#ffff00",
+                "#000000",
                 10, 10, false
             );
             this.addChild(this._timeLabel);
 
             //added BreadLabel to the scene
             this._breadLabel = new objects.Label(
-                "B[" + breadValue + "],",
+                "Bread: " + breadValue + " /2",
                 "25px Consolas",
-                "#ffff00",
-                440, 10, false
+                "#000000",
+               490, 10, false
             );
             this.addChild(this._breadLabel);
 
             //added CheeseLabel to the scene
             this._cheeseLabel = new objects.Label(
-                "C[" + cheeseValue + "],",
+                "Cheese: " + cheeseValue + " /3",
                 "25px Consolas",
-                "#ffff00",
-                510, 10, false
+                "#000000",
+                475, 40, false
             );
             this.addChild(this._cheeseLabel);
 
             //added EggLabel to the scene
             this._eggLabel = new objects.Label(
-                "E[" + eggValue + "]",
+                "Eggs: " + eggValue + " /5",
                 "25px Consolas",
-                "#ffff00",
-                580, 10, false
+                "#000000",
+                500, 70, false
             );
             this.addChild(this._eggLabel);
 
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
+            
 
             // add this scene to the global stage container
             stage.addChild(this);
@@ -145,34 +134,45 @@ module scenes {
         public update(): void {
             this._kitchenOne.update();
             this._player.update();
-
+            
             this._cheese.update();
 
-            this._breads.forEach(bread => {
-                bread.update();
-                this._collision.check(bread);
-            });
+            this._bread.update();
+           if(this._collision.check(this._bread)){
+               this.removeChild(this._bread);
+               this._bread=new objects.Bread();
+               this.addChild(this._bread);
+           }
+           
 
-            this._eggs.forEach(egg => {
-                egg.update();
-                this._collision.check(egg);
-            });
+            this._egg.update();
+             if(this._collision.check(this._egg)){
+              this.removeChild(this._egg);
+               this._egg=new objects.Egg();
+               this.addChild(this._egg);
+             }
+            
 
             this._mice.forEach(mouse => {
                 mouse.update();
-                this._collision.check(mouse);
+                if(this._collision.check(mouse)){
+                    
+                }
             });
 
-            this._collision.check(this._cheese);
+           if(this._collision.check(this._cheese)){
+               this.removeChild(this._cheese);
+               this._cheese=new objects.Cheese();
+               this.addChild(this._cheese);
+           }
 
             //Status Change
             if (cheeseValue >= 3) {
                 this._cheeseLabel.color = "GREEN";
             }
             else{
-                this._cheeseLabel.color = "YELLOW";
+                this._cheeseLabel.color = "BLACK";
             }
-
             if (breadValue >= 2) {
                 this._breadLabel.color = "GREEN";
             }
@@ -184,6 +184,10 @@ module scenes {
             //Scene Change
             if (cheeseValue >= 3 && breadValue >= 2 && eggValue >= 5) {
                 // Switch to the Transition Scene
+               breadValue*=100;
+               cheeseValue*=200;
+               eggValue*=50;
+               highScoreValue = breadValue+cheeseValue+eggValue;
                 scene = config.Scene.LEVEL1CHANGE;
                 changeScene();
             }
@@ -194,6 +198,7 @@ module scenes {
             timeValue = Math.floor((this._timer)/60);
             if(this._timer<=0){
                 // Switch to the End Scene
+                
                 scene = config.Scene.LEVEL1END;
                 changeScene();
             }

@@ -5,42 +5,42 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // CLOUD CLASS ++++++++++++++++++++++++++++++++++++
-    var Cloud = (function (_super) {
-        __extends(Cloud, _super);
+    // BREAD CLASS ++++++++++++++++++++++++++++++++++++
+    var Sauce = (function (_super) {
+        __extends(Sauce, _super);
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        function Cloud() {
-            _super.call(this, "cloud");
+        function Sauce() {
+            _super.call(this, "sauce");
             this._reset(this._rightBounds);
-            this.name = "cloud";
-            this.soundString = "thunder";
+            this.name = "sauce";
+            this.soundString = "toast";
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
-        Cloud.prototype._checkBounds = function (value) {
-            // check to see if the top of the cloud 
+        Sauce.prototype._checkBounds = function (value) {
+            // check to see if the left of the sauce 
             // is outside the viewport         
             if (this.x <= (value - this.width)) {
                 this._reset(this._rightBounds);
             }
         };
-        // reset the cloud offscreen
-        Cloud.prototype._reset = function (value) {
+        // reset the sauce offscreen
+        Sauce.prototype._reset = function (value) {
             this._speed.x = Math.floor(Math.random() * 5) + 5;
             this._speed.y = Math.floor(Math.random() * 4) - 2;
             this.x = value;
             this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
-        Cloud.prototype.update = function () {
-            // scroll the cloud down the screen
+        Sauce.prototype.update = function () {
+            // scroll the sauce down the screen
             this.x -= this._speed.x;
             this.y += this._speed.y;
             this._checkBounds(this._leftBounds);
         };
-        return Cloud;
+        return Sauce;
     }(objects.GameObject));
-    objects.Cloud = Cloud;
+    objects.Sauce = Sauce;
 })(objects || (objects = {}));
 
-//# sourceMappingURL=cloud.js.map
+//# sourceMappingURL=sauce.js.map

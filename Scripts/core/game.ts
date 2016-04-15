@@ -11,35 +11,44 @@ var scene: number;
 
 var livesValue: number;
 var timeValue: number;
-var breadValue: number;
+
+var steakValue: number;
+var friesValue: number;
+var sauceValue: number;
+var highScoreValue: number = 0;
 var cheeseValue: number;
 var eggValue: number;
-var highScoreValue: number = 0;
+var breadValue: number;
 
 // Game Scenes
 var menu: scenes.Menu;
-var play: scenes.Play;
 var end: scenes.End;
 var level1: scenes.levelOne;
 var level1end: scenes.levelOneEnd;
 var level1change: scenes.levelOneChange;
-//var level2: scenes.levelTwo;
+
+var level2: scenes.levelTwo;
 var level3: scenes.levelThree;
+
+
+
 
 var assetData: objects.Asset[] = [
     // Add your Assets here
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
     { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
     { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
+    { id: "NextButton", src: "../../Assets/images/NextButton.png" },
     { id: "menuBackground", src: "../../Assets/images/menuBackground.png" },
-    { id: "ocean", src: "../../Assets/images/ocean.gif" },
     { id: "plane", src: "../../Assets/images/plane.png" },
     { id: "chef", src: "../../Assets/images/chef1.png" },
-    { id: "island", src: "../../Assets/images/island.png" },
     { id: "kitchenOne", src: "../../Assets/images/kitchenOne.png" },
-    { id: "cloud", src: "../../Assets/images/cloud.png" },
+    { id: "kitchenTwo", src: "../../Assets/images/kitchenTwo.png" },
     { id: "bread", src: "../../Assets/images/bread.png" },
     { id: "cheese", src: "../../Assets/images/cheese.png" },
+    { id: "steak", src: "../../Assets/images/steak.png" },
+    { id: "fries", src: "../../Assets/images/fries.png" },
+    { id: "sauce", src: "../../Assets/images/sauce.png" },
     { id: "egg", src: "../../Assets/images/egg.png" },
     { id: "mouse", src: "../../Assets/images/mouse.png" },
     //images level 3
@@ -128,13 +137,6 @@ function changeScene(): void {
             currentScene = menu;
             console.log("Starting MENU Scene");
             break;
-        case config.Scene.PLAY:
-            // show the PLAY scene
-            stage.removeAllChildren();
-            play = new scenes.Play();
-            currentScene = play;
-            console.log("Starting PLAY Scene");
-            break;
         case config.Scene.END:
             // show the END scene
             stage.removeAllChildren();
@@ -163,20 +165,22 @@ function changeScene(): void {
             currentScene = level1change;
             console.log("Starting LEVEL 1 Scene");
             break;
-        // case config.Scene.LEVEL2:
-        //     // show the LEVEL2 scene
-        //     stage.removeAllChildren();
-        //     level2 = new scenes.levelTwo();
-        //     currentScene = level2;
-        //     console.log("Starting LEVEL 2 Scene");
-        //     break;
-         case config.Scene.LEVEL3:
+
+        case config.Scene.LEVEL2:
+            //     // show the LEVEL2 scene
+            stage.removeAllChildren();
+            level2 = new scenes.levelTwo();
+            currentScene = level2;
+            console.log("Starting LEVEL 2 Scene");
+            break;
+            case config.Scene.LEVEL3:
              // show the LEVEL3 scene
              stage.removeAllChildren();
              level3 = new scenes.levelThree();
              currentScene = level3;
              console.log("Starting LEVEL 3 Scene");
              break;
+
     }
 
     console.log(currentScene.numChildren);

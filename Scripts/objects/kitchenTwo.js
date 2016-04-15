@@ -5,37 +5,37 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // OCEAN CLASS ++++++++++++++++++++++++++++++++++++
-    var Ocean = (function (_super) {
-        __extends(Ocean, _super);
+    // Kitchen One CLASS ++++++++++++++++++++++++++++++++++++
+    var KitchenTwo = (function (_super) {
+        __extends(KitchenTwo, _super);
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        function Ocean() {
-            _super.call(this, "ocean");
-            this._speed.x = -5; //ocean speed
+        function KitchenTwo() {
+            _super.call(this, "kitchenTwo");
+            this._speed.x = -5; //kitchenOne speed
             this._reset(0);
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
-        Ocean.prototype._checkBounds = function (value) {
-            // check to see if the top of the ocean 
+        KitchenTwo.prototype._checkBounds = function (value) {
+            // check to see if the top of the kitchenOne 
             // is met the top of the scene
             if (this.x <= value) {
                 this._reset(0);
             }
         };
-        // reset the ocean offscreen
-        Ocean.prototype._reset = function (value) {
+        // reset the kitchenOne offscreen
+        KitchenTwo.prototype._reset = function (value) {
             this.x = value;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
-        Ocean.prototype.update = function () {
-            // scroll the ocean 5 px per frame
+        KitchenTwo.prototype.update = function () {
+            // scroll the kitchenOne 5 px per frame
             this.x += this._speed.x;
-            this._checkBounds(-2599);
+            this._checkBounds(-2565); //2599
         };
-        return Ocean;
+        return KitchenTwo;
     }(objects.GameObject));
-    objects.Ocean = Ocean;
+    objects.KitchenTwo = KitchenTwo;
 })(objects || (objects = {}));
 
-//# sourceMappingURL=ocean.js.map
+//# sourceMappingURL=kitchenTwo.js.map

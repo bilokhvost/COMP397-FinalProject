@@ -16,13 +16,13 @@ var scenes;
         // Start Method
         levelOneEnd.prototype.start = function () {
             // added ocean to the scene
-            this._kitchen = new objects.kitchenOne();
+            this._kitchen = new objects.KitchenOne();
             this.addChild(this._kitchen);
             //Add Menu Label
             this._endLabel = new objects.Label("GAME OVER", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y - 160, true);
             this.addChild(this._endLabel);
             // add the BACK button to the OVER scene
-            this._restartButton = new objects.Button("RestartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 180, true);
+            this._restartButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 80, true);
             this.addChild(this._restartButton);
             // START_OVER Button event listener
             this._restartButton.on("click", this._restartButtonClick, this);
@@ -37,7 +37,7 @@ var scenes;
         // START_OVER Button click event handler
         levelOneEnd.prototype._restartButtonClick = function (event) {
             // Switch to the INTRO Scene
-            scene = config.Scene.PLAY;
+            scene = config.Scene.LEVEL1;
             changeScene();
         };
         return levelOneEnd;

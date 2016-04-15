@@ -41,20 +41,22 @@ var scenes;
         //EVENT HANDLERS ++++++++++++++++++++
         // PLAY SCENE Button click event handler
         Menu.prototype._startButtonClick = function (event) {
-            // Switch to the LEFT_CAVE Scene
+            // Switch to the LEVEL ONE Scene
             scene = config.Scene.LEVEL1;
             changeScene();
         };
         // INSTRUCTIONS Button click event handler
         Menu.prototype._instructionsButtonClick = function (event) {
-            // Switch to the LEFT_CAVE Scene
-            scene = config.Scene.PLAY;
+            // Switch to the INSTRUCTIONS Scene
+            scene = config.Scene.LEVEL2;
             changeScene();
         };
         // EXIT Button click event handler
         Menu.prototype._exitButtonClick = function (event) {
             // Switch to the LEFT_CAVE Scene
             scene = config.Scene.LEVEL3;
+
+
             changeScene();
         };
         return Menu;

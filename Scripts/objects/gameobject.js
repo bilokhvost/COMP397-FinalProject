@@ -17,9 +17,9 @@ var objects;
             this.centerX = this.width * 0.5;
             this.centerY = this.height * 0.5;
             this.isColliding = false;
-            this._topBounds = -this.height;
+            this._topBounds = this.regX + 120;
             this._bottomBounds = config.Screen.HEIGHT + this.height;
-            this._leftBounds = 0;
+            this._leftBounds = -this.width;
             this._rightBounds = config.Screen.WIDTH - this.width;
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++

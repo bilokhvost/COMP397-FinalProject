@@ -12,6 +12,7 @@ var objects;
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         function Bread() {
             _super.call(this, "bread");
+            this._speed.x = -15;
             this._reset(this._rightBounds);
             this.name = "bread";
             this.soundString = "toast";
@@ -26,16 +27,15 @@ var objects;
         };
         // reset the bread offscreen
         Bread.prototype._reset = function (value) {
-            this._speed.x = Math.floor(Math.random() * 5) + 5;
-            this._speed.y = Math.floor(Math.random() * 4) - 2;
             this.x = value;
-            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds;
+            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds - 10;
+            console.log(this.y);
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         Bread.prototype.update = function () {
             // scroll the bread down the screen
-            this.x -= this._speed.x;
-            this.y += this._speed.y;
+            this.x += this._speed.x;
+            // this.y += this._speed.y;
             this._checkBounds(this._leftBounds);
         };
         return Bread;

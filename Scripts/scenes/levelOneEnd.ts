@@ -2,7 +2,7 @@
 module scenes {
     export class levelOneEnd extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _kitchen: objects.kitchenOne;
+        private _kitchen: objects.KitchenOne;
         private _endLabel: objects.Label;
         private _scoreLabel: objects.Label
         private _highScoreLabel: objects.Label;
@@ -20,7 +20,7 @@ module scenes {
         public start(): void {
             
             // added ocean to the scene
-            this._kitchen = new objects.kitchenOne();
+            this._kitchen = new objects.KitchenOne();
             this.addChild(this._kitchen);
 
             //Add Menu Label
@@ -33,9 +33,9 @@ module scenes {
            
             // add the BACK button to the OVER scene
             this._restartButton = new objects.Button(
-                "RestartButton",
+                "StartButton",
                 config.Screen.CENTER_X,
-                config.Screen.CENTER_Y + 180, true);
+                config.Screen.CENTER_Y + 80, true);
             this.addChild(this._restartButton);
 
             // START_OVER Button event listener
@@ -57,7 +57,7 @@ module scenes {
         // START_OVER Button click event handler
         private _restartButtonClick(event: createjs.MouseEvent) {
             // Switch to the INTRO Scene
-            scene = config.Scene.PLAY;
+            scene = config.Scene.LEVEL1;
             changeScene();
         }
     }

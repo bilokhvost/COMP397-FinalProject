@@ -2,7 +2,7 @@
 module scenes {
     export class End extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _ocean: objects.kitchenOne;
+        private _ocean: objects.KitchenOne;
         private _endLabel: objects.Label;
         private _scoreLabel: objects.Label
         private _highScoreLabel: objects.Label;
@@ -24,7 +24,7 @@ module scenes {
             }
 
             // added ocean to the scene
-            this._ocean = new objects.kitchenOne();
+            this._ocean = new objects.KitchenOne();
             this.addChild(this._ocean);
 
             //Add Menu Label
