@@ -29,7 +29,7 @@ var objects;
             this._speed.x = Math.floor(Math.random() * 5) + 6;
             this._speed.y = Math.floor(Math.random() * 4) - 2;
             this.x = value;
-            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds;
+            this.y = Math.floor(Math.random() * this._bottomBounds);
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         Mouse.prototype.update = function () {

@@ -25,7 +25,7 @@ module objects {
         // reset the ocean offscreen
         protected _reset(value:number):void {          
             this.x = value;
-            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds;
+            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds-10;
         }
         
         

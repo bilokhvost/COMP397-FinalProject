@@ -28,7 +28,7 @@ var objects;
         // reset the egg offscreen
         Egg.prototype._reset = function (value) {
             this.x = value;
-            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds;
+            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds - 10;
             console.log(this.y);
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++

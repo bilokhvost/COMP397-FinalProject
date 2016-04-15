@@ -28,7 +28,7 @@ var objects;
         // reset the ocean offscreen
         Cheese.prototype._reset = function (value) {
             this.x = value;
-            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds;
+            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds - 10;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         Cheese.prototype.update = function () {

@@ -22,7 +22,7 @@ var scenes;
             this._endLabel = new objects.Label("GAME OVER", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y - 160, true);
             this.addChild(this._endLabel);
             // add the BACK button to the OVER scene
-            this._restartButton = new objects.Button("RestartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 180, true);
+            this._restartButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 80, true);
             this.addChild(this._restartButton);
             // START_OVER Button event listener
             this._restartButton.on("click", this._restartButtonClick, this);

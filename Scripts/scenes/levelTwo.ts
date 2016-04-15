@@ -90,7 +90,7 @@ module scenes {
             this._timeLabel = new objects.Label(
                 "Lives: " + livesValue,
                 "25px Consolas",
-                "#ffff00",
+                "#000000",
                 10, 10, false
             );
             this.addChild(this._timeLabel);
@@ -99,7 +99,7 @@ module scenes {
             this._steakLabel = new objects.Label(
                 "S[" + steakValue + "],",
                 "25px Consolas",
-                "#ffff00",
+                "#000000",
                 440, 10, false
             );
             this.addChild(this._steakLabel);
@@ -108,7 +108,7 @@ module scenes {
             this._sauceLabel = new objects.Label(
                 "K[" + sauceValue + "],",
                 "25px Consolas",
-                "#ffff00",
+                "#000000",
                 510, 10, false
             );
             this.addChild(this._sauceLabel);
@@ -154,7 +154,7 @@ module scenes {
                 this._sauceLabel.color = "GREEN";
             }
             else{
-                this._sauceLabel.color = "YELLOW";
+                this._sauceLabel.color = "BLACK";
             }
 
             if (steakValue >= 2) {

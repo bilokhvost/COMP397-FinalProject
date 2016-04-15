@@ -58,13 +58,13 @@ var scenes;
                 this.addChild(this._mice[mouse]);
             }
             //added LivesLabel to the scene
-            this._timeLabel = new objects.Label("Lives: " + livesValue, "25px Consolas", "#ffff00", 10, 10, false);
+            this._timeLabel = new objects.Label("Lives: " + livesValue, "25px Consolas", "#000000", 10, 10, false);
             this.addChild(this._timeLabel);
             //added BreadLabel to the scene
-            this._steakLabel = new objects.Label("S[" + steakValue + "],", "25px Consolas", "#ffff00", 440, 10, false);
+            this._steakLabel = new objects.Label("S[" + steakValue + "],", "25px Consolas", "#000000", 440, 10, false);
             this.addChild(this._steakLabel);
             //added CheeseLabel to the scene
-            this._sauceLabel = new objects.Label("K[" + sauceValue + "],", "25px Consolas", "#ffff00", 510, 10, false);
+            this._sauceLabel = new objects.Label("K[" + sauceValue + "],", "25px Consolas", "#000000", 510, 10, false);
             this.addChild(this._sauceLabel);
             //added EggLabel to the scene
             this._friesLabel = new objects.Label("F[" + friesValue + "]", "25px Consolas", "#ffff00", 580, 10, false);
@@ -94,7 +94,7 @@ var scenes;
                 this._sauceLabel.color = "GREEN";
             }
             else {
-                this._sauceLabel.color = "YELLOW";
+                this._sauceLabel.color = "BLACK";
             }
             if (steakValue >= 2) {
                 this._steakLabel.color = "GREEN";

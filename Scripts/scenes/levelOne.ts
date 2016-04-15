@@ -31,9 +31,9 @@ module scenes {
          */
         private _updateScore(): void {
             this._timeLabel.text = "Time Remaining: " + timeValue;
-            this._breadLabel.text = "B: " + breadValue + "/2";
-            this._cheeseLabel.text = "C: " + cheeseValue + "/3";
-            this._eggLabel.text = "E: " + eggValue + "/5";
+            this._breadLabel.text = "Bread: " + breadValue + "/2";
+            this._cheeseLabel.text = "Cheese: " + cheeseValue + "/3";
+            this._eggLabel.text = "Eggs: " + eggValue + "/5";
         }
 
         // PUBLIC METHODS +++++++++++++++++++++
@@ -95,28 +95,28 @@ module scenes {
 
             //added BreadLabel to the scene
             this._breadLabel = new objects.Label(
-                "B: " + breadValue + " /2",
+                "Bread: " + breadValue + " /2",
                 "25px Consolas",
                 "#000000",
-                510, 10, false
+               490, 10, false
             );
             this.addChild(this._breadLabel);
 
             //added CheeseLabel to the scene
             this._cheeseLabel = new objects.Label(
-                "C: " + cheeseValue + " /3",
+                "Cheese: " + cheeseValue + " /3",
                 "25px Consolas",
                 "#000000",
-                510, 40, false
+                475, 40, false
             );
             this.addChild(this._cheeseLabel);
 
             //added EggLabel to the scene
             this._eggLabel = new objects.Label(
-                "E: " + eggValue + " /5",
+                "Eggs: " + eggValue + " /5",
                 "25px Consolas",
                 "#000000",
-                510, 70, false
+                500, 70, false
             );
             this.addChild(this._eggLabel);
 
@@ -171,9 +171,8 @@ module scenes {
                 this._cheeseLabel.color = "GREEN";
             }
             else{
-                this._cheeseLabel.color = "YELLOW";
+                this._cheeseLabel.color = "BLACK";
             }
-
             if (breadValue >= 2) {
                 this._breadLabel.color = "GREEN";
             }

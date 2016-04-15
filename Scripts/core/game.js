@@ -28,6 +28,7 @@ var assetData = [
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
     { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
     { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
+    { id: "NextButton", src: "../../Assets/images/NextButton.png" },
     { id: "menuBackground", src: "../../Assets/images/menuBackground.png" },
     { id: "plane", src: "../../Assets/images/plane.png" },
     { id: "chef", src: "../../Assets/images/chef1.png" },
