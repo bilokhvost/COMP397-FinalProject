@@ -11,7 +11,7 @@ var scenes;
         // CONSTRUCTOR ++++++++++++++++++++++
         function levelTwo() {
             _super.call(this);
-            this._liveValue = 100;
+            this._liveValue = 10;
         }
         // PRIVATE METHODS
         /**
@@ -27,11 +27,12 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         levelTwo.prototype.start = function () {
-            // Set Bread Count
+            // Set Steak Count
             this._steakCount = 1;
-            // Set Egg Count
+            this._rightBounds = config.Screen.WIDTH - 60;
+            // Set Fries Count
             this._friesCount = 1;
-            // Set Mouse Count
+            // Set Pepper Count
             this._pepperCount = 4;
             steakValue = 0;
             friesValue = 0;
@@ -45,14 +46,16 @@ var scenes;
             // added player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
-            // added cheese to the scene
+            // added steak to the scene
             this._steak = new objects.Steak();
             this.addChild(this._steak);
+            // added fries to the scene
             this._fries = new objects.Fries();
             this.addChild(this._fries);
+            // added sauce to the scene
             this._sauce = new objects.Sauce();
             this.addChild(this._sauce);
-            //added mouse to the scene
+            //added pepper to the scene
             for (var pepper = 0; pepper < this._pepperCount; pepper++) {
                 this._peppers[pepper] = new objects.Pepper();
                 this.addChild(this._peppers[pepper]);
@@ -60,13 +63,13 @@ var scenes;
             //added LivesLabel to the scene
             this._liveLabel = new objects.Label("Lives: " + this._liveValue, "25px Consolas", "#000000", 10, 10, false);
             this.addChild(this._liveLabel);
-            //added BreadLabel to the scene
+            //added SteakLabel to the scene
             this._steakLabel = new objects.Label("Steak: " + steakValue + "/3", "25px Consolas", "#000000", 490, 10, false);
             this.addChild(this._steakLabel);
-            //added CheeseLabel to the scene
+            //added SauceLabel to the scene
             this._sauceLabel = new objects.Label("Sauce: " + sauceValue + "/4", "25px Consolas", "#000000", 490, 70, false);
             this.addChild(this._sauceLabel);
-            //added EggLabel to the scene
+            //added FriesLabel to the scene
             this._friesLabel = new objects.Label("Fries: " + friesValue + "/6", "25px Consolas", "#000000", 490, 40, false);
             this.addChild(this._friesLabel);
             // added collision manager to the scene
@@ -85,7 +88,10 @@ var scenes;
             this._peppers.forEach(function (pepper) {
                 pepper.update();
                 if (_this._collision.check(pepper)) {
-                    //   this.removeChild(pepper);
+                    // this.removeChild(pepper);
+                    //     pepper = new objects.Pepper();
+                    //   this.addChild(pepper);
+                    pepper._reset(_this._rightBounds);
                     _this._liveValue--;
                     _this.checkLife(_this._liveValue);
                 }
@@ -130,8 +136,8 @@ var scenes;
         };
         levelTwo.prototype.checkLife = function (value) {
             if (value <= 0) {
-                sauceValue *= 100;
-                steakValue *= 200;
+                sauceValue *= 75;
+                steakValue *= 100;
                 friesValue *= 50;
                 scoreLevelTwo = sauceValue + steakValue + friesValue;
                 highScoreValue = scoreLevelOne + scoreLevelTwo;
