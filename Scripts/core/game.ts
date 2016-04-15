@@ -26,6 +26,7 @@ var end: scenes.End;
 var level1: scenes.levelOne;
 var level1end: scenes.levelOneEnd;
 var level1change: scenes.levelOneChange;
+var level2change: scenes.LevelTwoChange;
 var level2: scenes.levelTwo;
 //var level3: scenes.levelThree;
 
@@ -47,6 +48,7 @@ var assetData: objects.Asset[] = [
     { id: "sauce", src: "../../Assets/images/sauce.png" },
     { id: "egg", src: "../../Assets/images/egg.png" },
     { id: "mouse", src: "../../Assets/images/mouse.png" },
+        { id: "pepper", src: "../../Assets/images/pepper.png" },
     { id: "engine", src: "../../Assets/audio/engine.ogg" },
     { id: "yay", src: "../../Assets/audio/yay.ogg" },
     { id: "thunder", src: "../../Assets/audio/thunder.ogg" },
@@ -158,6 +160,13 @@ function changeScene(): void {
             stage.removeAllChildren();
             level2 = new scenes.levelTwo();
             currentScene = level2;
+            console.log("Starting LEVEL 2 Scene");
+            break;
+             case config.Scene.LEVEL2CHANGE:
+            // show the LEVEL1CHANGE scene
+            stage.removeAllChildren();
+            level2change = new scenes.LevelTwoChange();
+            currentScene = level2change;
             console.log("Starting LEVEL 2 Scene");
             break;
         // case config.Scene.LEVEL3:

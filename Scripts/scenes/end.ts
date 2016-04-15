@@ -19,9 +19,7 @@ module scenes {
         // Start Method
         public start(): void {
             //Set High Score Value
-            if (scoreValue > highScoreValue) {
-                highScoreValue = scoreValue;
-            }
+           
 
             // added ocean to the scene
             this._ocean = new objects.KitchenOne();
@@ -36,7 +34,7 @@ module scenes {
 
             //Add Score Label
             this._scoreLabel = new objects.Label(
-                "Your Score: " + scoreValue, "40px Consolas",
+                "Your Score: " + highScoreValue, "40px Consolas",
                 "#ffff00",
                 config.Screen.CENTER_X, config.Screen.CENTER_Y - 80, true);
             this.addChild(this._scoreLabel);
@@ -74,7 +72,7 @@ module scenes {
         // START_OVER Button click event handler
         private _restartButtonClick(event: createjs.MouseEvent) {
             // Switch to the INTRO Scene
-            scene = config.Scene.PLAY;
+            scene = config.Scene.LEVEL1;
             changeScene();
         }
     }

@@ -11,6 +11,7 @@ var scenes;
         // CONSTRUCTOR ++++++++++++++++++++++
         function levelTwo() {
             _super.call(this);
+            this._liveValue = 5;
         }
         // PRIVATE METHODS
         /**
@@ -18,10 +19,10 @@ var scenes;
          * @return void
          */
         levelTwo.prototype._updateScore = function () {
-            this._timeLabel.text = "Time Remaining: " + timeValue;
-            this._steakLabel.text = "S[" + steakValue + "],";
-            this._sauceLabel.text = "K[" + sauceValue + "],";
-            this._friesLabel.text = "F[" + friesValue + "]";
+            this._liveLabel.text = "Lives: " + this._liveValue;
+            this._steakLabel.text = "Steak: " + steakValue + "/3";
+            this._sauceLabel.text = "Sauce: " + sauceValue + "/4";
+            this._friesLabel.text = "Fries: " + friesValue + "/6";
         };
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
@@ -31,14 +32,13 @@ var scenes;
             // Set Egg Count
             this._friesCount = 1;
             // Set Mouse Count
-            this._mouseCount = 4;
-            livesValue = 5;
+            this._pepperCount = 4;
             steakValue = 0;
             friesValue = 0;
             sauceValue = 0;
             this._timer = 30 * 60; //3 Seconds
-            // Instantiate Mouse array
-            this._mice = new Array();
+            // Instantiate Pepper array
+            this._peppers = new Array();
             // added kitchen to the scene
             this._kitchenTwo = new objects.KitchenTwo();
             this.addChild(this._kitchenTwo);
@@ -53,21 +53,21 @@ var scenes;
             this._sauce = new objects.Sauce();
             this.addChild(this._sauce);
             //added mouse to the scene
-            for (var mouse = 0; mouse < this._mouseCount; mouse++) {
-                this._mice[mouse] = new objects.Mouse();
-                this.addChild(this._mice[mouse]);
+            for (var pepper = 0; pepper < this._pepperCount; pepper++) {
+                this._peppers[pepper] = new objects.Pepper();
+                this.addChild(this._peppers[pepper]);
             }
             //added LivesLabel to the scene
-            this._timeLabel = new objects.Label("Lives: " + livesValue, "25px Consolas", "#000000", 10, 10, false);
-            this.addChild(this._timeLabel);
+            this._liveLabel = new objects.Label("Lives: " + this._liveValue, "25px Consolas", "#000000", 10, 10, false);
+            this.addChild(this._liveLabel);
             //added BreadLabel to the scene
-            this._steakLabel = new objects.Label("S[" + steakValue + "],", "25px Consolas", "#000000", 440, 10, false);
+            this._steakLabel = new objects.Label("Steak: " + steakValue + "/3", "25px Consolas", "#000000", 490, 10, false);
             this.addChild(this._steakLabel);
             //added CheeseLabel to the scene
-            this._sauceLabel = new objects.Label("K[" + sauceValue + "],", "25px Consolas", "#000000", 510, 10, false);
+            this._sauceLabel = new objects.Label("Sauce: " + sauceValue + "/4", "25px Consolas", "#000000", 490, 70, false);
             this.addChild(this._sauceLabel);
             //added EggLabel to the scene
-            this._friesLabel = new objects.Label("F[" + friesValue + "]", "25px Consolas", "#ffff00", 580, 10, false);
+            this._friesLabel = new objects.Label("Fries: " + friesValue + "/6", "25px Consolas", "#000000", 490, 40, false);
             this.addChild(this._friesLabel);
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
@@ -82,38 +82,45 @@ var scenes;
             this._steak.update();
             this._fries.update();
             this._sauce.update();
-            this._mice.forEach(function (mouse) {
-                mouse.update();
-                _this._collision.check(mouse);
+            this._peppers.forEach(function (pepper) {
+                pepper.update();
+                if (_this._collision.check(pepper)) {
+                    _this._liveValue--;
+                }
             });
-            this._collision.check(this._steak);
-            this._collision.check(this._fries);
-            this._collision.check(this._sauce);
+            if (this._collision.check(this._steak)) {
+                this.removeChild(this._steak);
+                this._steak = new objects.Steak();
+                this.addChild(this._steak);
+            }
+            if (this._collision.check(this._fries)) {
+                this.removeChild(this._fries);
+                this._fries = new objects.Fries();
+                this.addChild(this._fries);
+            }
+            if (this._collision.check(this._sauce)) {
+                this.removeChild(this._sauce);
+                this._sauce = new objects.Sauce();
+                this.addChild(this._sauce);
+            }
             //Status Change
-            if (sauceValue >= 3) {
+            if (sauceValue >= 4) {
                 this._sauceLabel.color = "GREEN";
             }
-            else {
-                this._sauceLabel.color = "BLACK";
-            }
-            if (steakValue >= 2) {
+            if (steakValue >= 3) {
                 this._steakLabel.color = "GREEN";
             }
-            if (friesValue >= 5) {
+            if (friesValue >= 6) {
                 this._friesLabel.color = "GREEN";
             }
             //Scene Change
-            if (sauceValue >= 3 && steakValue >= 2 && sauceValue >= 5) {
+            if (sauceValue >= 4 && steakValue >= 3 && friesValue >= 6) {
                 // Switch to the Transition Scene
-                scene = config.Scene.LEVEL1CHANGE;
-                changeScene();
-            }
-            //Calculate Time Remaining
-            this._timer--;
-            timeValue = Math.floor((this._timer) / 60);
-            if (this._timer <= 0) {
-                // Switch to the End Scene
-                scene = config.Scene.LEVEL1END;
+                sauceValue *= 100;
+                steakValue *= 200;
+                friesValue *= 50;
+                highScoreValue = highScoreValue + sauceValue + steakValue + friesValue;
+                scene = config.Scene.LEVEL2CHANGE;
                 changeScene();
             }
             this._updateScore();

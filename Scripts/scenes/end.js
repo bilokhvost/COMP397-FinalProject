@@ -16,9 +16,6 @@ var scenes;
         // Start Method
         End.prototype.start = function () {
             //Set High Score Value
-            if (scoreValue > highScoreValue) {
-                highScoreValue = scoreValue;
-            }
             // added ocean to the scene
             this._ocean = new objects.KitchenOne();
             this.addChild(this._ocean);
@@ -26,7 +23,7 @@ var scenes;
             this._endLabel = new objects.Label("GAME OVER", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y - 160, true);
             this.addChild(this._endLabel);
             //Add Score Label
-            this._scoreLabel = new objects.Label("Your Score: " + scoreValue, "40px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y - 80, true);
+            this._scoreLabel = new objects.Label("Your Score: " + highScoreValue, "40px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y - 80, true);
             this.addChild(this._scoreLabel);
             //Add HighScore Label
             this._highScoreLabel = new objects.Label("High Score: " + highScoreValue, "40px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
@@ -47,7 +44,7 @@ var scenes;
         // START_OVER Button click event handler
         End.prototype._restartButtonClick = function (event) {
             // Switch to the INTRO Scene
-            scene = config.Scene.PLAY;
+            scene = config.Scene.LEVEL1;
             changeScene();
         };
         return End;

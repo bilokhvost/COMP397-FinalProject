@@ -6,7 +6,7 @@ module objects {
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         constructor() {
             super("fries");
-            
+                 this._speed.x=-10;
            this._reset(this._rightBounds);
            this.name = "fries";
            this.soundString = "toast";
@@ -23,19 +23,17 @@ module objects {
         
         // reset the bread offscreen
         protected _reset(value:number):void {
-            this._speed.x = Math.floor(Math.random() * 5) + 5;
-            this._speed.y = Math.floor(Math.random() * 4) - 2;
-            
+           
             this.x = value;
-            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds;
+            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds/2;
         }
         
         
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         public update():void {
             // scroll the bread down the screen
-            this.x -= this._speed.x;
-            this.y += this._speed.y;
+            this.x += this._speed.x;
+            
             this._checkBounds(this._leftBounds);
         }
     }
