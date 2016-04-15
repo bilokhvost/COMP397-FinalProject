@@ -11,6 +11,7 @@ var config;
         Scene.LEVEL3 = 5;
         Scene.LEVEL1END = 6;
         Scene.LEVEL1CHANGE = 7;
+        Scene.LEVEL2CHANGE = 8;
         return Scene;
     }());
     config.Scene = Scene;

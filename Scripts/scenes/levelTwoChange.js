@@ -3,28 +3,30 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-// LEFT_CAVE SCENE
 var scenes;
 (function (scenes) {
-    var levelOneChange = (function (_super) {
-        __extends(levelOneChange, _super);
+    var LevelTwoChange = (function (_super) {
+        __extends(LevelTwoChange, _super);
         // CONSTRUCTOR ++++++++++++++++++++++
-        function levelOneChange() {
+        function LevelTwoChange() {
             _super.call(this);
         }
         // PUBLIC METHODS ++++++++++++++++++++
         // Start Method
-        levelOneChange.prototype.start = function () {
+        LevelTwoChange.prototype.start = function () {
             // added ocean to the scene
-            this._kitchen = new objects.KitchenOne();
+            this._kitchen = new objects.KitchenTwo();
             this.addChild(this._kitchen);
             //Add Menu Label
-            this._endLabel = new objects.Label("Level 1 completed", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y - 80, true);
+            this._endLabel = new objects.Label("Level 2 completed", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y - 80, true);
             this.addChild(this._endLabel);
-            this._scoreLabel = new objects.Label("Your Score:", "25px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+            this._scoreLabel = new objects.Label("Previous score: " + scoreLevelOne, "25px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._scoreLabel);
-            this._highScoreLabel = new objects.Label(breadValue + " + " + cheeseValue + " + " + eggValue + " = " + scoreLevelOne, "25px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y + 40, true);
+            this._highScoreLabel = new objects.Label("New score: " + steakValue + " + " + friesValue + " + " + sauceValue + " = " + scoreLevelTwo, "25px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y + 25, true);
             this.addChild(this._highScoreLabel);
+            //Add Score Label
+            this._totalScoreLabel = new objects.Label("Total score: " + highScoreValue, "25px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y + 50, true);
+            this.addChild(this._totalScoreLabel);
             // add the Start button to the MENU scene
             this._startButton = new objects.Button("NextButton", config.Screen.CENTER_X - 50, config.Screen.CENTER_Y + 80, false);
             this.addChild(this._startButton);
@@ -33,19 +35,19 @@ var scenes;
             stage.addChild(this);
         };
         // PLAY Scene updates here
-        levelOneChange.prototype.update = function () {
+        LevelTwoChange.prototype.update = function () {
             this._kitchen.update();
         };
         //EVENT HANDLERS ++++++++++++++++++++
         // START_OVER Button click event handler
-        levelOneChange.prototype._startButtonClick = function (event) {
+        LevelTwoChange.prototype._startButtonClick = function (event) {
             // Switch to the LEVEL ONE Scene
-            scene = config.Scene.LEVEL2;
+            scene = config.Scene.LEVEL1;
             changeScene();
         };
-        return levelOneChange;
+        return LevelTwoChange;
     }(objects.Scene));
-    scenes.levelOneChange = levelOneChange;
+    scenes.LevelTwoChange = LevelTwoChange;
 })(scenes || (scenes = {}));
 
-//# sourceMappingURL=levelOneChange.js.map
+//# sourceMappingURL=levelTwoChange.js.map

@@ -12,6 +12,7 @@ var objects;
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         function Fries() {
             _super.call(this, "fries");
+            this._speed.x = -10;
             this._reset(this._rightBounds);
             this.name = "fries";
             this.soundString = "toast";
@@ -26,16 +27,13 @@ var objects;
         };
         // reset the bread offscreen
         Fries.prototype._reset = function (value) {
-            this._speed.x = Math.floor(Math.random() * 5) + 5;
-            this._speed.y = Math.floor(Math.random() * 4) - 2;
             this.x = value;
-            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds;
+            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds - 15;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         Fries.prototype.update = function () {
             // scroll the bread down the screen
-            this.x -= this._speed.x;
-            this.y += this._speed.y;
+            this.x += this._speed.x;
             this._checkBounds(this._leftBounds);
         };
         return Fries;

@@ -16,6 +16,7 @@
 /// <reference path="../objects/mouse.ts" />
 /// <reference path="../objects/steak.ts" />
 /// <reference path="../objects/fries.ts" />
+/// <reference path="../objects/pepper.ts" />
 /// <reference path="../objects/sauce.ts" />
 /// <reference path="../managers/collision.ts" />
 

@@ -1,15 +1,12 @@
-// LEFT_CAVE SCENE
 module scenes {
-    export class levelOneChange extends objects.Scene {
+    export class LevelTwoChange extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _kitchen: objects.KitchenOne;
+        private _kitchen: objects.KitchenTwo;
         private _endLabel: objects.Label;
         private _scoreLabel: objects.Label;
         private _nextLabel: objects.Label;
-        private _totalScoreLabel: objects.Label;
         private _highScoreLabel: objects.Label;
-        private _restartButton: objects.Button;
-       
+         private _totalScoreLabel: objects.Label;
          private _startButton: objects.Button;
 
         // CONSTRUCTOR ++++++++++++++++++++++
@@ -25,28 +22,35 @@ module scenes {
             
 
             // added ocean to the scene
-            this._kitchen = new objects.KitchenOne();
+            this._kitchen = new objects.KitchenTwo();
             this.addChild(this._kitchen);
-
+          
             //Add Menu Label
             this._endLabel = new objects.Label(
-                "Level 1 completed", "60px Consolas",
+                "Level 2 completed", "60px Consolas",
                 "#000000",
                 config.Screen.CENTER_X, config.Screen.CENTER_Y - 80, true);
             this.addChild(this._endLabel);
             
              this._scoreLabel = new objects.Label(
-                "Your Score:" , "25px Consolas",
+                "Previous score: " + scoreLevelOne, "25px Consolas",
                 "#000000",
                 config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._scoreLabel);
             
             
             this._highScoreLabel =  new objects.Label(
-            breadValue+" + " + cheeseValue+" + "+ eggValue+" = " + scoreLevelOne, "25px Consolas",
+           "New score: " + steakValue+" + " + friesValue+" + "+ sauceValue+" = " + scoreLevelTwo, "25px Consolas",
                 "#000000",
-                config.Screen.CENTER_X, config.Screen.CENTER_Y+40, true);
+                config.Screen.CENTER_X, config.Screen.CENTER_Y+25, true);
             this.addChild(this._highScoreLabel);
+
+            //Add Score Label
+          this._totalScoreLabel = new objects.Label(
+                "Total score: " + highScoreValue, "25px Consolas",
+                "#000000",
+                config.Screen.CENTER_X, config.Screen.CENTER_Y+50, true);
+            this.addChild(this._totalScoreLabel);
             
             // add the Start button to the MENU scene
             this._startButton = new objects.Button(
@@ -73,7 +77,7 @@ module scenes {
         // START_OVER Button click event handler
      private _startButtonClick(event: createjs.MouseEvent) {
             // Switch to the LEVEL ONE Scene
-            scene = config.Scene.LEVEL2;
+            scene = config.Scene.LEVEL1;
             changeScene();
         }
     }

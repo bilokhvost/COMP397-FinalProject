@@ -60,6 +60,30 @@ module managers {
                             cheeseValue = 0;
                         }                  
                     }
+                    
+                     if (object.name === "steak") {
+                        createjs.Sound.play("crack");
+                        steakValue += 1; //award 1 egg  
+                        isCollided=true;  
+                    }
+                     if (object.name === "fries") {
+                        createjs.Sound.play("crack");
+                        friesValue += 1; //award 1 egg  
+                        isCollided=true;  
+                    }
+                    
+                     if (object.name === "sauce") {
+                        createjs.Sound.play("crack");
+                        sauceValue += 1; //award 1 egg  
+                        isCollided=true;  
+                    }
+                    if (object.name === "pepper") {
+                        createjs.Sound.play("squeak");                        
+                        //livesValue--; // lose a cheese
+                        // check if player has no more lives
+                       isCollided=true;               
+                    }
+                    
                 }
            // } 
                 return  isCollided;
