@@ -28,7 +28,7 @@ var objects;
         // reset the sauce offscreen
         Sauce.prototype._reset = function (value) {
             this.x = value;
-            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds;
+            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds - 15;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         Sauce.prototype.update = function () {

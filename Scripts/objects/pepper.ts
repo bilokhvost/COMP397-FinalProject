@@ -24,8 +24,7 @@ module objects {
         // reset the pepper offscreen
         protected _reset(value:number):void {
             this._speed.x = Math.floor(Math.random() * 5) + 6;
-            this._speed.y = Math.floor(Math.random() * 4) - 2;
-            
+            this._speed.y = Math.floor(Math.random() * 4) - 2;            
             this.x = value;
             this.y = Math.floor(Math.random() * this._bottomBounds);
         }

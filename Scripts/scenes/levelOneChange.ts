@@ -43,17 +43,10 @@ module scenes {
             
             
             this._highScoreLabel =  new objects.Label(
-            breadValue+" + " + cheeseValue+" + "+ eggValue+" = " + highScoreValue, "25px Consolas",
+            breadValue+" + " + cheeseValue+" + "+ eggValue+" = " + scoreLevelOne, "25px Consolas",
                 "#000000",
-                config.Screen.CENTER_X, config.Screen.CENTER_Y+25, true);
+                config.Screen.CENTER_X, config.Screen.CENTER_Y+40, true);
             this.addChild(this._highScoreLabel);
-
-            //Add Score Label
-            this._nextLabel = new objects.Label(
-                "Click Play to start level two", "25px Consolas",
-                "#000000",
-                config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
-            this.addChild(this._scoreLabel);
             
             // add the Start button to the MENU scene
             this._startButton = new objects.Button(

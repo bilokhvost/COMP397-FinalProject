@@ -5,8 +5,8 @@ module scenes {
         private _endLabel: objects.Label;
         private _scoreLabel: objects.Label;
         private _nextLabel: objects.Label;
-        private _totalScoreLabel: objects.Label;
         private _highScoreLabel: objects.Label;
+         private _totalScoreLabel: objects.Label;
          private _startButton: objects.Button;
 
         // CONSTRUCTOR ++++++++++++++++++++++
@@ -24,7 +24,7 @@ module scenes {
             // added ocean to the scene
             this._kitchen = new objects.KitchenTwo();
             this.addChild(this._kitchen);
-
+          
             //Add Menu Label
             this._endLabel = new objects.Label(
                 "Level 2 completed", "60px Consolas",
@@ -33,24 +33,24 @@ module scenes {
             this.addChild(this._endLabel);
             
              this._scoreLabel = new objects.Label(
-                "Your Score:" , "25px Consolas",
+                "Previous score: " + scoreLevelOne, "25px Consolas",
                 "#000000",
                 config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._scoreLabel);
             
             
             this._highScoreLabel =  new objects.Label(
-            steakValue+" + " + friesValue+" + "+ sauceValue+" = " + highScoreValue, "25px Consolas",
+           "New score: " + steakValue+" + " + friesValue+" + "+ sauceValue+" = " + scoreLevelTwo, "25px Consolas",
                 "#000000",
                 config.Screen.CENTER_X, config.Screen.CENTER_Y+25, true);
             this.addChild(this._highScoreLabel);
 
             //Add Score Label
-            this._nextLabel = new objects.Label(
-                "Click Play to start level two", "25px Consolas",
+          this._totalScoreLabel = new objects.Label(
+                "Total score: " + highScoreValue, "25px Consolas",
                 "#000000",
-                config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
-            this.addChild(this._scoreLabel);
+                config.Screen.CENTER_X, config.Screen.CENTER_Y+50, true);
+            this.addChild(this._totalScoreLabel);
             
             // add the Start button to the MENU scene
             this._startButton = new objects.Button(

@@ -11,7 +11,7 @@ var scenes;
         // CONSTRUCTOR ++++++++++++++++++++++
         function levelTwo() {
             _super.call(this);
-            this._liveValue = 5;
+            this._liveValue = 100;
         }
         // PRIVATE METHODS
         /**
@@ -85,7 +85,9 @@ var scenes;
             this._peppers.forEach(function (pepper) {
                 pepper.update();
                 if (_this._collision.check(pepper)) {
+                    //   this.removeChild(pepper);
                     _this._liveValue--;
+                    _this.checkLife(_this._liveValue);
                 }
             });
             if (this._collision.check(this._steak)) {
@@ -119,11 +121,24 @@ var scenes;
                 sauceValue *= 100;
                 steakValue *= 200;
                 friesValue *= 50;
-                highScoreValue = highScoreValue + sauceValue + steakValue + friesValue;
+                scoreLevelTwo = sauceValue + steakValue + friesValue;
+                highScoreValue = scoreLevelOne + scoreLevelTwo;
                 scene = config.Scene.LEVEL2CHANGE;
                 changeScene();
             }
             this._updateScore();
+        };
+        levelTwo.prototype.checkLife = function (value) {
+            if (value <= 0) {
+                sauceValue *= 100;
+                steakValue *= 200;
+                friesValue *= 50;
+                scoreLevelTwo = sauceValue + steakValue + friesValue;
+                highScoreValue = scoreLevelOne + scoreLevelTwo;
+                // Switch to the Game Over Scene
+                scene = config.Scene.END;
+                changeScene();
+            }
         };
         return levelTwo;
     }(objects.Scene));

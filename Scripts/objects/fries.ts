@@ -25,7 +25,7 @@ module objects {
         protected _reset(value:number):void {
            
             this.x = value;
-            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds/2;
+            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds-15;
         }
         
         

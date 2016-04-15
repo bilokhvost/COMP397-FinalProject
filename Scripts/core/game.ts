@@ -15,6 +15,8 @@ var timeValue: number;
 var steakValue: number;
 var friesValue: number;
 var sauceValue: number;
+var scoreLevelOne: number = 0;
+var scoreLevelTwo: number = 0;
 var highScoreValue: number = 0;
 var cheeseValue: number;
 var eggValue: number;
@@ -26,11 +28,7 @@ var end: scenes.End;
 var level1: scenes.levelOne;
 var level1end: scenes.levelOneEnd;
 var level1change: scenes.levelOneChange;
-<<<<<<< HEAD
 var level2change: scenes.LevelTwoChange;
-=======
-
->>>>>>> 4d4e8f189e707962fcf989f0c2c442e75f809e35
 var level2: scenes.levelTwo;
 var level3: scenes.levelThree;
 
@@ -55,9 +53,9 @@ var assetData: objects.Asset[] = [
     { id: "sauce", src: "../../Assets/images/sauce.png" },
     { id: "egg", src: "../../Assets/images/egg.png" },
     { id: "mouse", src: "../../Assets/images/mouse.png" },
-<<<<<<< HEAD
+
         { id: "pepper", src: "../../Assets/images/pepper.png" },
-=======
+
     //images level 3
     { id: "strawberry", src: "../../Assets/images/strawberry.png" },
     { id: "kitchenThree", src: "../../Assets/images/kitchen4.png" },
@@ -66,7 +64,7 @@ var assetData: objects.Asset[] = [
     { id: "bird", src: "../../Assets/images/bird.png" },
 
     //audio 
->>>>>>> 4d4e8f189e707962fcf989f0c2c442e75f809e35
+
     { id: "engine", src: "../../Assets/audio/engine.ogg" },
     { id: "yay", src: "../../Assets/audio/yay.ogg" },
     { id: "thunder", src: "../../Assets/audio/thunder.ogg" },
@@ -181,7 +179,7 @@ function changeScene(): void {
             currentScene = level2;
             console.log("Starting LEVEL 2 Scene");
             break;
-<<<<<<< HEAD
+
              case config.Scene.LEVEL2CHANGE:
             // show the LEVEL1CHANGE scene
             stage.removeAllChildren();
@@ -196,8 +194,7 @@ function changeScene(): void {
         //     currentScene = level3;
         //     console.log("Starting LEVEL 3 Scene");
         //     break;
-=======
-            case config.Scene.LEVEL3:
+ case config.Scene.LEVEL3:
              // show the LEVEL3 scene
              stage.removeAllChildren();
              level3 = new scenes.levelThree();
@@ -205,7 +202,6 @@ function changeScene(): void {
              console.log("Starting LEVEL 3 Scene");
              break;
 
->>>>>>> 4d4e8f189e707962fcf989f0c2c442e75f809e35
     }
 
     console.log(currentScene.numChildren);

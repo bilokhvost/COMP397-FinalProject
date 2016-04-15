@@ -187,7 +187,7 @@ module scenes {
                breadValue*=100;
                cheeseValue*=200;
                eggValue*=50;
-               highScoreValue = breadValue+cheeseValue+eggValue;
+               scoreLevelOne = breadValue+cheeseValue+eggValue;
                 scene = config.Scene.LEVEL1CHANGE;
                 changeScene();
             }

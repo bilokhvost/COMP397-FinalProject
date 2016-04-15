@@ -2,7 +2,7 @@
 module scenes {
     export class End extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _ocean: objects.KitchenOne;
+        private _kitchen: objects.KitchenOne;
         private _endLabel: objects.Label;
         private _scoreLabel: objects.Label
         private _highScoreLabel: objects.Label;
@@ -22,8 +22,8 @@ module scenes {
            
 
             // added ocean to the scene
-            this._ocean = new objects.KitchenOne();
-            this.addChild(this._ocean);
+            this._kitchen = new objects.KitchenOne();
+            this.addChild(this._kitchen);
 
             //Add Menu Label
             this._endLabel = new objects.Label(
@@ -39,16 +39,11 @@ module scenes {
                 config.Screen.CENTER_X, config.Screen.CENTER_Y - 80, true);
             this.addChild(this._scoreLabel);
 
-            //Add HighScore Label
-            this._highScoreLabel = new objects.Label(
-                "High Score: " + highScoreValue, "40px Consolas",
-                "#ffff00",
-                config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
-            this.addChild(this._highScoreLabel);
+         
 
             // add the BACK button to the OVER scene
             this._restartButton = new objects.Button(
-                "RestartButton",
+                "StartButton",
                 config.Screen.CENTER_X,
                 config.Screen.CENTER_Y + 180, true);
             this.addChild(this._restartButton);
@@ -63,7 +58,7 @@ module scenes {
 
         // PLAY Scene updates here
         public update(): void {
-            this._ocean.update();
+            this._kitchen.update();
         }
 
 

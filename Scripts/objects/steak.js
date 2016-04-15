@@ -28,7 +28,7 @@ var objects;
         // reset the steak offscreen
         Steak.prototype._reset = function (value) {
             this.x = value;
-            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds;
+            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds - 20;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         Steak.prototype.update = function () {

@@ -28,7 +28,7 @@ var objects;
         // reset the bread offscreen
         Fries.prototype._reset = function (value) {
             this.x = value;
-            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds / 2;
+            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds - 15;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         Fries.prototype.update = function () {

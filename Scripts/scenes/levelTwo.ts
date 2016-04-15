@@ -10,6 +10,7 @@ module scenes {
         private _fries: objects.Fries;
         private _friesCount: number;
         private _peppers: objects.Pepper[];
+        private _pepper: objects.Pepper;
         private _pepperCount: number;
         private _player: objects.Player;
         private _collision: managers.Collision;
@@ -18,7 +19,7 @@ module scenes {
         private _sauceLabel: objects.Label;
         private _friesLabel: objects.Label;
         private _timer: number;
-        private _liveValue: number = 5;
+        private _liveValue: number = 100;
       
 
         // CONSTRUCTOR ++++++++++++++++++++++
@@ -144,9 +145,12 @@ module scenes {
 
             this._peppers.forEach(pepper => {
                 pepper.update();
-                if (this._collision.check(pepper)) {
+                if(this._collision.check(pepper)){
+                 //   this.removeChild(pepper);
                     this._liveValue--;
-                }
+                     this.checkLife(this._liveValue);
+                }         
+                        
             });
 
             if (this._collision.check(this._steak)) {
@@ -188,14 +192,26 @@ module scenes {
               sauceValue*=100;
                steakValue*=200;
                friesValue*=50;
-               highScoreValue =highScoreValue+ sauceValue+steakValue+friesValue;
+               scoreLevelTwo = sauceValue+steakValue+friesValue;
+                 highScoreValue = scoreLevelOne + scoreLevelTwo;
                 scene = config.Scene.LEVEL2CHANGE;
                 changeScene();
             }
 
             this._updateScore();
         }
-
+  private checkLife(value:number){
+            if (value<=0){
+                  sauceValue*=100;
+               steakValue*=200;
+               friesValue*=50;
+               scoreLevelTwo = sauceValue+steakValue+friesValue;
+                 highScoreValue = scoreLevelOne + scoreLevelTwo;
+                    // Switch to the Game Over Scene
+                    scene = config.Scene.END;
+                    changeScene();
+            }
+        }
 
         //EVENT HANDLERS ++++++++++++++++++++
 

@@ -78,7 +78,7 @@ module managers {
                         isCollided=true;  
                     }
                     if (object.name === "pepper") {
-                        createjs.Sound.play("squeak");
+                        createjs.Sound.play("squeak");                        
                         //livesValue--; // lose a cheese
                         // check if player has no more lives
                        isCollided=true;               
