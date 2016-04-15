@@ -5,6 +5,7 @@ var assets: createjs.LoadQueue;
 var canvas: HTMLElement;
 var stage: createjs.Stage;
 var stats: Stats;
+var textureAtlas: createjs.SpriteSheet;
 
 var currentScene: objects.Scene;
 var scene: number;
@@ -32,7 +33,24 @@ var level2change: scenes.LevelTwoChange;
 var level2: scenes.levelTwo;
 var level3: scenes.levelThree;
 
+var atlas = {
+    "images": [
+        "../../Assets/images/player.png"
+    ],
+    "frames": [
+        [1, 1, 99, 93, 0, -1, 0],
+        [102, 1, 99, 93, 0, -1, 0],
+        [203, 1, 100, 90, 0, 0, 0],
+        [305, 1, 100, 90, 0, 0, 0]
+    ],
 
+    "animations": {
+        "plane":{
+            "frames":[0,1,2,3],
+            "speed": 0.1
+        }
+    },
+}
 
 
 var assetData: objects.Asset[] = [
@@ -55,7 +73,7 @@ var assetData: objects.Asset[] = [
     { id: "egg", src: "../../Assets/images/egg.png" },
     { id: "mouse", src: "../../Assets/images/mouse.png" },
 
-        { id: "pepper", src: "../../Assets/images/pepper.png" },
+    { id: "pepper", src: "../../Assets/images/pepper.png" },
 
     //images level 3
     { id: "strawberry", src: "../../Assets/images/strawberry.png" },
@@ -85,6 +103,9 @@ function preload() {
 }
 
 function init(): void {
+    // instantiate textureAtlas
+    textureAtlas = new createjs.SpriteSheet(atlas);
+    
     // create a reference the HTML canvas Element
     canvas = document.getElementById("canvas");
 
@@ -182,7 +203,7 @@ function changeScene(): void {
             console.log("Starting LEVEL 2 Scene");
             break;
 
-             case config.Scene.LEVEL2CHANGE:
+        case config.Scene.LEVEL2CHANGE:
             // show the LEVEL1CHANGE scene
             stage.removeAllChildren();
             level2change = new scenes.LevelTwoChange();
@@ -196,13 +217,13 @@ function changeScene(): void {
         //     currentScene = level3;
         //     console.log("Starting LEVEL 3 Scene");
         //     break;
- case config.Scene.LEVEL3:
-             // show the LEVEL3 scene
-             stage.removeAllChildren();
-             level3 = new scenes.levelThree();
-             currentScene = level3;
-             console.log("Starting LEVEL 3 Scene");
-             break;
+        case config.Scene.LEVEL3:
+            // show the LEVEL3 scene
+            stage.removeAllChildren();
+            level3 = new scenes.levelThree();
+            currentScene = level3;
+            console.log("Starting LEVEL 3 Scene");
+            break;
 
     }
 

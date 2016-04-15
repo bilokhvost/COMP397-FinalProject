@@ -19,10 +19,12 @@ var scenes;
          * @return void
          */
         levelTwo.prototype._updateScore = function () {
+
+            this._liveLabel.text = "Lives: " + this._liveValue;
             this._steakLabel.text = " " + steakValue + "/3";
             this._sauceLabel.text = " " + sauceValue + "/4";
             this._friesLabel.text = " " + friesValue + "/6";
-            this._liveLabel.text = "Lives: " + this._liveValue;
+
         };
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method

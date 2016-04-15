@@ -4,6 +4,7 @@ var assets;
 var canvas;
 var stage;
 var stats;
+var textureAtlas;
 var currentScene;
 var scene;
 var livesValue;
@@ -26,6 +27,23 @@ var level1change;
 var level2change;
 var level2;
 var level3;
+var atlas = {
+    "images": [
+        "../../Assets/images/player.png"
+    ],
+    "frames": [
+        [1, 1, 99, 93, 0, -1, 0],
+        [102, 1, 99, 93, 0, -1, 0],
+        [203, 1, 100, 90, 0, 0, 0],
+        [305, 1, 100, 90, 0, 0, 0]
+    ],
+    "animations": {
+        "plane": {
+            "frames": [0, 1, 2, 3],
+            "speed": 0.1
+        }
+    },
+};
 var assetData = [
     // Add your Assets here
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
@@ -34,7 +52,6 @@ var assetData = [
     { id: "NextButton", src: "../../Assets/images/NextButton.png" },
     { id: "menuBackground", src: "../../Assets/images/menuBackground.png" },
     { id: "plane", src: "../../Assets/images/plane.png" },
-    { id: "timer", src: "../../Assets/images/timer.png" },
     { id: "chef", src: "../../Assets/images/chef1.png" },
     { id: "kitchenOne", src: "../../Assets/images/kitchenOne.png" },
     { id: "kitchenTwo", src: "../../Assets/images/kitchenTwo.png" },
@@ -69,6 +86,8 @@ function preload() {
     assets.loadManifest(assetData);
 }
 function init() {
+    // instantiate textureAtlas
+    textureAtlas = new createjs.SpriteSheet(atlas);
     // create a reference the HTML canvas Element
     canvas = document.getElementById("canvas");
     // create our main display list container
