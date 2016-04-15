@@ -55,8 +55,6 @@ var scenes;
         Menu.prototype._exitButtonClick = function (event) {
             // Switch to the LEFT_CAVE Scene
             scene = config.Scene.LEVEL3;
-
-
             changeScene();
         };
         return Menu;

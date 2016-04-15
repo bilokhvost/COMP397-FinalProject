@@ -18,10 +18,10 @@ var scenes;
          * @return void
          */
         levelOne.prototype._updateScore = function () {
-            this._timeLabel.text = "Time Remaining: " + timeValue;
-            this._breadLabel.text = "Bread: " + breadValue + "/2";
-            this._cheeseLabel.text = "Cheese: " + cheeseValue + "/3";
-            this._eggLabel.text = "Eggs: " + eggValue + "/5";
+            this._timeLabel.text = " " + timeValue;
+            this._breadLabel.text = " " + breadValue + "/2";
+            this._cheeseLabel.text = " " + cheeseValue + "/3";
+            this._eggLabel.text = " " + eggValue + "/5";
         };
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
@@ -58,17 +58,38 @@ var scenes;
                 this.addChild(this._mice[mouse]);
             }
             //added LivesLabel to the scene
-            this._timeLabel = new objects.Label("Lives: " + livesValue, "25px Consolas", "#000000", 10, 10, false);
+            this._timeLabel = new objects.Label(" " + livesValue, "25px Consolas", "#000000", 50, 15, false);
             this.addChild(this._timeLabel);
             //added BreadLabel to the scene
-            this._breadLabel = new objects.Label("Bread: " + breadValue + " /2", "25px Consolas", "#000000", 490, 10, false);
+            this._breadLabel = new objects.Label(": " + breadValue + " /2", "25px Consolas", "#000000", 530, 10, false);
             this.addChild(this._breadLabel);
             //added CheeseLabel to the scene
-            this._cheeseLabel = new objects.Label("Cheese: " + cheeseValue + " /3", "25px Consolas", "#000000", 475, 40, false);
+            this._cheeseLabel = new objects.Label(": " + cheeseValue + " /3", "25px Consolas", "#000000", 530, 50, false);
             this.addChild(this._cheeseLabel);
             //added EggLabel to the scene
-            this._eggLabel = new objects.Label("Eggs: " + eggValue + " /5", "25px Consolas", "#000000", 500, 70, false);
+            this._eggLabel = new objects.Label(": " + eggValue + " /5", "25px Consolas", "#000000", 530, 90, false);
             this.addChild(this._eggLabel);
+            //add the images for scoring
+            // timer Icon
+            this._timerIcon = new createjs.Bitmap(assets.getResult("timer"));
+            this._timerIcon.x = 10;
+            this._timerIcon.y = 10;
+            this.addChild(this._timerIcon);
+            //bread icon
+            this._breadIcon = new createjs.Bitmap(assets.getResult("bread"));
+            this._breadIcon.x = 500;
+            this._breadIcon.y = 10;
+            this.addChild(this._breadIcon);
+            //cheese icon
+            this._cheeseIcon = new createjs.Bitmap(assets.getResult("cheese"));
+            this._cheeseIcon.x = 500;
+            this._cheeseIcon.y = 50;
+            this.addChild(this._cheeseIcon);
+            //egg icon
+            this._eggicon = new createjs.Bitmap(assets.getResult("egg"));
+            this._eggicon.x = 500;
+            this._eggicon.y = 90;
+            this.addChild(this._eggicon);
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
             // add this scene to the global stage container
