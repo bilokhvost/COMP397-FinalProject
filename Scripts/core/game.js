@@ -8,13 +8,13 @@ var currentScene;
 var scene;
 var livesValue;
 var timeValue;
-var breadValue;
-var cheeseValue;
-var eggValue;
 var steakValue;
 var friesValue;
 var sauceValue;
 var highScoreValue = 0;
+var cheeseValue;
+var eggValue;
+var breadValue;
 // Game Scenes
 var menu;
 var end;

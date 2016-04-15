@@ -19,10 +19,14 @@ var scenes;
             this._kitchen = new objects.KitchenOne();
             this.addChild(this._kitchen);
             //Add Menu Label
-            this._endLabel = new objects.Label("Level 1 completed", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y - 80, true);
+            this._endLabel = new objects.Label("Level 1 completed", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y - 80, true);
             this.addChild(this._endLabel);
+            this._scoreLabel = new objects.Label("Your Score:", "25px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+            this.addChild(this._scoreLabel);
+            this._highScoreLabel = new objects.Label(breadValue + " + " + cheeseValue + " + " + eggValue + " = " + highScoreValue, "25px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y + 25, true);
+            this.addChild(this._highScoreLabel);
             //Add Score Label
-            this._scoreLabel = new objects.Label("Click Play to start level two", "25px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+            this._nextLabel = new objects.Label("Click Play to start level two", "25px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._scoreLabel);
             // add the Start button to the MENU scene
             this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X - 50, config.Screen.CENTER_Y + 80, false);

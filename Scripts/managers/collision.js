@@ -14,6 +14,7 @@ var managers;
             var playerHalfHeight = this._player.height * 0.5;
             var objectHalfHeight = object.height * 0.5;
             var minimumDistance = playerHalfHeight + objectHalfHeight;
+            var isCollided = false;
             startPoint.x = this._player.x;
             startPoint.y = this._player.y;
             endPoint.x = object.centerX + object.x;
@@ -21,37 +22,37 @@ var managers;
             /* check if the distance between the player and
               the other object is less than the minimum distance */
             if (this.distance(startPoint, endPoint) < minimumDistance) {
-                if (!object.isColliding) {
-                    // check if it's an cheese hit
-                    if (object.name === "cheese") {
-                        createjs.Sound.play("snap");
-                        cheeseValue += 1; //award 1 cheese                        
+                //    if (!object.isColliding) {
+                // check if it's an cheese hit
+                if (object.name === "cheese") {
+                    createjs.Sound.play("snap");
+                    cheeseValue += 1; //award 1 cheese
+                    isCollided = true;
+                }
+                // check if it's an bread hit
+                if (object.name === "bread") {
+                    createjs.Sound.play("toast");
+                    breadValue += 1; //award 1 bread
+                    isCollided = true;
+                }
+                // check if it's an egg hit
+                if (object.name === "egg") {
+                    createjs.Sound.play("crack");
+                    eggValue += 1; //award 1 egg  
+                    isCollided = true;
+                }
+                // check if it's a mouse hit
+                if (object.name === "mouse") {
+                    createjs.Sound.play("squeak");
+                    cheeseValue--; // lose a cheese
+                    // check if player has no more lives
+                    if (cheeseValue <= 0) {
+                        cheeseValue = 0;
                     }
-                    // check if it's an bread hit
-                    if (object.name === "bread") {
-                        createjs.Sound.play("toast");
-                        breadValue += 1; //award 1 bread
-                    }
-                    // check if it's an egg hit
-                    if (object.name === "egg") {
-                        createjs.Sound.play("crack");
-                        eggValue += 1; //award 1 egg
-                    }
-                    // check if it's a mouse hit
-                    if (object.name === "mouse") {
-                        createjs.Sound.play("squeak");
-                        cheeseValue--; // lose a cheese
-                        // check if player has no more lives
-                        if (cheeseValue <= 0) {
-                            cheeseValue = 0;
-                        }
-                    }
-                    object.isColliding = true;
                 }
             }
-            else {
-                object.isColliding = false;
-            }
+            // } 
+            return isCollided;
         };
         return Collision;
     }());

@@ -5,6 +5,8 @@ module scenes {
         private _kitchen: objects.KitchenOne;
         private _endLabel: objects.Label;
         private _scoreLabel: objects.Label;
+        private _nextLabel: objects.Label;
+        private _totalScoreLabel: objects.Label;
         private _highScoreLabel: objects.Label;
         private _restartButton: objects.Button;
        
@@ -29,14 +31,27 @@ module scenes {
             //Add Menu Label
             this._endLabel = new objects.Label(
                 "Level 1 completed", "60px Consolas",
-                "#ffff00",
+                "#000000",
                 config.Screen.CENTER_X, config.Screen.CENTER_Y - 80, true);
             this.addChild(this._endLabel);
+            
+             this._scoreLabel = new objects.Label(
+                "Your Score:" , "25px Consolas",
+                "#000000",
+                config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+            this.addChild(this._scoreLabel);
+            
+            
+            this._highScoreLabel =  new objects.Label(
+            breadValue+" + " + cheeseValue+" + "+ eggValue+" = " + highScoreValue, "25px Consolas",
+                "#000000",
+                config.Screen.CENTER_X, config.Screen.CENTER_Y+25, true);
+            this.addChild(this._highScoreLabel);
 
             //Add Score Label
-            this._scoreLabel = new objects.Label(
+            this._nextLabel = new objects.Label(
                 "Click Play to start level two", "25px Consolas",
-                "#ffff00",
+                "#000000",
                 config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._scoreLabel);
             

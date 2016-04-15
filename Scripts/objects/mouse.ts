@@ -16,14 +16,14 @@ module objects {
         protected _checkBounds(value:number):void {
             // check to see if the left of the mouse 
             // is outside the viewport         
-            if(this.x <= (value-this.width)) {
+            if(this.x <= (value-this.width)||this.y<=this._topBounds) {
                 this._reset(this._rightBounds);
             }
         }
         
         // reset the mouse offscreen
         protected _reset(value:number):void {
-            this._speed.x = Math.floor(Math.random() * 5) + 5;
+            this._speed.x = Math.floor(Math.random() * 5) + 6;
             this._speed.y = Math.floor(Math.random() * 4) - 2;
             
             this.x = value;

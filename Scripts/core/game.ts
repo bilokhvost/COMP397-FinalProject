@@ -11,13 +11,14 @@ var scene: number;
 
 var livesValue: number;
 var timeValue: number;
-var breadValue: number;
-var cheeseValue: number;
-var eggValue: number;
+
 var steakValue: number;
 var friesValue: number;
 var sauceValue: number;
 var highScoreValue: number = 0;
+var cheeseValue: number;
+var eggValue: number;
+var breadValue: number;
 
 // Game Scenes
 var menu: scenes.Menu;

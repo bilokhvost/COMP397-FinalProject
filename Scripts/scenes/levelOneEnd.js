@@ -37,7 +37,7 @@ var scenes;
         // START_OVER Button click event handler
         levelOneEnd.prototype._restartButtonClick = function (event) {
             // Switch to the INTRO Scene
-            scene = config.Scene.PLAY;
+            scene = config.Scene.LEVEL1;
             changeScene();
         };
         return levelOneEnd;
