@@ -18,6 +18,9 @@ module scenes {
         private _steakLabel: objects.Label;
         private _sauceLabel: objects.Label;
         private _friesLabel: objects.Label;
+        private _steakIcon:createjs.Bitmap;
+        private _sauceIcon:createjs.Bitmap;
+        private _friesIcon:createjs.Bitmap;
         private _timer: number;
         private _liveValue: number = 100;
       
@@ -35,10 +38,17 @@ module scenes {
          * @return void
          */
         private _updateScore(): void {
+<<<<<<< HEAD
+            this._timeLabel.text = "Time Remaining: " + timeValue;
+            this._steakLabel.text = " " + steakValue + "/3" ;
+            this._sauceLabel.text = " " + sauceValue + "/4";
+            this._friesLabel.text = " " + friesValue + "/6";
+=======
             this._liveLabel.text = "Lives: " + this._liveValue;
             this._steakLabel.text = "Steak: " + steakValue + "/3";
             this._sauceLabel.text = "Sauce: " + sauceValue + "/4";
             this._friesLabel.text = "Fries: " + friesValue + "/6";
+>>>>>>> 75d3a79cee5bdd7aba543e5341a6b822ad703aa1
         }
 
         // PUBLIC METHODS +++++++++++++++++++++
@@ -98,33 +108,55 @@ module scenes {
             );
             this.addChild(this._liveLabel);
 
-            //added BreadLabel to the scene
+            //added SteakLabel to the scene
             this._steakLabel = new objects.Label(
-                "Steak: " + steakValue + "/3",
+
+                ":" + steakValue+"/3",
                 "25px Consolas",
                 "#000000",
-                490, 10, false
+                540, 10, false
+
             );
             this.addChild(this._steakLabel);
 
-            //added CheeseLabel to the scene
+            //added SauceLabel to the scene
             this._sauceLabel = new objects.Label(
-                "Sauce: " + sauceValue + "/4",
+
+                ":" + sauceValue + "/4",
                 "25px Consolas",
                 "#000000",
-                490, 70, false
+                540, 50, false
+
             );
             this.addChild(this._sauceLabel);
 
-            //added EggLabel to the scene
+            //added FriesLabel to the scene
             this._friesLabel = new objects.Label(
-                "Fries: " + friesValue + "/6",
+
+                ":" + friesValue + "/6",
                 "25px Consolas",
-                "#000000",
-                490, 40, false
+                "#ffff00",
+                540, 90, false
+
             );
             this.addChild(this._friesLabel);
-
+            
+            //add the images for scoring
+            //steak icon
+            this._steakIcon= new createjs.Bitmap(assets.getResult("steak"));
+            this._steakIcon.x=500;
+            this._steakIcon.y=20;
+            this.addChild(this._steakIcon);
+            //sauce icon
+            this._sauceIcon= new createjs.Bitmap(assets.getResult("sauce"));
+            this._sauceIcon.x=510;
+            this._sauceIcon.y=50;
+            this.addChild(this._sauceIcon);
+            //fries icon
+            this._friesIcon= new createjs.Bitmap(assets.getResult("fries"));
+            this._friesIcon.x=500;
+            this._friesIcon.y=100;
+            this.addChild(this._friesIcon);
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
 

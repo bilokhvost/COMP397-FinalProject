@@ -61,6 +61,7 @@ var assetData: objects.Asset[] = [
     { id: "NextButton", src: "../../Assets/images/NextButton.png" },
     { id: "menuBackground", src: "../../Assets/images/menuBackground.png" },
     { id: "plane", src: "../../Assets/images/plane.png" },
+    {id:"timer", src:"../../Assets/images/timer.png"},
     { id: "chef", src: "../../Assets/images/chef1.png" },
     { id: "kitchenOne", src: "../../Assets/images/kitchenOne.png" },
     { id: "kitchenTwo", src: "../../Assets/images/kitchenTwo.png" },
@@ -80,6 +81,7 @@ var assetData: objects.Asset[] = [
     { id: "cream", src: "../../Assets/images/cream.png" },
     { id: "pie", src: "../../Assets/images/pie.png" },
     { id: "bird", src: "../../Assets/images/bird.png" },
+    
 
     //audio 
 
