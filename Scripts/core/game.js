@@ -23,7 +23,7 @@ var level1end;
 var level1change;
 var level2change;
 var level2;
-//var level3: scenes.levelThree;
+var level3;
 var assetData = [
     // Add your Assets here
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },

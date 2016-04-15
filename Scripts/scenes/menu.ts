@@ -76,7 +76,11 @@ module scenes {
           // EXIT Button click event handler
           private _exitButtonClick(event: createjs.MouseEvent) {
             // Switch to the LEFT_CAVE Scene
+<<<<<<< HEAD
+            scene = config.Scene.LEVEL3;
+=======
             scene = config.Scene.LEVEL1;
+>>>>>>> 6363387550d7f7f58e7239adf6c2d5dd89c1ea40
             changeScene();
         }
 
