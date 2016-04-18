@@ -18,7 +18,6 @@
 /// <reference path="../objects/fries.ts" />
 /// <reference path="../objects/pepper.ts" />
 /// <reference path="../objects/sauce.ts" />
-/// <reference path="../objects/spritegameobject.ts" />
 /// <reference path="../managers/collision.ts" />
 
 /// <reference path="../scenes/levelOne.ts" />

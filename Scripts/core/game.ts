@@ -45,7 +45,7 @@ var atlas = {
     ],
 
     "animations": {
-        "plane":{
+        "player":{
             "frames":[0,1,2,3],
             "speed": 0.1
         }
