@@ -40,7 +40,7 @@ var scenes;
         // START_OVER Button click event handler
         LevelTwoChange.prototype._startButtonClick = function (event) {
             // Switch to the LEVEL ONE Scene
-            scene = config.Scene.LEVEL1;
+            scene = config.Scene.LEVEL3;
             changeScene();
         };
         return LevelTwoChange;

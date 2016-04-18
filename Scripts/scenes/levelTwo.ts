@@ -45,13 +45,7 @@ module scenes {
             this._steakLabel.text = " " + steakValue + "/3" ;
             this._sauceLabel.text = " " + sauceValue + "/4";
             this._friesLabel.text = " " + friesValue + "/6";
-
-
             this._liveLabel.text = " " + this._liveValue;
-
-            this._liveLabel.text = "Lives: " + this._liveValue;
-       
-
         }
 
         // PUBLIC METHODS +++++++++++++++++++++

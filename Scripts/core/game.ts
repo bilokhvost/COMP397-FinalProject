@@ -16,6 +16,11 @@ var timeValue: number;
 var steakValue: number;
 var friesValue: number;
 var sauceValue: number;
+//level 3
+var strawberryValue:number;
+var creamValue:number;
+var pieValue:number;
+
 var scoreLevelOne: number = 0;
 var scoreLevelTwo: number = 0;
 var highScoreValue: number = 0;
@@ -80,7 +85,7 @@ var assetData: objects.Asset[] = [
 
     { id: "mouse", src: "../../Assets/images/mouse.png" },    
     { id: "pepper", src: "../../Assets/images/pepper.png" },
-    { id: "panel", src: "../../Assets/images/panel.png" },
+    { id: "panel", src: "../../Assets/images/backScore.png" },
 
 
     //images level 3
@@ -218,13 +223,7 @@ function changeScene(): void {
             currentScene = level2change;
             console.log("Starting LEVEL 2 Scene");
             break;
-        // case config.Scene.LEVEL3:
-        //     // show the LEVEL3 scene
-        //     stage.removeAllChildren();
-        //     level3 = new scenes.levelThree();
-        //     currentScene = level3;
-        //     console.log("Starting LEVEL 3 Scene");
-        //     break;
+       
         case config.Scene.LEVEL3:
             // show the LEVEL3 scene
             stage.removeAllChildren();

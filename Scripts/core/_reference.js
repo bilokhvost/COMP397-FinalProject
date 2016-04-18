@@ -16,7 +16,7 @@
 /// <reference path="../objects/fries.ts" />
 /// <reference path="../objects/pepper.ts" />
 /// <reference path="../objects/sauce.ts" />
-/// <reference path="../objects/level3/cream.ts/>"
+/// <reference path="../objects/level3/cream.ts"/>
 /// <reference path="../objects/level3/pie.ts"/>
 /// <reference path="../objects/level3/strawberry.ts"/>
 /// <reference path="../objects/level3/bird.ts"/>
