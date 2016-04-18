@@ -1,0 +1,26 @@
+{
+
+"images": [
+    "player.png"
+],
+
+"frames": [
+    [1, 1, 99, 93, 0, -1, 0],
+    [102, 1, 99, 93, 0, -1, 0],
+    [203, 1, 100, 90, 0, 0, 0],
+    [305, 1, 100, 90, 0, 0, 0]
+],
+
+"animations": {
+    "chef2": [0],
+    "chef3": [1],
+    "chef1": [2],
+    "chef4": [3]
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:7a48f8ef450ea9e8b70e9fb74851f69c:e4da41c4289ad91effbbbc33fc2bc175:86d5339b780aedd87b35e2b7c0a7e11b$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

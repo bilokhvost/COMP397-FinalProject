@@ -5,6 +5,7 @@ var assets: createjs.LoadQueue;
 var canvas: HTMLElement;
 var stage: createjs.Stage;
 var stats: Stats;
+var textureAtlas: createjs.SpriteSheet;
 
 var currentScene: objects.Scene;
 var scene: number;
@@ -32,7 +33,24 @@ var level2change: scenes.LevelTwoChange;
 var level2: scenes.levelTwo;
 var level3: scenes.levelThree;
 
+var atlas = {
+    "images": [
+        "../../Assets/images/player.png"
+    ],
+    "frames": [
+        [1, 1, 99, 93, 0, -1, 0],
+        [102, 1, 99, 93, 0, -1, 0],
+        [203, 1, 100, 90, 0, 0, 0],
+        [305, 1, 100, 90, 0, 0, 0]
+    ],
 
+    "animations": {
+        "player":{
+            "frames":[0,1,2,3],
+            "speed": 0.1
+        }
+    },
+}
 
 
 var assetData: objects.Asset[] = [
@@ -55,9 +73,15 @@ var assetData: objects.Asset[] = [
     { id: "fries", src: "../../Assets/images/fries.png" },
     { id: "sauce", src: "../../Assets/images/sauce.png" },
     { id: "egg", src: "../../Assets/images/egg.png" },
+
     { id: "mouse", src: "../../Assets/images/mouse.png" },
 
     { id: "pepper", src: "../../Assets/images/pepper.png" },
+
+    { id: "mouse", src: "../../Assets/images/mouse.png" },    
+    { id: "pepper", src: "../../Assets/images/pepper.png" },
+    { id: "panel", src: "../../Assets/images/panel.png" },
+
 
     //images level 3
     { id: "strawberry", src: "../../Assets/images/strawberry.png" },
@@ -87,6 +111,9 @@ function preload() {
 }
 
 function init(): void {
+    // instantiate textureAtlas
+    textureAtlas = new createjs.SpriteSheet(atlas);
+    
     // create a reference the HTML canvas Element
     canvas = document.getElementById("canvas");
 

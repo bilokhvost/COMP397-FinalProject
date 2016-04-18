@@ -9,13 +9,13 @@ var objects;
     var Player = (function (_super) {
         __extends(Player, _super);
         function Player() {
-            _super.call(this, assets.getResult("chef"));
+            _super.call(this, textureAtlas, "player");
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
             this._leftBounds = this.width * 0.5;
-            this._topBounds = this.regX + 120;
+            this._topBounds = this.regX + 80;
             this._bottomBounds = config.Screen.HEIGHT - this.regX;
             this._rightBounds = config.Screen.WIDTH - (this.width * 0.75);
             //this.y = 360;
@@ -46,7 +46,7 @@ var objects;
             this._checkBounds();
         };
         return Player;
-    }(createjs.Bitmap));
+    }(createjs.Sprite));
     objects.Player = Player;
 })(objects || (objects = {}));
 

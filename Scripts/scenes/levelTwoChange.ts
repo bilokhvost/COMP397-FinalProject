@@ -31,14 +31,7 @@ module scenes {
                 "#000000",
                 config.Screen.CENTER_X, config.Screen.CENTER_Y - 80, true);
             this.addChild(this._endLabel);
-            
-             this._scoreLabel = new objects.Label(
-                "Previous score: " + scoreLevelOne, "25px Consolas",
-                "#000000",
-                config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
-            this.addChild(this._scoreLabel);
-            
-            
+                    
             this._highScoreLabel =  new objects.Label(
            "New score: " + steakValue+" + " + friesValue+" + "+ sauceValue+" = " + scoreLevelTwo, "25px Consolas",
                 "#000000",

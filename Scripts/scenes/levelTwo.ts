@@ -24,8 +24,8 @@ module scenes {
         private _friesIcon:createjs.Bitmap;
         private _lifeIcon:createjs.Bitmap;
         private _timer: number;
-        private _liveValue: number = 100;
-      
+        private _liveValue: number = 10;
+        private _rightBounds: number;
 
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -41,26 +41,30 @@ module scenes {
          */
         private _updateScore(): void {
 
-            
+
             this._steakLabel.text = " " + steakValue + "/3" ;
             this._sauceLabel.text = " " + sauceValue + "/4";
             this._friesLabel.text = " " + friesValue + "/6";
 
+
             this._liveLabel.text = " " + this._liveValue;
-           
+
+            this._liveLabel.text = "Lives: " + this._liveValue;
+       
+
         }
 
         // PUBLIC METHODS +++++++++++++++++++++
 
         // Start Method
         public start(): void {
-            // Set Bread Count
+            // Set Steak Count
             this._steakCount = 1;
-
-            // Set Egg Count
+            this._rightBounds = config.Screen.WIDTH - 60;
+            // Set Fries Count
             this._friesCount = 1;
 
-            // Set Mouse Count
+            // Set Pepper Count
             this._pepperCount = 4;
 
 
@@ -81,18 +85,20 @@ module scenes {
             this._player = new objects.Player();
             this.addChild(this._player);
 
-            // added cheese to the scene
+            // added steak to the scene
             this._steak = new objects.Steak();
             this.addChild(this._steak);
 
+            // added fries to the scene
             this._fries = new objects.Fries();
             this.addChild(this._fries);
 
+            // added sauce to the scene
             this._sauce = new objects.Sauce();
             this.addChild(this._sauce);
             
 
-            //added mouse to the scene
+            //added pepper to the scene
             for (var pepper: number = 0; pepper < this._pepperCount; pepper++) {
                 this._peppers[pepper] = new objects.Pepper();
                 this.addChild(this._peppers[pepper]);
@@ -181,34 +187,34 @@ module scenes {
 
             this._peppers.forEach(pepper => {
                 pepper.update();
-                if(this._collision.check(pepper)){
-                 //   this.removeChild(pepper);
+                if (this._collision.check(pepper)) {
+                    // this.removeChild(pepper);
+                    //     pepper = new objects.Pepper();
+                    //   this.addChild(pepper);
+                    pepper._reset(this._rightBounds);
                     this._liveValue--;
-                     this.checkLife(this._liveValue);
-                }         
-                        
+                    this.checkLife(this._liveValue);
+                }
+
             });
 
             if (this._collision.check(this._steak)) {
-                 this.removeChild(this._steak);
-               this._steak=new objects.Steak();
-               this.addChild(this._steak);
+                this.removeChild(this._steak);
+                this._steak = new objects.Steak();
+                this.addChild(this._steak);
             }
 
             if (this._collision.check(this._fries)) {
-               this.removeChild(this._fries);
-               this._fries=new objects.Fries();
-               this.addChild(this._fries);
+                this.removeChild(this._fries);
+                this._fries = new objects.Fries();
+                this.addChild(this._fries);
 
             }
             if (this._collision.check(this._sauce)) {
-               this.removeChild(this._sauce);
-               this._sauce=new objects.Sauce();
-               this.addChild(this._sauce);                
+                this.removeChild(this._sauce);
+                this._sauce = new objects.Sauce();
+                this.addChild(this._sauce);
             }
-            
-            
-
             //Status Change
             if (sauceValue >= 4) {
                 this._sauceLabel.color = "GREEN";
@@ -225,27 +231,27 @@ module scenes {
             //Scene Change
             if (sauceValue >= 4 && steakValue >= 3 && friesValue >= 6) {
                 // Switch to the Transition Scene
-              sauceValue*=100;
-               steakValue*=200;
-               friesValue*=50;
-               scoreLevelTwo = sauceValue+steakValue+friesValue;
-                 highScoreValue = scoreLevelOne + scoreLevelTwo;
+                sauceValue *= 100;
+                steakValue *= 200;
+                friesValue *= 50;
+                scoreLevelTwo = sauceValue + steakValue + friesValue;
+                highScoreValue = scoreLevelOne + scoreLevelTwo;
                 scene = config.Scene.LEVEL2CHANGE;
                 changeScene();
             }
 
             this._updateScore();
         }
-  private checkLife(value:number){
-            if (value<=0){
-                  sauceValue*=100;
-               steakValue*=200;
-               friesValue*=50;
-               scoreLevelTwo = sauceValue+steakValue+friesValue;
-                 highScoreValue = scoreLevelOne + scoreLevelTwo;
-                    // Switch to the Game Over Scene
-                    scene = config.Scene.END;
-                    changeScene();
+        private checkLife(value: number) {
+            if (value <= 0) {
+                sauceValue *= 75;
+                steakValue *= 100;
+                friesValue *= 50;
+                scoreLevelTwo = sauceValue + steakValue + friesValue;
+                highScoreValue = scoreLevelOne + scoreLevelTwo;
+                // Switch to the Game Over Scene
+                scene = config.Scene.END;
+                changeScene();
             }
         }
 
