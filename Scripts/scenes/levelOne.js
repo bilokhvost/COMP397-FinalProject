@@ -60,6 +60,11 @@ var scenes;
             //added LivesLabel to the scene
             this._timeLabel = new objects.Label(" " + livesValue, "25px Consolas", "#000000", 50, 15, false);
             this.addChild(this._timeLabel);
+            //adding game panel
+            this._panel = new createjs.Bitmap(assets.getResult("panel"));
+            this._panel.x = 490;
+            this._panel.y = -10;
+            this.addChild(this._panel);
             //added BreadLabel to the scene
             this._breadLabel = new objects.Label(": " + breadValue + " /2", "25px Consolas", "#000000", 530, 10, false);
             this.addChild(this._breadLabel);

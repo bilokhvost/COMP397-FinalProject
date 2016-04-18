@@ -15,6 +15,7 @@ module scenes {
         private _cheeseLabel: objects.Label;
         private _eggLabel: objects.Label;
         // icons for images
+        private _panel:createjs.Bitmap;
         private _eggicon:createjs.Bitmap;
         private _cheeseIcon:createjs.Bitmap;
         private _breadIcon:createjs.Bitmap;
@@ -98,6 +99,12 @@ module scenes {
             );
             this.addChild(this._timeLabel);
 
+            //adding game panel
+            this._panel= new createjs.Bitmap(assets.getResult("panel"));
+            this._panel.x=490;
+            this._panel.y=-10;
+            this.addChild(this._panel);
+            
             //added BreadLabel to the scene
             this._breadLabel = new objects.Label(
                 ": " + breadValue + " /2",
@@ -125,6 +132,7 @@ module scenes {
                 530, 90, false
             );
             this.addChild(this._eggLabel);
+            
             //add the images for scoring
             // timer Icon
             this._timerIcon= new createjs.Bitmap(assets.getResult("timer"));

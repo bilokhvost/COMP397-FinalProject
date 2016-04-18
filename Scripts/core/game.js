@@ -64,6 +64,7 @@ var assetData = [
     { id: "egg", src: "../../Assets/images/egg.png" },
     { id: "mouse", src: "../../Assets/images/mouse.png" },
     { id: "pepper", src: "../../Assets/images/pepper.png" },
+    { id: "panel", src: "../../Assets/images/panel.png" },
     //images level 3
     { id: "strawberry", src: "../../Assets/images/strawberry.png" },
     { id: "kitchenThree", src: "../../Assets/images/kitchen4.png" },
