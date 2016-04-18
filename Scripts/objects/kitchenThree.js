@@ -5,28 +5,37 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var objects;
 (function (objects) {
-    var kitchenThree = (function (_super) {
-        __extends(kitchenThree, _super);
-        function kitchenThree() {
+    // Kitchen One CLASS ++++++++++++++++++++++++++++++++++++
+    var KitchenThree = (function (_super) {
+        __extends(KitchenThree, _super);
+        // PRIVATE INSTANCE VARIABLES +++++++++++++++++
+        // CONSTRUCTOR METHOD +++++++++++++++++++++++++
+        function KitchenThree() {
             _super.call(this, "kitchenThree");
-            this._speed.x = -6;
+            this._speed.x = -5; //kitchenOne speed
             this._reset(0);
         }
-        kitchenThree.prototype._checkBounds = function (value) {
+        // PRIVATE METHODS ++++++++++++++++++++++++++++
+        KitchenThree.prototype._checkBounds = function (value) {
+            // check to see if the top of the kitchenOne 
+            // is met the top of the scene
             if (this.x <= value) {
                 this._reset(0);
             }
         };
-        kitchenThree.prototype._reset = function (value) {
+        // reset the kitchenOne offscreen
+        KitchenThree.prototype._reset = function (value) {
             this.x = value;
         };
-        kitchenThree.prototype.update = function () {
+        // PUBLIC METHODS ++++++++++++++++++++++++++++++
+        KitchenThree.prototype.update = function () {
+            // scroll the kitchenOne 5 px per frame
             this.x += this._speed.x;
-            this._checkBounds(0);
+            this._checkBounds(-2565); //2599
         };
-        return kitchenThree;
+        return KitchenThree;
     }(objects.GameObject));
-    objects.kitchenThree = kitchenThree;
+    objects.KitchenThree = KitchenThree;
 })(objects || (objects = {}));
 
 //# sourceMappingURL=kitchenThree.js.map

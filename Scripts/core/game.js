@@ -35,9 +35,10 @@ var assetData = [
     { id: "menuBackground", src: "../../Assets/images/menuBackground.png" },
     { id: "plane", src: "../../Assets/images/plane.png" },
     { id: "timer", src: "../../Assets/images/timer.png" },
+    { id: "life", src: "../../Assets/images/life.png" },
     { id: "chef", src: "../../Assets/images/chef1.png" },
     { id: "kitchenOne", src: "../../Assets/images/kitchenOne.png" },
-    { id: "kitchenTwo", src: "../../Assets/images/kitchenTwo.png" },
+    { id: "kitchenTwo", src: "../../Assets/images/kitchenTwoo.png" },
     { id: "bread", src: "../../Assets/images/bread.png" },
     { id: "cheese", src: "../../Assets/images/cheese.png" },
     { id: "steak", src: "../../Assets/images/steak.png" },
@@ -48,7 +49,7 @@ var assetData = [
     { id: "pepper", src: "../../Assets/images/pepper.png" },
     //images level 3
     { id: "strawberry", src: "../../Assets/images/strawberry.png" },
-    { id: "kitchenThree", src: "../../Assets/images/kitchen4.png" },
+    { id: "kitchenThree", src: "../../Assets/images/kitchenThree.png" },
     { id: "cream", src: "../../Assets/images/cream.png" },
     { id: "pie", src: "../../Assets/images/pie.png" },
     { id: "bird", src: "../../Assets/images/bird.png" },
@@ -151,7 +152,6 @@ function changeScene() {
             currentScene = level2;
             console.log("Starting LEVEL 2 Scene");
             break;
-
         case config.Scene.LEVEL2CHANGE:
             // show the LEVEL1CHANGE scene
             stage.removeAllChildren();
@@ -159,7 +159,13 @@ function changeScene() {
             currentScene = level2change;
             console.log("Starting LEVEL 2 Scene");
             break;
-   
+        // case config.Scene.LEVEL3:
+        //     // show the LEVEL3 scene
+        //     stage.removeAllChildren();
+        //     level3 = new scenes.levelThree();
+        //     currentScene = level3;
+        //     console.log("Starting LEVEL 3 Scene");
+        //     break;
         case config.Scene.LEVEL3:
             // show the LEVEL3 scene
             stage.removeAllChildren();

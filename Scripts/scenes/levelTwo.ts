@@ -18,9 +18,11 @@ module scenes {
         private _steakLabel: objects.Label;
         private _sauceLabel: objects.Label;
         private _friesLabel: objects.Label;
+        //image icon
         private _steakIcon:createjs.Bitmap;
         private _sauceIcon:createjs.Bitmap;
         private _friesIcon:createjs.Bitmap;
+        private _lifeIcon:createjs.Bitmap;
         private _timer: number;
         private _liveValue: number = 100;
       
@@ -38,17 +40,14 @@ module scenes {
          * @return void
          */
         private _updateScore(): void {
-<<<<<<< HEAD
-            this._timeLabel.text = "Time Remaining: " + timeValue;
+
+            
             this._steakLabel.text = " " + steakValue + "/3" ;
             this._sauceLabel.text = " " + sauceValue + "/4";
             this._friesLabel.text = " " + friesValue + "/6";
-=======
-            this._liveLabel.text = "Lives: " + this._liveValue;
-            this._steakLabel.text = "Steak: " + steakValue + "/3";
-            this._sauceLabel.text = "Sauce: " + sauceValue + "/4";
-            this._friesLabel.text = "Fries: " + friesValue + "/6";
->>>>>>> 75d3a79cee5bdd7aba543e5341a6b822ad703aa1
+
+            this._liveLabel.text = " " + this._liveValue;
+           
         }
 
         // PUBLIC METHODS +++++++++++++++++++++
@@ -101,10 +100,10 @@ module scenes {
 
             //added LivesLabel to the scene
             this._liveLabel = new objects.Label(
-                "Lives: " + this._liveValue,
+                " " + this._liveValue,
                 "25px Consolas",
                 "#000000",
-                10, 10, false
+                50, 15, false
             );
             this.addChild(this._liveLabel);
 
@@ -135,13 +134,18 @@ module scenes {
 
                 ":" + friesValue + "/6",
                 "25px Consolas",
-                "#ffff00",
+                "#000000",
                 540, 90, false
 
             );
             this.addChild(this._friesLabel);
             
             //add the images for scoring
+            //life icon
+            this._lifeIcon= new createjs.Bitmap(assets.getResult("life"));
+            this._lifeIcon.x=10;
+            this._lifeIcon.y=10;
+            this.addChild(this._lifeIcon);
             //steak icon
             this._steakIcon= new createjs.Bitmap(assets.getResult("steak"));
             this._steakIcon.x=500;

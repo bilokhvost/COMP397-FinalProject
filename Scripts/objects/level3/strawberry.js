@@ -5,33 +5,34 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // Cream Class
+    // ISLAND CLASS ++++++++++++++++++++++++++++++++++++
     var Strawberry = (function (_super) {
         __extends(Strawberry, _super);
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         function Strawberry() {
             _super.call(this, "strawberry");
-            this._speed.x = -5; //strawberry speed
+            this._speed.x = -8; //island speed
             this._reset(this._rightBounds);
             this.name = "strawberry";
+            this.soundString = "snap";
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
         Strawberry.prototype._checkBounds = function (value) {
-            // check to see if the top of the strawberry 
+            // check to see if the top of the island 
             // is outside the viewport         
             if (this.x <= value - this.width) {
                 this._reset(this._rightBounds);
             }
         };
-        // reset the kitchen offscreen
+        // reset the ocean offscreen
         Strawberry.prototype._reset = function (value) {
-            this.y = Math.floor(Math.random() * this._bottomBounds);
             this.x = value;
+            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds - 10;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         Strawberry.prototype.update = function () {
-            // scroll the strawberry 5 px per frame
+            // scroll the island 5 px per frame
             this.x += this._speed.x;
             this._checkBounds(this._leftBounds);
         };
