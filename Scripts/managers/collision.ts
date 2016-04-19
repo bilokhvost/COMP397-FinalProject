@@ -84,6 +84,34 @@ module managers {
                        isCollided=true;               
                     }
                     
+                    //strawberry amount
+                     if (object.name === "strawberry") {
+                        createjs.Sound.play("snap");
+                        strawberryValue += 1; //award 1 strawberry
+                            isCollided=true;                                      
+                    }
+                     // cream hit
+                    if (object.name === "cream") {
+                        createjs.Sound.play("toast");
+                        creamValue += 1; //award 1 cream
+                        isCollided=true;  
+                    }
+                    
+                     // pie hit
+                    if (object.name === "pie") {
+                        createjs.Sound.play("crack");
+                        pieValue += 1; //award 1 pie  
+                        isCollided=true;  
+                    }
+                    
+                    if (object.name === "bird") {
+                        createjs.Sound.play("squeak");
+                        strawberryValue--; // lose a strawberry
+                        // check if player has no more lives
+                        if (strawberryValue <= 0) {
+                            strawberryValue = 0;
+                        }                  
+                    }
                 }
            // } 
                 return  isCollided;

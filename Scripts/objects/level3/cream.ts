@@ -1,38 +1,38 @@
 module objects {
-    // Cream Class
-    export class Strawberry extends objects.GameObject {
+    export class Cream extends objects.GameObject {
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         constructor() {
-            super("strawberry");
-            
-           this._speed.x = -5; //strawberry speed
+            super("cream");
+            this._speed.x=-15;
            this._reset(this._rightBounds);
-           this.name = "strawberry";
-           
+           this.name = "cream";
+           this.soundString = "toast";
         }
         
         // PRIVATE METHODS ++++++++++++++++++++++++++++
         protected _checkBounds(value:number):void {
-            // check to see if the top of the strawberry 
+            // check to see if the left of the cream 
             // is outside the viewport         
-            if(this.x <= value-this.width) {
+            if(this.x <= (value-this.width)) {
                 this._reset(this._rightBounds);
             }
         }
         
-        // reset the kitchen offscreen
-        protected _reset(value:number):void {          
-            this.y = Math.floor(Math.random() * this._bottomBounds);
-            this.x =  value;
+        // reset the cream offscreen
+        protected _reset(value:number):void {
+            this.x = value;
+            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds-10;
+            console.log(this.y);
         }
         
         
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         public update():void {
-            // scroll the strawberry 5 px per frame
+            // scroll the cream down the screen
             this.x += this._speed.x;
+           // this.y += this._speed.y;
             this._checkBounds(this._leftBounds);
         }
     }

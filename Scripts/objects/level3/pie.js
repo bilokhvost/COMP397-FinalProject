@@ -5,39 +5,42 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // Cream Class
-    var Cream = (function (_super) {
-        __extends(Cream, _super);
+    // EGG CLASS ++++++++++++++++++++++++++++++++++++
+    var Pie = (function (_super) {
+        __extends(Pie, _super);
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        function Cream() {
-            _super.call(this, "cream");
-            this._speed.x = -5; //cream speed
+        function Pie() {
+            _super.call(this, "pie");
+            this._speed.x = -10;
             this._reset(this._rightBounds);
-            this.name = "cream";
+            this.name = "pie";
+            this.soundString = "crack";
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
-        Cream.prototype._checkBounds = function (value) {
-            // check to see if the top of the cream 
+        Pie.prototype._checkBounds = function (value) {
+            // check to see if the left of the pie 
             // is outside the viewport         
-            if (this.x <= value - this.width) {
+            if (this.x <= (value - this.width)) {
                 this._reset(this._rightBounds);
             }
         };
-        // reset the ocean offscreen
-        Cream.prototype._reset = function (value) {
-            this.y = Math.floor(Math.random() * this._bottomBounds);
+        // reset the pie offscreen
+        Pie.prototype._reset = function (value) {
             this.x = value;
+            this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds - 10;
+            console.log(this.y);
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
-        Cream.prototype.update = function () {
-            // scroll the cream 5 px per frame
+        Pie.prototype.update = function () {
+            // scroll the pie down the screen
             this.x += this._speed.x;
+            //this.y += this._speed.y;
             this._checkBounds(this._leftBounds);
         };
-        return Cream;
+        return Pie;
     }(objects.GameObject));
-    objects.Cream = Cream;
+    objects.Pie = Pie;
 })(objects || (objects = {}));
 
-//# sourceMappingURL=cream.js.map
+//# sourceMappingURL=pie.js.map

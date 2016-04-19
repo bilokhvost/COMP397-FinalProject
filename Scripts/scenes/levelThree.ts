@@ -1,17 +1,26 @@
-//Level Three 
+// PLAY SCENE
 module scenes {
     export class levelThree extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _kitchenThree: objects.kitchenThree;
-        private _cream: objects.Cream;
+        private _kitchenThree: objects.KitchenThree;
+        private _strawberry: objects.Strawberry ;
+        private _cream: objects.Cream;     
+        private _pie: objects.Pie;     
         private _birds: objects.Bird[];
         private _birdCount: number;
         private _player: objects.Player;
         private _collision: managers.Collision;
-        private scoreValue: number;
-        private livesValue: number;
-        private livesLabel: createjs.Text;
-        private scoreLabel: createjs.Text;
+        private _timeLabel: objects.Label;
+        private _creamLabel: objects.Label;
+        private _strawberryLabel: objects.Label;
+        private _pieLabel: objects.Label;
+        // icons for images
+        private _pieIcon:createjs.Bitmap;
+        private _strawberryIcon:createjs.Bitmap;
+        private _creamIcon:createjs.Bitmap;
+        private _timerIcon:createjs.Bitmap;
+        private _timer: number;
+
 
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -19,92 +28,216 @@ module scenes {
 
         }
 
+        // PRIVATE METHODS
+
+        /**
+         * @method _updateScore
+         * @return void
+         */
+        private _updateScore(): void {
+            this._timeLabel.text = " " + timeValue;
+            this._creamLabel.text = " " + creamValue + "/2";
+            this._strawberryLabel.text = " " + strawberryValue + "/3";
+            this._pieLabel.text = " " + pieValue + "/5";
+        }
+
         // PUBLIC METHODS +++++++++++++++++++++
 
         // Start Method
         public start(): void {
-            //set monster 
-            this._birdCount = 4;
+        
+            // Set bird Count
+            this._birdCount = 3;
+
+            livesValue = 5;
+            creamValue = 0;
+            strawberryValue = 0;
+            pieValue = 0;
+            this._timer= 30 * 60; //3 Seconds
+ // Instantiate Pie array
+            this._pie = new objects.Pie();
+
+
+            // Instantiate Cream array
+            this._cream = new objects.Cream();
+
+           
+            // Instantiate birds array
             this._birds = new Array<objects.Bird>();
 
-            //add grass to the scene
-            this._kitchenThree = new objects.kitchenThree();
+            // added kitchen to the scene
+            this._kitchenThree = new objects.KitchenThree();
             this.addChild(this._kitchenThree);
 
-            //add the eggs to the scene
-            this._cream = new objects.Cream();
-            this.addChild(this._cream);
-
-            //add the player to the scene
+            // added player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
-            //initialize socre and lives values
-            this.scoreValue = 0;
-            this.livesValue = 5;
-            //add the monster to the scene
+
+            // added strawberry to the scene
+            this._strawberry = new objects.Strawberry();
+            this.addChild(this._strawberry);
+
+            //added cream to the scene
+           this.addChild(this._cream);
+
+            //added pie to the scene
+           this.addChild(this._pie);
+
+            //added bird to the scene
             for (var bird: number = 0; bird < this._birdCount; bird++) {
                 this._birds[bird] = new objects.Bird();
                 this.addChild(this._birds[bird]);
             }
-            this.livesLabel = new createjs.Text(
-                "LIVES: " + this.livesValue,
-                "40px Consolas",
-                "#ffffff"
-            );
-            this.livesLabel.x = config.Screen.WIDTH * 0.1;
-            this.livesLabel.y = (config.Screen.HEIGHT * 0.15) * 0.20;
-            this.addChild(this.livesLabel);
-            //Add Score Label
 
-            this.scoreLabel = new createjs.Text(
-                "SCORE: " + this.scoreValue,
-                "40px Consolas",
-                "#ffffff"
+            //added LivesLabel to the scene
+            this._timeLabel = new objects.Label(
+                " " + livesValue,
+                "25px Consolas",
+                "#000000",
+                50, 15, false
             );
-            this.scoreLabel.x = config.Screen.WIDTH * 0.6;
-            this.scoreLabel.y = (config.Screen.HEIGHT * 0.15) * 0.20;
-            this.addChild(this.scoreLabel);
+            this.addChild(this._timeLabel);
 
-            //added collision manager to the scene
+            //added creamLabel to the scene
+            this._creamLabel = new objects.Label(
+                ": " + creamValue + " /2",
+                "25px Consolas",
+                "#000000",
+               530, 5, false
+            );
+            this.addChild(this._creamLabel);
+
+            //added StrawberryLabel to the scene
+            this._strawberryLabel = new objects.Label(
+                ": " + strawberryValue + " /3",
+                "25px Consolas",
+                "#000000",
+                530, 60, false
+            );
+            this.addChild(this._strawberryLabel);
+
+            //added PieLabel to the scene
+            
+            this._pieLabel = new objects.Label(
+                ": " + pieValue + " /5",
+                "25px Consolas",
+                "#000000",
+                540, 100, false
+            );
+            this.addChild(this._pieLabel);
+            //add the images for scoring
+            // timer Icon
+            this._timerIcon= new createjs.Bitmap(assets.getResult("timer"));
+            this._timerIcon.x=10;
+            this._timerIcon.y=10;
+            this.addChild(this._timerIcon);
+            
+            //cream icon
+            this._creamIcon= new createjs.Bitmap(assets.getResult("cream"));
+            this._creamIcon.x=500;
+            this._creamIcon.y=5;
+            this.addChild(this._creamIcon);
+            
+            //strawberry icon
+            this._strawberryIcon= new createjs.Bitmap(assets.getResult("strawberry"));
+            this._strawberryIcon.x=500;
+            this._strawberryIcon.y=60;
+            this.addChild(this._strawberryIcon);
+            
+            //Pie icon
+            this._pieIcon= new createjs.Bitmap(assets.getResult("pie"));
+            this._pieIcon.x=500;
+            this._pieIcon.y=100;
+            this.addChild(this._pieIcon);
+            
+
+            // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
+            
+
             // add this scene to the global stage container
             stage.addChild(this);
         }
 
 
 
-
         // PLAY Scene updates here
         public update(): void {
             this._kitchenThree.update();
-            this._cream.update();
             this._player.update();
-            this._birds.forEach(monster => {
-                monster.update();
-                //this._collision.check(monster);
+            
+            this._strawberry.update();
 
-                if (this._collision.check(monster)) {
-                    this.livesValue -= 1;
-                    //this.removeChild(monster);
-                    this.livesLabel.text = "Lives: " + this.livesValue;
-                    //monster= new objects.Monster();
-                    //this.addChild(monster);
+            this._cream.update();
+           if(this._collision.check(this._cream)){
+               this.removeChild(this._cream);
+               this._cream=new objects.Cream();
+               this.addChild(this._cream);
+           }
+           
+
+            this._pie.update();
+             if(this._collision.check(this._pie)){
+              this.removeChild(this._pie);
+               this._pie=new objects.Pie();
+               this.addChild(this._pie);
+             }
+            
+
+            this._birds.forEach(bird => {
+                bird.update();
+                if(this._collision.check(bird)){
+                    
                 }
-
             });
 
-            if (this._collision.check(this._cream)) {
-                this.scoreValue += 10;
-                this.removeChild(this._cream);
-                this.scoreLabel.text = "Score: " + this.scoreValue;
-                this._cream = new objects.Cream();
-                this.addChild(this._cream);
+           if(this._collision.check(this._strawberry)){
+               this.removeChild(this._strawberry);
+               this._strawberry=new objects.Strawberry();
+               this.addChild(this._strawberry);
+           }
 
+            //Status Change
+            if (strawberryValue >= 3) {
+                this._strawberryLabel.color = "GREEN";
+            }
+            else{
+                this._strawberryLabel.color = "BLACK";
+            }
+            if (creamValue >= 2) {
+                this._creamLabel.color = "GREEN";
             }
 
+            if (pieValue >= 5) {
+                this._pieLabel.color = "GREEN";
+            }
 
-            //EVENT HANDLERS ++++++++++++++++++++
+            //Scene Change
+            if (strawberryValue >= 3 && creamValue >= 2 && pieValue >= 5) {
+                // Switch to the Transition Scene
+               creamValue*=100;
+               strawberryValue*=200;
+               pieValue*=50;
+               scoreLevelOne = creamValue+strawberryValue+pieValue;
+                scene = config.Scene.LEVEL1CHANGE;
+                changeScene();
+            }
 
+            
+            //Calculate Time Remaining
+            this._timer--;
+            timeValue = Math.floor((this._timer)/60);
+            if(this._timer<=0){
+                // Switch to the End Scene
+                
+                scene = config.Scene.LEVEL1END;
+                changeScene();
+            }
+            this._updateScore();
         }
+
+
+        //EVENT HANDLERS ++++++++++++++++++++
+
     }
 }

@@ -22,7 +22,7 @@ var scenes;
             this._steakLabel.text = " " + steakValue + "/3";
             this._sauceLabel.text = " " + sauceValue + "/4";
             this._friesLabel.text = " " + friesValue + "/6";
-            this._liveLabel.text = "Lives: " + this._liveValue;
+            this._liveLabel.text = " " + this._liveValue;
         };
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
@@ -61,7 +61,7 @@ var scenes;
                 this.addChild(this._peppers[pepper]);
             }
             //added LivesLabel to the scene
-            this._liveLabel = new objects.Label("Lives: " + this._liveValue, "25px Consolas", "#000000", 10, 10, false);
+            this._liveLabel = new objects.Label(" " + this._liveValue, "25px Consolas", "#000000", 50, 15, false);
             this.addChild(this._liveLabel);
             //added SteakLabel to the scene
             this._steakLabel = new objects.Label(":" + steakValue + "/3", "25px Consolas", "#000000", 540, 10, false);
@@ -73,6 +73,11 @@ var scenes;
             this._friesLabel = new objects.Label(":" + friesValue + "/6", "25px Consolas", "#000000", 540, 90, false);
             this.addChild(this._friesLabel);
             //add the images for scoring
+            //life icon
+            this._lifeIcon = new createjs.Bitmap(assets.getResult("life"));
+            this._lifeIcon.x = 10;
+            this._lifeIcon.y = 10;
+            this.addChild(this._lifeIcon);
             //steak icon
             this._steakIcon = new createjs.Bitmap(assets.getResult("steak"));
             this._steakIcon.x = 500;
