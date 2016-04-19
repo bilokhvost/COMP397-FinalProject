@@ -61,16 +61,21 @@ var scenes;
                 this.addChild(this._peppers[pepper]);
             }
             //added LivesLabel to the scene
-            this._liveLabel = new objects.Label(" " + this._liveValue, "25px Consolas", "#000000", 50, 15, false);
+            this._liveLabel = new objects.Label(" " + this._liveValue, "25px Lucinda Fax", "#007ec0", 60, 20, false);
             this.addChild(this._liveLabel);
+            //adding game panel
+            this._panel = new createjs.Bitmap(assets.getResult("panel"));
+            this._panel.x = 490;
+            this._panel.y = -10;
+            this.addChild(this._panel);
             //added SteakLabel to the scene
-            this._steakLabel = new objects.Label(":" + steakValue + "/3", "25px Consolas", "#000000", 540, 10, false);
+            this._steakLabel = new objects.Label(":" + steakValue + "/3", "25px Lucinda Fax", "#007ec0", 540, 10, false);
             this.addChild(this._steakLabel);
             //added SauceLabel to the scene
-            this._sauceLabel = new objects.Label(":" + sauceValue + "/4", "25px Consolas", "#000000", 540, 50, false);
+            this._sauceLabel = new objects.Label(":" + sauceValue + "/4", "25px Lucinda Fax", "#007ec0", 540, 50, false);
             this.addChild(this._sauceLabel);
             //added FriesLabel to the scene
-            this._friesLabel = new objects.Label(":" + friesValue + "/6", "25px Consolas", "#000000", 540, 90, false);
+            this._friesLabel = new objects.Label(":" + friesValue + "/6", "25px Lucinda Fax", "#007ec0", 540, 90, false);
             this.addChild(this._friesLabel);
             //add the images for scoring
             //life icon
@@ -145,9 +150,6 @@ var scenes;
             //Scene Change
             if (sauceValue >= 4 && steakValue >= 3 && friesValue >= 6) {
                 // Switch to the Transition Scene
-                sauceValue *= 100;
-                steakValue *= 200;
-                friesValue *= 50;
                 scoreLevelTwo = sauceValue + steakValue + friesValue;
                 highScoreValue = scoreLevelOne + scoreLevelTwo;
                 scene = config.Scene.LEVEL2CHANGE;

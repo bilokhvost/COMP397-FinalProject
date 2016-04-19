@@ -58,16 +58,21 @@ var scenes;
                 this.addChild(this._birds[bird]);
             }
             //added LivesLabel to the scene
-            this._timeLabel = new objects.Label(" " + livesValue, "25px Consolas", "#000000", 50, 15, false);
+            this._timeLabel = new objects.Label(" " + livesValue, "25px Lucinda Fax", "#007ec0", 50, 15, false);
             this.addChild(this._timeLabel);
+            //adding game panel
+            this._panel = new createjs.Bitmap(assets.getResult("panel"));
+            this._panel.x = 490;
+            this._panel.y = -10;
+            this.addChild(this._panel);
             //added creamLabel to the scene
-            this._creamLabel = new objects.Label(": " + creamValue + " /2", "25px Consolas", "#000000", 530, 5, false);
+            this._creamLabel = new objects.Label(": " + creamValue + " /2", "25px Lucinda Fax", "#007ec0", 530, 5, false);
             this.addChild(this._creamLabel);
             //added StrawberryLabel to the scene
-            this._strawberryLabel = new objects.Label(": " + strawberryValue + " /3", "25px Consolas", "#000000", 530, 60, false);
+            this._strawberryLabel = new objects.Label(": " + strawberryValue + " /3", "25px Lucinda Fax", "#007ec0", 530, 60, false);
             this.addChild(this._strawberryLabel);
             //added PieLabel to the scene
-            this._pieLabel = new objects.Label(": " + pieValue + " /5", "25px Consolas", "#000000", 540, 100, false);
+            this._pieLabel = new objects.Label(": " + pieValue + " /5", "25px Lucinda Fax", "#007ec0", 540, 100, false);
             this.addChild(this._pieLabel);
             //add the images for scoring
             // timer Icon
@@ -128,7 +133,7 @@ var scenes;
                 this._strawberryLabel.color = "GREEN";
             }
             else {
-                this._strawberryLabel.color = "BLACK";
+                this._strawberryLabel.color = "#007ec0";
             }
             if (creamValue >= 2) {
                 this._creamLabel.color = "GREEN";
@@ -142,8 +147,9 @@ var scenes;
                 creamValue *= 100;
                 strawberryValue *= 200;
                 pieValue *= 50;
-                scoreLevelOne = creamValue + strawberryValue + pieValue;
-                scene = config.Scene.LEVEL1CHANGE;
+                scoreLevelThree = creamValue + strawberryValue + pieValue;
+                highScoreValue = scoreLevelOne + scoreLevelTwo + scoreLevelThree;
+                scene = config.Scene.WIN;
                 changeScene();
             }
             //Calculate Time Remaining
@@ -151,7 +157,12 @@ var scenes;
             timeValue = Math.floor((this._timer) / 60);
             if (this._timer <= 0) {
                 // Switch to the End Scene
-                scene = config.Scene.LEVEL1END;
+                creamValue *= 100;
+                strawberryValue *= 200;
+                pieValue *= 50;
+                scoreLevelThree = creamValue + strawberryValue + pieValue;
+                highScoreValue = scoreLevelOne + scoreLevelTwo + scoreLevelThree;
+                scene = config.Scene.END;
                 changeScene();
             }
             this._updateScore();

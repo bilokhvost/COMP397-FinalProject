@@ -18,6 +18,7 @@ var creamValue;
 var pieValue;
 var scoreLevelOne = 0;
 var scoreLevelTwo = 0;
+var scoreLevelThree = 0;
 var highScoreValue = 0;
 var cheeseValue;
 var eggValue;
@@ -31,6 +32,8 @@ var level1change;
 var level2change;
 var level2;
 var level3;
+var win;
+var instruction;
 var atlas = {
     "images": [
         "../../Assets/images/player.png"
@@ -50,11 +53,17 @@ var atlas = {
 };
 var assetData = [
     // Add your Assets here
+    //button
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
     { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
     { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
     { id: "NextButton", src: "../../Assets/images/NextButton.png" },
     { id: "menuBackground", src: "../../Assets/images/menuBackground.png" },
+    { id: "level1Button", src: "../../Assets/images/level1Btn.png" },
+    { id: "level2Button", src: "../../Assets/images/level2Btn.png" },
+    { id: "level3Button", src: "../../Assets/images/level3Btn.png" },
+    { id: "restartButton", src: "../../Assets/images/restart.png" },
+    { id: "menuButton", src: "../../Assets/images/menu.png" },
     { id: "plane", src: "../../Assets/images/plane.png" },
     { id: "timer", src: "../../Assets/images/timer.png" },
     { id: "life", src: "../../Assets/images/life.png" },
@@ -71,7 +80,10 @@ var assetData = [
     { id: "pepper", src: "../../Assets/images/pepper.png" },
     { id: "mouse", src: "../../Assets/images/mouse.png" },
     { id: "pepper", src: "../../Assets/images/pepper.png" },
-    { id: "panel", src: "../../Assets/images/backScore.png" },
+    { id: "panel", src: "../../Assets/images/score.png" },
+    { id: "background", src: "../../Assets/images/background1.png" },
+    { id: "scorebackground", src: "../../Assets/images/scoreBk1.png" },
+    { id: "scorebackgroundWin", src: "../../Assets/images/scoreBk2.png" },
     //images level 3
     { id: "strawberry", src: "../../Assets/images/strawberry.png" },
     { id: "kitchenThree", src: "../../Assets/images/kitchenThree.png" },
@@ -151,6 +163,13 @@ function changeScene() {
             currentScene = end;
             console.log("Starting END Scene");
             break;
+        case config.Scene.INSTRUCTION:
+            // show the END scene
+            stage.removeAllChildren();
+            instruction = new scenes.Instruction();
+            currentScene = instruction;
+            console.log("Starting INSTRUCTION Scene");
+            break;
         case config.Scene.LEVEL1:
             // show the LEVEL1 scene
             stage.removeAllChildren();
@@ -192,6 +211,13 @@ function changeScene() {
             level3 = new scenes.levelThree();
             currentScene = level3;
             console.log("Starting LEVEL 3 Scene");
+            break;
+        case config.Scene.WIN:
+            // show the LEVEL3 scene
+            stage.removeAllChildren();
+            win = new scenes.Win();
+            currentScene = win;
+            console.log("Starting winning scene");
             break;
     }
     console.log(currentScene.numChildren);

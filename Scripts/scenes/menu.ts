@@ -70,14 +70,14 @@ module scenes {
          // INSTRUCTIONS Button click event handler
         private _instructionsButtonClick(event: createjs.MouseEvent) {
             // Switch to the INSTRUCTIONS Scene
-            scene = config.Scene.LEVEL2;
+            scene = config.Scene.INSTRUCTION;
             changeScene();
         }
           // EXIT Button click event handler
           private _exitButtonClick(event: createjs.MouseEvent) {
             // Switch to the LEFT_CAVE Scene
 
-            scene = config.Scene.LEVEL3;
+            scene = config.Scene.LEVEL3 ;
 
 
             changeScene();
