@@ -93,9 +93,9 @@ module scenes {
             //added LivesLabel to the scene
             this._timeLabel = new objects.Label(
                 " " + livesValue,
-                "25px Consolas",
-                "#000000",
-                50, 15, false
+                "25px Lucinda Fax",
+                "#007ec0",
+                60, 20, false
             );
             this.addChild(this._timeLabel);
 
@@ -108,18 +108,18 @@ module scenes {
             //added BreadLabel to the scene
             this._breadLabel = new objects.Label(
                 ": " + breadValue + " /2",
-                "25px Consolas",
-                "#000000",
-               530, 10, false
+                "25px Lucinda Fax",
+                "#007ec0",
+               540, 10, false
             );
             this.addChild(this._breadLabel);
 
             //added CheeseLabel to the scene
             this._cheeseLabel = new objects.Label(
                 ": " + cheeseValue + " /3",
-                "25px Consolas",
-                "#000000",
-                530, 50, false
+                "25px Lucinda Fax",
+                "#007ec0",
+                540, 50, false
             );
             this.addChild(this._cheeseLabel);
 
@@ -127,9 +127,9 @@ module scenes {
             
             this._eggLabel = new objects.Label(
                 ": " + eggValue + " /5",
-                "25px Consolas",
-                "#000000",
-                530, 90, false
+                "25px Lucinda Fax",
+                "#007ec0",
+                540, 90, false
             );
             this.addChild(this._eggLabel);
             
@@ -210,7 +210,7 @@ module scenes {
                 this._cheeseLabel.color = "GREEN";
             }
             else{
-                this._cheeseLabel.color = "BLACK";
+                this._cheeseLabel.color = "#007ec0";
             }
             if (breadValue >= 2) {
                 this._breadLabel.color = "GREEN";

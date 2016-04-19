@@ -1,7 +1,7 @@
 module scenes {
-    export class LevelTwoChange extends objects.Scene {
+    export class Win extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _kitchen: objects.KitchenTwo;
+        private _kitchen: objects.KitchenThree;
         private _endLabel: objects.Label;
         private _scoreLabel: objects.Label;
         private _nextLabel: objects.Label;
@@ -22,23 +22,23 @@ module scenes {
         public start(): void {
 
 
-            // added ocean to the scene
-            this._kitchen = new objects.KitchenTwo();
+            // added kitchen to the scene
+            this._kitchen = new objects.KitchenThree();
             this.addChild(this._kitchen);
             // score background 
             this._scoreBackground = new createjs.Bitmap(assets.getResult("scorebackgroundWin"));
             this._scoreBackground.x = 0;
-            this._scoreBackground.y = 120;
+            this._scoreBackground.y = 100;
             this.addChild(this._scoreBackground);
             //Add Menu Label
             this._endLabel = new objects.Label(
-                "Level 2 completed", "60px Lucinda Fax",
+                "Level 3 completed", "60px Lucinda Fax",
                 "#ffffff",
                 config.Screen.CENTER_X, config.Screen.CENTER_Y - 60, true);
             this.addChild(this._endLabel);
 
             this._highScoreLabel = new objects.Label(
-                "New score: " + steakValue + " + " + friesValue + " + " + sauceValue + " = " + scoreLevelTwo, "25px Lucinda Fax",
+                "New score: " + creamValue + " + " + strawberryValue + " + " + pieValue + " = "  + scoreLevelThree, "25px Lucinda Fax",
                 "#ffffff",
                 config.Screen.CENTER_X, config.Screen.CENTER_Y + 25, true);
             this.addChild(this._highScoreLabel);
@@ -52,7 +52,7 @@ module scenes {
 
             // add the Start button to the MENU scene
             this._startButton = new objects.Button(
-                "NextButton",
+                "restartButton",
                 config.Screen.CENTER_X - 50,
                 config.Screen.CENTER_Y + 80, false);
             this.addChild(this._startButton);
@@ -75,7 +75,7 @@ module scenes {
         // START_OVER Button click event handler
         private _startButtonClick(event: createjs.MouseEvent) {
             // Switch to the LEVEL ONE Scene
-            scene = config.Scene.LEVEL3;
+            scene = config.Scene.LEVEL1;
             changeScene();
         }
     }

@@ -58,7 +58,7 @@ var scenes;
                 this.addChild(this._mice[mouse]);
             }
             //added LivesLabel to the scene
-            this._timeLabel = new objects.Label(" " + livesValue, "25px Consolas", "#000000", 50, 15, false);
+            this._timeLabel = new objects.Label(" " + livesValue, "25px Lucinda Fax", "#007ec0", 60, 20, false);
             this.addChild(this._timeLabel);
             //adding game panel
             this._panel = new createjs.Bitmap(assets.getResult("panel"));
@@ -66,13 +66,13 @@ var scenes;
             this._panel.y = -10;
             this.addChild(this._panel);
             //added BreadLabel to the scene
-            this._breadLabel = new objects.Label(": " + breadValue + " /2", "25px Consolas", "#000000", 530, 10, false);
+            this._breadLabel = new objects.Label(": " + breadValue + " /2", "25px Lucinda Fax", "#007ec0", 540, 10, false);
             this.addChild(this._breadLabel);
             //added CheeseLabel to the scene
-            this._cheeseLabel = new objects.Label(": " + cheeseValue + " /3", "25px Consolas", "#000000", 530, 50, false);
+            this._cheeseLabel = new objects.Label(": " + cheeseValue + " /3", "25px Lucinda Fax", "#007ec0", 540, 50, false);
             this.addChild(this._cheeseLabel);
             //added EggLabel to the scene
-            this._eggLabel = new objects.Label(": " + eggValue + " /5", "25px Consolas", "#000000", 530, 90, false);
+            this._eggLabel = new objects.Label(": " + eggValue + " /5", "25px Lucinda Fax", "#007ec0", 540, 90, false);
             this.addChild(this._eggLabel);
             //add the images for scoring
             // timer Icon
@@ -133,7 +133,7 @@ var scenes;
                 this._cheeseLabel.color = "GREEN";
             }
             else {
-                this._cheeseLabel.color = "BLACK";
+                this._cheeseLabel.color = "#007ec0";
             }
             if (breadValue >= 2) {
                 this._breadLabel.color = "GREEN";

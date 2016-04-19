@@ -10,6 +10,8 @@
         public static LEVEL1END: number = 6;
         public static LEVEL1CHANGE: number = 7;
         public static LEVEL2CHANGE: number = 8;
+        public static WIN: number=9;
+        public static INSTRUCTION:number=10;
     }
     
     

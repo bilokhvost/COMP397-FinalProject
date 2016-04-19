@@ -48,7 +48,7 @@ var scenes;
         // INSTRUCTIONS Button click event handler
         Menu.prototype._instructionsButtonClick = function (event) {
             // Switch to the INSTRUCTIONS Scene
-            scene = config.Scene.LEVEL2;
+            scene = config.Scene.INSTRUCTION;
             changeScene();
         };
         // EXIT Button click event handler
