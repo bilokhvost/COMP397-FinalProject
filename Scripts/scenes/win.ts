@@ -24,7 +24,8 @@ module scenes {
         private _nextLabel: objects.Label;
         private _highScoreLabel: objects.Label;
         private _totalScoreLabel: objects.Label;
-        private _startButton: objects.Button;
+        private _menuButton: objects.Button;
+        private _restartButton: objects.Button;
         private _scoreBackground: createjs.Bitmap;
 
         // CONSTRUCTOR ++++++++++++++++++++++
