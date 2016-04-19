@@ -237,8 +237,11 @@ module scenes {
             timeValue = Math.floor((this._timer)/60);
             if(this._timer<=0){
                 // Switch to the End Scene
-                
-                scene = config.Scene.LEVEL1END;
+                 breadValue*=100;
+               cheeseValue*=200;
+               eggValue*=50;
+               scoreLevelOne = breadValue+cheeseValue+eggValue;
+                scene = config.Scene.END;
                 changeScene();
             }
             this._updateScore();
