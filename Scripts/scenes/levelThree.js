@@ -4,6 +4,23 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 // PLAY SCENE
+//*********************************************************************
+//Source file: levelThree.ts                                          *
+//Authors names:Nashia Amourdon                                       *
+//              Kateryna Bilokhvost                                   *
+//              Milan Verma                                           *
+//Initial commit: April 3, 2016                                       *
+//Last modified by: Kateryna Bilokhvost                               *
+//Last date modified: April 18, 2016                                  *
+//Commit history: GitHub Link: https://github.com/bilokhvost/COMP397- *
+//FinalProject/commits/master                                         *
+//                                                                    *
+//Program description: This is a simple side scrolling 2D arcade game *
+// (left to right). The main hero is a chef that collects different   *
+//types of food to prepare a dinner. The main purpose is to collect   *
+//all the required goods and to avoid enemies that steal player’s     *
+// collected items or health                                          *
+//*********************************************************************
 var scenes;
 (function (scenes) {
     var levelThree = (function (_super) {
@@ -72,7 +89,7 @@ var scenes;
             this._strawberryLabel = new objects.Label(": " + strawberryValue + " /3", "25px Lucinda Fax", "#007ec0", 530, 60, false);
             this.addChild(this._strawberryLabel);
             //added PieLabel to the scene
-            this._pieLabel = new objects.Label(": " + pieValue + " /5", "25px Lucinda Fax", "#007ec0", 540, 100, false);
+            this._pieLabel = new objects.Label("   :   " + pieValue + " /5", "25px Lucinda Fax", "#007ec0", 540, 100, false);
             this.addChild(this._pieLabel);
             //add the images for scoring
             // timer Icon

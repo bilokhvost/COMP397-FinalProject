@@ -1,4 +1,21 @@
 // PLAY SCENE
+//*********************************************************************
+//Source file: levelThree.ts                                          *
+//Authors names:Nashia Amourdon                                       *
+//              Kateryna Bilokhvost                                   *
+//              Milan Verma                                           *
+//Initial commit: April 3, 2016                                       *
+//Last modified by: Kateryna Bilokhvost                               *
+//Last date modified: April 18, 2016                                  *
+//Commit history: GitHub Link: https://github.com/bilokhvost/COMP397- *
+//FinalProject/commits/master                                         *
+//                                                                    *
+//Program description: This is a simple side scrolling 2D arcade game *
+// (left to right). The main hero is a chef that collects different   *
+//types of food to prepare a dinner. The main purpose is to collect   *
+//all the required goods and to avoid enemies that steal player’s     *
+// collected items or health                                          *
+//*********************************************************************
 module scenes {
     export class levelThree extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
@@ -124,7 +141,7 @@ module scenes {
             //added PieLabel to the scene
 
             this._pieLabel = new objects.Label(
-                ": " + pieValue + " /5",
+                "   :   " + pieValue + " /5",
                 "25px Lucinda Fax",
                 "#007ec0",
                 540, 100, false

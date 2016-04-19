@@ -1,4 +1,21 @@
 // PLAY SCENE
+//*********************************************************************
+//Source file: levelOne.ts                                            *
+//Authors names:Nashia Amourdon                                       *
+//              Kateryna Bilokhvost                                   *
+//              Milan Verma                                           *
+//Initial commit: April 3, 2016                                       *
+//Last modified by: Kateryna Bilokhvost                               *
+//Last date modified: April 18, 2016                                  *
+//Commit history: GitHub Link: https://github.com/bilokhvost/COMP397- *
+//FinalProject/commits/master                                         *
+//                                                                    *
+//Program description: This is a simple side scrolling 2D arcade game *
+// (left to right). The main hero is a chef that collects different   *
+//types of food to prepare a dinner. The main purpose is to collect   *
+//all the required goods and to avoid enemies that steal player’s     *
+// collected items or health                                          *
+//*********************************************************************
 module scenes {
     export class levelOne extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
@@ -237,10 +254,11 @@ module scenes {
             timeValue = Math.floor((this._timer)/60);
             if(this._timer<=0){
                 // Switch to the End Scene
-                 breadValue*=100;
+              breadValue*=100;
                cheeseValue*=200;
                eggValue*=50;
                scoreLevelOne = breadValue+cheeseValue+eggValue;
+               highScoreValue = scoreLevelOne;
                 scene = config.Scene.END;
                 changeScene();
             }
