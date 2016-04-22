@@ -74,22 +74,27 @@ var scenes;
                 this._mice[mouse] = new objects.Mouse();
                 this.addChild(this._mice[mouse]);
             }
+            //
+            this._timeContainer = new createjs.Shape;
+            this._timeContainer.graphics.beginFill("#ffffff").drawRect(5, 10, 100, 50);
+            this._timeContainer.alpha = 0.9;
+            this.addChild(this._timeContainer);
             //added LivesLabel to the scene
             this._timeLabel = new objects.Label(" " + livesValue, "25px Lucinda Fax", "#007ec0", 60, 20, false);
             this.addChild(this._timeLabel);
             //adding game panel
-            this._panel = new createjs.Bitmap(assets.getResult("panel"));
+            this._panel = new createjs.Bitmap(assets.getResult("backscore1"));
             this._panel.x = 490;
             this._panel.y = -10;
             this.addChild(this._panel);
             //added BreadLabel to the scene
-            this._breadLabel = new objects.Label(": " + breadValue + " /2", "25px Lucinda Fax", "#007ec0", 540, 10, false);
+            this._breadLabel = new objects.Label(": " + breadValue + " /2", "20px Lucinda Fax", "#ffffff", 540, 5, false);
             this.addChild(this._breadLabel);
             //added CheeseLabel to the scene
-            this._cheeseLabel = new objects.Label(": " + cheeseValue + " /3", "25px Lucinda Fax", "#007ec0", 540, 50, false);
+            this._cheeseLabel = new objects.Label(": " + cheeseValue + " /3", "20px Lucinda Fax", "#ffffff", 540, 40, false);
             this.addChild(this._cheeseLabel);
             //added EggLabel to the scene
-            this._eggLabel = new objects.Label(": " + eggValue + " /5", "25px Lucinda Fax", "#007ec0", 540, 90, false);
+            this._eggLabel = new objects.Label(": " + eggValue + " /5", "20px Lucinda Fax", "#ffffff", 540, 70, false);
             this.addChild(this._eggLabel);
             //add the images for scoring
             // timer Icon
@@ -97,21 +102,25 @@ var scenes;
             this._timerIcon.x = 10;
             this._timerIcon.y = 10;
             this.addChild(this._timerIcon);
+            /*
             //bread icon
-            this._breadIcon = new createjs.Bitmap(assets.getResult("bread"));
-            this._breadIcon.x = 500;
-            this._breadIcon.y = 10;
+            this._breadIcon= new createjs.Bitmap(assets.getResult("scBread"));
+            this._breadIcon.x=500;
+            this._breadIcon.y=10;
             this.addChild(this._breadIcon);
+            
             //cheese icon
-            this._cheeseIcon = new createjs.Bitmap(assets.getResult("cheese"));
-            this._cheeseIcon.x = 500;
-            this._cheeseIcon.y = 50;
+            this._cheeseIcon= new createjs.Bitmap(assets.getResult("cheese"));
+            this._cheeseIcon.x=500;
+            this._cheeseIcon.y=50;
             this.addChild(this._cheeseIcon);
+            
             //egg icon
-            this._eggicon = new createjs.Bitmap(assets.getResult("egg"));
-            this._eggicon.x = 500;
-            this._eggicon.y = 90;
+            this._eggicon= new createjs.Bitmap(assets.getResult("egg"));
+            this._eggicon.x=500;
+            this._eggicon.y=90;
             this.addChild(this._eggicon);
+            */
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
             // add this scene to the global stage container
@@ -147,16 +156,16 @@ var scenes;
             }
             //Status Change
             if (cheeseValue >= 3) {
-                this._cheeseLabel.color = "GREEN";
+                this._cheeseLabel.color = "#053702";
             }
             else {
-                this._cheeseLabel.color = "#007ec0";
+                this._cheeseLabel.color = "#ffffff";
             }
             if (breadValue >= 2) {
-                this._breadLabel.color = "GREEN";
+                this._breadLabel.color = "#053702";
             }
             if (eggValue >= 5) {
-                this._eggLabel.color = "GREEN";
+                this._eggLabel.color = "#053702";
             }
             //Scene Change
             if (cheeseValue >= 3 && breadValue >= 2 && eggValue >= 5) {

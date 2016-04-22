@@ -74,22 +74,26 @@ var scenes;
                 this._birds[bird] = new objects.Bird();
                 this.addChild(this._birds[bird]);
             }
+            this._timeContainer = new createjs.Shape;
+            this._timeContainer.graphics.beginFill("#ffffff").drawRect(5, 10, 100, 50);
+            this._timeContainer.alpha = 0.9;
+            this.addChild(this._timeContainer);
             //added LivesLabel to the scene
-            this._timeLabel = new objects.Label(" " + livesValue, "25px Lucinda Fax", "#007ec0", 50, 15, false);
+            this._timeLabel = new objects.Label(" " + livesValue, "25px Lucinda Fax", "#007ec0", 60, 20, false);
             this.addChild(this._timeLabel);
             //adding game panel
-            this._panel = new createjs.Bitmap(assets.getResult("panel"));
+            this._panel = new createjs.Bitmap(assets.getResult("backscore3"));
             this._panel.x = 490;
             this._panel.y = -10;
             this.addChild(this._panel);
             //added creamLabel to the scene
-            this._creamLabel = new objects.Label(": " + creamValue + " /2", "25px Lucinda Fax", "#007ec0", 530, 5, false);
+            this._creamLabel = new objects.Label(": " + creamValue + " /2", "20px Lucinda Fax", "#ffffff", 550, 5, false);
             this.addChild(this._creamLabel);
             //added StrawberryLabel to the scene
-            this._strawberryLabel = new objects.Label(": " + strawberryValue + " /3", "25px Lucinda Fax", "#007ec0", 530, 60, false);
+            this._strawberryLabel = new objects.Label(": " + strawberryValue + " /3", "20px Lucinda Fax", "#ffffff", 550, 40, false);
             this.addChild(this._strawberryLabel);
             //added PieLabel to the scene
-            this._pieLabel = new objects.Label("   :   " + pieValue + " /5", "25px Lucinda Fax", "#007ec0", 540, 100, false);
+            this._pieLabel = new objects.Label("   :   " + pieValue + " /5", "20px Lucinda Fax", "#ffffff", 550, 70, false);
             this.addChild(this._pieLabel);
             //add the images for scoring
             // timer Icon
@@ -97,21 +101,26 @@ var scenes;
             this._timerIcon.x = 10;
             this._timerIcon.y = 10;
             this.addChild(this._timerIcon);
+            /*
+
             //cream icon
             this._creamIcon = new createjs.Bitmap(assets.getResult("cream"));
             this._creamIcon.x = 500;
             this._creamIcon.y = 5;
             this.addChild(this._creamIcon);
+
             //strawberry icon
             this._strawberryIcon = new createjs.Bitmap(assets.getResult("strawberry"));
             this._strawberryIcon.x = 500;
             this._strawberryIcon.y = 60;
             this.addChild(this._strawberryIcon);
+
             //Pie icon
             this._pieIcon = new createjs.Bitmap(assets.getResult("pie"));
             this._pieIcon.x = 500;
             this._pieIcon.y = 100;
             this.addChild(this._pieIcon);
+*/
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
             // add this scene to the global stage container
@@ -147,16 +156,16 @@ var scenes;
             }
             //Status Change
             if (strawberryValue >= 3) {
-                this._strawberryLabel.color = "GREEN";
+                this._strawberryLabel.color = "#053702";
             }
             else {
-                this._strawberryLabel.color = "#007ec0";
+                this._strawberryLabel.color = "#ffffff";
             }
             if (creamValue >= 2) {
-                this._creamLabel.color = "GREEN";
+                this._creamLabel.color = "#053702";
             }
             if (pieValue >= 5) {
-                this._pieLabel.color = "GREEN";
+                this._pieLabel.color = "#053702";
             }
             //Scene Change
             if (strawberryValue >= 3 && creamValue >= 2 && pieValue >= 5) {

@@ -77,22 +77,26 @@ var scenes;
                 this._peppers[pepper] = new objects.Pepper();
                 this.addChild(this._peppers[pepper]);
             }
+            this._timeContainer = new createjs.Shape;
+            this._timeContainer.graphics.beginFill("#ffffff").drawRect(5, 10, 100, 50);
+            this._timeContainer.alpha = 0.9;
+            this.addChild(this._timeContainer);
             //added LivesLabel to the scene
             this._liveLabel = new objects.Label(" " + this._liveValue, "25px Lucinda Fax", "#007ec0", 60, 20, false);
             this.addChild(this._liveLabel);
             //adding game panel
-            this._panel = new createjs.Bitmap(assets.getResult("panel"));
+            this._panel = new createjs.Bitmap(assets.getResult("backscore2"));
             this._panel.x = 490;
             this._panel.y = -10;
             this.addChild(this._panel);
             //added SteakLabel to the scene
-            this._steakLabel = new objects.Label(":" + steakValue + "/3", "25px Lucinda Fax", "#007ec0", 540, 10, false);
+            this._steakLabel = new objects.Label(":" + steakValue + "/3", "20px Lucinda Fax", "#ffffff", 560, 5, false);
             this.addChild(this._steakLabel);
             //added SauceLabel to the scene
-            this._sauceLabel = new objects.Label(":" + sauceValue + "/4", "25px Lucinda Fax", "#007ec0", 540, 50, false);
+            this._sauceLabel = new objects.Label(":" + sauceValue + "/4", "20px Lucinda Fax", "#ffffff", 560, 40, false);
             this.addChild(this._sauceLabel);
             //added FriesLabel to the scene
-            this._friesLabel = new objects.Label(":" + friesValue + "/6", "25px Lucinda Fax", "#007ec0", 540, 90, false);
+            this._friesLabel = new objects.Label(":" + friesValue + "/6", "20px Lucinda Fax", "#ffffff", 560, 70, false);
             this.addChild(this._friesLabel);
             //add the images for scoring
             //life icon
@@ -101,20 +105,21 @@ var scenes;
             this._lifeIcon.y = 10;
             this.addChild(this._lifeIcon);
             //steak icon
-            this._steakIcon = new createjs.Bitmap(assets.getResult("steak"));
-            this._steakIcon.x = 500;
-            this._steakIcon.y = 20;
+            /*
+            this._steakIcon= new createjs.Bitmap(assets.getResult("steak"));
+            this._steakIcon.x=500;
+            this._steakIcon.y=20;
             this.addChild(this._steakIcon);
             //sauce icon
-            this._sauceIcon = new createjs.Bitmap(assets.getResult("sauce"));
-            this._sauceIcon.x = 510;
-            this._sauceIcon.y = 50;
+            this._sauceIcon= new createjs.Bitmap(assets.getResult("sauce"));
+            this._sauceIcon.x=510;
+            this._sauceIcon.y=50;
             this.addChild(this._sauceIcon);
             //fries icon
-            this._friesIcon = new createjs.Bitmap(assets.getResult("fries"));
-            this._friesIcon.x = 500;
-            this._friesIcon.y = 100;
-            this.addChild(this._friesIcon);
+            this._friesIcon= new createjs.Bitmap(assets.getResult("fries"));
+            this._friesIcon.x=500;
+            this._friesIcon.y=100;
+            this.addChild(this._friesIcon);*/
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
             // add this scene to the global stage container
@@ -156,13 +161,13 @@ var scenes;
             }
             //Status Change
             if (sauceValue >= 4) {
-                this._sauceLabel.color = "GREEN";
+                this._sauceLabel.color = "#053702";
             }
             if (steakValue >= 3) {
-                this._steakLabel.color = "GREEN";
+                this._steakLabel.color = "#053702";
             }
             if (friesValue >= 6) {
-                this._friesLabel.color = "GREEN";
+                this._friesLabel.color = "#053702";
             }
             //Scene Change
             if (sauceValue >= 4 && steakValue >= 3 && friesValue >= 6) {

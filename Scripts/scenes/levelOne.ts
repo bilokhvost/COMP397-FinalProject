@@ -38,6 +38,7 @@ module scenes {
         private _breadIcon:createjs.Bitmap;
         private _timerIcon:createjs.Bitmap;
         private _timer: number;
+        private _timeContainer:createjs.Shape;
 
 
         // CONSTRUCTOR ++++++++++++++++++++++
@@ -106,6 +107,12 @@ module scenes {
                 this._mice[mouse] = new objects.Mouse();
                 this.addChild(this._mice[mouse]);
             }
+//
+this._timeContainer= new createjs.Shape;
+ this._timeContainer.graphics.beginFill("#ffffff").drawRect(5, 10, 100, 50);
+            this._timeContainer.alpha = 0.9;
+            
+            this.addChild(this._timeContainer );
 
             //added LivesLabel to the scene
             this._timeLabel = new objects.Label(
@@ -117,26 +124,27 @@ module scenes {
             this.addChild(this._timeLabel);
 
             //adding game panel
-            this._panel= new createjs.Bitmap(assets.getResult("panel"));
+           
+            this._panel= new createjs.Bitmap(assets.getResult("backscore1"));
             this._panel.x=490;
             this._panel.y=-10;
             this.addChild(this._panel);
-            
+          
             //added BreadLabel to the scene
             this._breadLabel = new objects.Label(
                 ": " + breadValue + " /2",
-                "25px Lucinda Fax",
-                "#007ec0",
-               540, 10, false
+                "20px Lucinda Fax",
+                "#ffffff",
+               540, 5, false
             );
             this.addChild(this._breadLabel);
 
             //added CheeseLabel to the scene
             this._cheeseLabel = new objects.Label(
                 ": " + cheeseValue + " /3",
-                "25px Lucinda Fax",
-                "#007ec0",
-                540, 50, false
+                "20px Lucinda Fax",
+                "#ffffff",
+                540, 40, false
             );
             this.addChild(this._cheeseLabel);
 
@@ -144,9 +152,9 @@ module scenes {
             
             this._eggLabel = new objects.Label(
                 ": " + eggValue + " /5",
-                "25px Lucinda Fax",
-                "#007ec0",
-                540, 90, false
+                "20px Lucinda Fax",
+                "#ffffff",
+                540, 70, false
             );
             this.addChild(this._eggLabel);
             
@@ -156,9 +164,9 @@ module scenes {
             this._timerIcon.x=10;
             this._timerIcon.y=10;
             this.addChild(this._timerIcon);
-            
+            /*
             //bread icon
-            this._breadIcon= new createjs.Bitmap(assets.getResult("bread"));
+            this._breadIcon= new createjs.Bitmap(assets.getResult("scBread"));
             this._breadIcon.x=500;
             this._breadIcon.y=10;
             this.addChild(this._breadIcon);
@@ -174,7 +182,7 @@ module scenes {
             this._eggicon.x=500;
             this._eggicon.y=90;
             this.addChild(this._eggicon);
-            
+            */
 
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
@@ -224,17 +232,17 @@ module scenes {
 
             //Status Change
             if (cheeseValue >= 3) {
-                this._cheeseLabel.color = "GREEN";
+                this._cheeseLabel.color = "#053702";
             }
             else{
-                this._cheeseLabel.color = "#007ec0";
+                this._cheeseLabel.color = "#ffffff";
             }
             if (breadValue >= 2) {
-                this._breadLabel.color = "GREEN";
+                this._breadLabel.color = "#053702";
             }
 
             if (eggValue >= 5) {
-                this._eggLabel.color = "GREEN";
+                this._eggLabel.color = "#053702";
             }
 
             //Scene Change

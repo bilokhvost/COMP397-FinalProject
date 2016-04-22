@@ -81,6 +81,13 @@ var assetData = [
     { id: "level3Button", src: "../../Assets/images/level3Btn.png" },
     { id: "restartButton", src: "../../Assets/images/restart.png" },
     { id: "menuButton", src: "../../Assets/images/menu.png" },
+    //score Level 1
+    { id: "backscore1", src: "../../Assets/images/backSc1.png" },
+    { id: "scBread", src: "../../Assets/images/bread1.png" },
+    //score level 2
+    { id: "backscore2", src: "../../Assets/images/scLevel2.png" },
+    //score level 3
+    { id: "backscore3", src: "../../Assets/images/scLevel3.png" },
     { id: "plane", src: "../../Assets/images/plane.png" },
     { id: "timer", src: "../../Assets/images/timer.png" },
     { id: "life", src: "../../Assets/images/life.png" },

@@ -36,14 +36,16 @@ module scenes {
         private _sauceLabel: objects.Label;
         private _friesLabel: objects.Label;
         //image icon
-        private _steakIcon:createjs.Bitmap;
-        private _sauceIcon:createjs.Bitmap;
-        private _friesIcon:createjs.Bitmap;
-        private _lifeIcon:createjs.Bitmap;
-        private _panel:createjs.Bitmap;
+        private _steakIcon: createjs.Bitmap;
+        private _sauceIcon: createjs.Bitmap;
+        private _friesIcon: createjs.Bitmap;
+        private _lifeIcon: createjs.Bitmap;
+        private _panel: createjs.Bitmap;
         private _timer: number;
         private _liveValue: number = 10;
         private _rightBounds: number;
+        private _timeContainer: createjs.Shape;
+
 
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -60,7 +62,7 @@ module scenes {
         private _updateScore(): void {
 
 
-            this._steakLabel.text = " " + steakValue + "/3" ;
+            this._steakLabel.text = " " + steakValue + "/3";
             this._sauceLabel.text = " " + sauceValue + "/4";
             this._friesLabel.text = " " + friesValue + "/6";
             this._liveLabel.text = " " + this._liveValue;
@@ -108,13 +110,18 @@ module scenes {
             // added sauce to the scene
             this._sauce = new objects.Sauce();
             this.addChild(this._sauce);
-            
+
 
             //added pepper to the scene
             for (var pepper: number = 0; pepper < this._pepperCount; pepper++) {
                 this._peppers[pepper] = new objects.Pepper();
                 this.addChild(this._peppers[pepper]);
             }
+            this._timeContainer = new createjs.Shape;
+            this._timeContainer.graphics.beginFill("#ffffff").drawRect(5, 10, 100, 50);
+            this._timeContainer.alpha = 0.9;
+
+            this.addChild(this._timeContainer);
 
             //added LivesLabel to the scene
             this._liveLabel = new objects.Label(
@@ -124,18 +131,18 @@ module scenes {
                 60, 20, false
             );
             this.addChild(this._liveLabel);
- //adding game panel
-            this._panel= new createjs.Bitmap(assets.getResult("panel"));
-            this._panel.x=490;
-            this._panel.y=-10;
+            //adding game panel
+            this._panel = new createjs.Bitmap(assets.getResult("backscore2"));
+            this._panel.x = 490;
+            this._panel.y = -10;
             this.addChild(this._panel);
             //added SteakLabel to the scene
             this._steakLabel = new objects.Label(
 
-                ":" + steakValue+"/3",
-                "25px Lucinda Fax",
-                "#007ec0",
-                540, 10, false
+                ":" + steakValue + "/3",
+                "20px Lucinda Fax",
+                "#ffffff",
+                560, 5, false
 
             );
             this.addChild(this._steakLabel);
@@ -144,9 +151,9 @@ module scenes {
             this._sauceLabel = new objects.Label(
 
                 ":" + sauceValue + "/4",
-                "25px Lucinda Fax",
-                "#007ec0",
-                540, 50, false
+                "20px Lucinda Fax",
+                "#ffffff",
+                560, 40, false
 
             );
             this.addChild(this._sauceLabel);
@@ -155,20 +162,21 @@ module scenes {
             this._friesLabel = new objects.Label(
 
                 ":" + friesValue + "/6",
-                "25px Lucinda Fax",
-                "#007ec0",
-                540, 90, false
+                "20px Lucinda Fax",
+                "#ffffff",
+                560, 70, false
 
             );
             this.addChild(this._friesLabel);
-            
+
             //add the images for scoring
             //life icon
-            this._lifeIcon= new createjs.Bitmap(assets.getResult("life"));
-            this._lifeIcon.x=10;
-            this._lifeIcon.y=10;
+            this._lifeIcon = new createjs.Bitmap(assets.getResult("life"));
+            this._lifeIcon.x = 10;
+            this._lifeIcon.y = 10;
             this.addChild(this._lifeIcon);
             //steak icon
+            /*
             this._steakIcon= new createjs.Bitmap(assets.getResult("steak"));
             this._steakIcon.x=500;
             this._steakIcon.y=20;
@@ -182,7 +190,7 @@ module scenes {
             this._friesIcon= new createjs.Bitmap(assets.getResult("fries"));
             this._friesIcon.x=500;
             this._friesIcon.y=100;
-            this.addChild(this._friesIcon);
+            this.addChild(this._friesIcon);*/
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
 
@@ -233,15 +241,15 @@ module scenes {
             }
             //Status Change
             if (sauceValue >= 4) {
-                this._sauceLabel.color = "GREEN";
+                this._sauceLabel.color = "#053702";
             }
 
             if (steakValue >= 3) {
-                this._steakLabel.color = "GREEN";
+                this._steakLabel.color = "#053702";
             }
 
             if (friesValue >= 6) {
-                this._friesLabel.color = "GREEN";
+                this._friesLabel.color = "#053702";
             }
 
             //Scene Change
